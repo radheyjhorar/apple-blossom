@@ -11,7 +11,13 @@ module.exports = (sequelize, Sequelize) => {
       description: {
         type: Sequelize.STRING
       },
-      price: {
+      rate: {
+        type: Sequelize.DECIMAL
+      },
+      quantity: {
+        type: Sequelize.INTEGER
+      },
+      amount: {
         type: Sequelize.DECIMAL
       },
       stock_date: {

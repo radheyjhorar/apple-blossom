@@ -23,6 +23,9 @@ module.exports = (sequelize, Sequelize) => {
       mobile2: {
         type: Sequelize.STRING
       },
+      ledger_no: {
+        type: Sequelize.STRING
+      },
      
     });
   
