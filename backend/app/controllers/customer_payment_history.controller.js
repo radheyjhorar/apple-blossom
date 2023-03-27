@@ -21,117 +21,50 @@ exports.create = (req, res) => {
     resipte_no: req.body.resipte_no,
   };
 
-  // Save vendorData in the database
-  vendor.create(vendorData)
+  // Save customer_payment_historyData in the database
+  customer_payment_history.create(customer_payment_historyData)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the New vendor."
+          err.message || "Some error occurred while creating the customer_payment_history."
       });
     });
 };
 
 // Retrieve all vendor from the database.
 exports.findAll = (req, res) => {
-  vendor.findAll()
+    customer_payment_history.findAll()
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving vendor."
+          err.message || "Some error occurred while retrieving history."
       });
     });
 };
 
-// Find a single City with an id
+// Find a single history with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  vendor.findByPk(id)
+  customer_payment_history.findByPk(id)
     .then(data => {
       if (data) {
         res.send(data);
       } else {
         res.status(404).send({
-          message: `Cannot find Vendor with id=${id}.`
+          message: `Cannot find customer_payment_history with id=${id}.`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error retrieving Vendor with id=" + id
-      });
-    });
-};
-
-// Update a vendor by the id in the request
-exports.update = (req, res) => {
-  const id = req.params.id;
-
-  vendor.update(req.body.vendor, {
-    where: { id: id }
-  })
-    .then(num => {
-      if (num == 1) {
-        res.send({
-          message: "vendor was updated successfully."
-        });
-      } else {
-        res.send({
-          message: `Cannot update vendor with id=${id}. Maybe vendor was not found or req.body is empty!`
-        });
-      }
-    })
-    .catch(err => {
-      res.status(500).send({
-        message: "Error updating vendor with id=" + id
-      });
-    });
-};
-
-// Delete a Vendor with the specified id in the request
-exports.delete = (req, res) => {
-  const id = req.params.id;
-
-  vendor.destroy({
-    where: { id: id }
-  })
-    .then(num => {
-      if (num == 1) {
-        res.send({
-          message: "Vendor was deleted successfully!"
-        });
-      } else {
-        res.send({
-          message: `Cannot delete Vendor with id=${id}. Maybe Vendor was not found!`
-        });
-      }
-    })
-    .catch(err => {
-      res.status(500).send({
-        message: "Could not delete Vendor with id=" + id
-      });
-    });
-};
-
-// Delete all Vendors from the database.
-exports.deleteAll = (req, res) => {
-  vendor.destroy({
-    where: {},
-    truncate: false
-  })
-    .then(nums => {
-      res.send({ message: `${nums} Vendors were deleted successfully!` });
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while removing all Vendors."
+        message: "Error retrieving customer_payment_history with id=" + id
       });
     });
 };
