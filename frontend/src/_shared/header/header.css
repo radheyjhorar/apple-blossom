@@ -10,7 +10,7 @@
     padding-top: 3rem;
 
 }
-input {
+.lgn-ipt {
     background: rgba(255,255,255,0.4);
     border: none;
     display: block;
@@ -25,10 +25,10 @@ input {
     text-align: center;
     font-size: small !important;
   }
-  ::-webkit-input-placeholder { color: #ffffff;} 
-  :-moz-placeholder { color: #ffffff; }
-  ::-moz-placeholder { color: #ffffff; }
-  :-ms-input-placeholder { color: #ffffff; }
+  .lgn-ipt::-webkit-input-placeholder { color: #ffffff;} 
+  .lgn-ipt:-moz-placeholder { color: #ffffff; }
+  .lgn-ipt::-moz-placeholder { color: #ffffff; }
+  .lgn-ipt:-ms-input-placeholder { color: #ffffff; }
 
   .lgn-btn {
     background-color: #fff;
