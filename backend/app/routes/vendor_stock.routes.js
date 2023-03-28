@@ -16,9 +16,7 @@ module.exports = app => {
   
     // Delete a vendor_stock with id
     router.delete("/:id", vendor_stock.delete);
-  
-    // Delete all vendor_stocks
-    router.deleteAll("/", vendor_stock.deleteAll);
+
   
     app.use('/api/v1/board', router);
   };
