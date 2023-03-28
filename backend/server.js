@@ -102,42 +102,15 @@ app.get("/", (req, res) => {
  //res.json({ message: "Welcome to WayToEducation." });
 });
 
-require("./app/routes/city.routes")(app);
-require("./app/routes/salutation.routes")(app);
-require("./app/routes/country.routes")(app);
-require("./app/routes/state.routes")(app);
-require('./app/routes/auth.routes')(app);
-require("./app/routes/user.routes")(app);
-require("./app/routes/board.routes")(app);
-require("./app/routes/medium.routes")(app);
-require("./app/routes/role.routes")(app);
-require("./app/routes/permission.routes")(app);
-require("./app/routes/payment-method.routes")(app);
-require("./app/routes/boarding-type.routes")(app);
-require("./app/routes/institution-admission.routes")(app);
-require("./app/routes/institution-type.routes")(app);
-require("./app/routes/instit-subtype.routes")(app);
-require("./app/routes/institution-board.routes")(app);
-require("./app/routes/institution-medium.routes")(app);
-require("./app/routes/institution-contact.routes")(app);
-require("./app/routes/institution-profile.routes")(app);
-require("./app/routes/institution-facility.routes")(app);
-require("./app/routes/institution-own.routes")(app);
-require("./app/routes/institution-media.routes")(app);
-require("./app/routes/institution-rating.routes")(app);
-require("./app/routes/institution-admission.routes")(app);
-require("./app/routes/instit-facilites.routes")(app);
-require("./app/routes/logs.routes")(app);
-require("./app/routes/job.routes")(app);
-require("./app/routes/fileupload.routes")(app);
-require("./app/routes/language.routes")(app);
-require("./app/routes/inst_language.routes")(app);
-//frontend routes
-require("./app/routes/frontend/institution.routes")(app);
-require("./app/routes/frontend/city.routes")(app);
-require("./app/routes/frontend/jobs.routes")(app);
-require("./app/routes/frontend/auth.routes")(app);
-require("./app/routes/frontend/payment.routes")(app);
+
+require("./app/routes/customer_order_item.routes")(app);
+require("./app/routes/customer_order.routes")(app);
+require("./app/routes/customer_payment_history.routes")(app);
+require("./app/routes/customer.routes")(app);
+require("./app/routes/vendor_payment_history.routes")(app);
+require("./app/routes/vendor_stock.routes")(app);
+require("./app/routes/vendor.routes")(app);
+
 
 global.__basedir = __dirname;
 // set port, listen for requests
