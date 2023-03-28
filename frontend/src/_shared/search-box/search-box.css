@@ -1,0 +1,129 @@
+.bg-img {
+  background-image: url(../../assets/images/real-image.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 0 0 40px 40px;
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+
+
+}
+
+.img-banner {
+  margin: 0 2.8% !important;
+  height: 30rem;
+
+}
+
+.centered {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.bg-black {
+  background-color: black;
+  opacity: 70%;
+}
+
+.overlap {
+  position: absolute;
+  top: 80%;
+  left: -5px;
+  z-index: 1;
+  bottom: 0;
+  right: -5px;
+  height: 60%;
+}
+
+.search-box .dropdown {
+  width: 33%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-right: 1px solid #999a9b;
+  position: relative;
+  display: block;
+}
+
+.dropdown-content {
+  z-index: 1;
+  position: absolute;
+  background-color: white;
+  max-width: 150px;
+  display: none;
+
+}
+
+.scrollbar {
+
+  float: left;
+  height: 500%;
+  width: 120%;
+  background: #fff;
+  overflow-y: scroll;
+  margin-bottom: 25px;
+}
+
+.force-overflow {
+  min-height: 450px;
+}
+
+.scrollbar-primary::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5;
+}
+
+.scrollbar-primary::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #909090;
+}
+
+.scrollbar-primary {
+  scrollbar-color: #4285F4 #F5F5F5;
+}
+
+.dropdown ul li {
+  text-align: left;
+  padding-left: 1rem;
+  outline: none;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 10px 0px;
+}
+
+.dropdown:hover {
+  border-radius: #fff 0 0 0 10px;
+}
+
+.srch-input {
+  outline: none;
+  font-size: smaller !important;
+
+}
+
+.dppr {
+  text-align: right;
+  margin: 0.8rem !important;
+
+}
+
+.tfmr {
+  font-size: 20% !important;
+}
+
+.drop-down-arrow {
+  font-size: 10px !important;
+  top: 42% !important;
+}
+
+.scrch-btn {
+  font-size: 12px !important;
+  background-color: #00e3a8 !important;
+}

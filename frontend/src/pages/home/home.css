@@ -1,0 +1,135 @@
+.services-bx {
+    width:11% !important;
+   
+}
+.services-bx p {
+    font-size:x-small;
+
+}
+.bg-grey{
+    background-color: rgb(54, 54, 54);
+}
+.adm-opn-img {
+    width: 100%;
+}
+.pding{
+    padding-left: 30%;
+    padding-right:30%;
+}
+.cursive{
+    font-family: ubuntu;
+}
+.fs10{
+    font-size:10px;
+}
+.fs8{
+    font-size: 0.52rem !important;
+}
+.fs9 {
+    font-size: 0.6rem !important;
+}
+.fs7 {
+    font-size: 7px !important;
+}
+.fs12{
+    font-size: 12px !important;
+}
+.imgstyl{
+    width:200pX; 
+    height:110px;
+}
+.mystyle{
+    font-size:12px; 
+    width:47px; 
+    height: fit-content;
+}
+.hdr-mrgn {
+    background-color: #f8f6f6 !important;
+    margin: 0 2.8% !important;
+}
+
+.circle{
+    background-color: #ebd1f8;
+    height:50%;
+    width:60%;
+    border-radius: 50%;
+}
+.bg-primary {
+    background-color: #0b53be !important;
+}
+.fipsw80 {
+    width: 35%;
+    height: 100%;
+}
+.fsiw80 {
+    width: 100%;
+   
+}
+.btn-green{
+    background-color: rgb(22, 215, 135) !important;
+}
+body {
+    font-family: 'Ubuntu', sans-serif !important;
+}
+
+.fs-10px {
+    font-size: 10px !important;
+}
+.fs-50p {
+    font-size: 50% !important;
+}
+a {
+    text-decoration: none !important;
+}
+.h-49px {
+    height: 49px !important;
+}
+.sb-1 {
+    padding: .7rem !important;
+}
+.dropdown:hover {
+    border-radius: 0px 0px 0px 20px !important;;
+}
+.svg-inline--fa {
+    text-align: right!important;
+
+}
+.image {
+    width: 100%;
+    height: 100%;
+}
+.apx-fee {
+    margin-bottom: 0;
+    margin-top: 0;
+    font-weight: 500 !important;
+}
+.tp-scl-h {
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+}
+.wdt {
+    width: 21rem;
+    display: inline-block !important;
+    height: 28px;
+    white-space: pre-wrap !important;
+}
+.hftt {
+    width: 134px;
+}
+.hfsd {
+    height: 3rem;
+    width: 14.5rem;
+    white-space: pre-wrap !important;
+}
+.mt0-3 {
+    margin-top: 0.3rem !important;
+}
+.fw-900 {
+    font-weight: 900 !important;
+}
+ /* .dwdt .react-multi-carousel-item--active > div  {
+    width: 100% !important;
+}  */
+.dwdt .react-multi-carousel-item--active {
+    margin-right: 10px;;
+}

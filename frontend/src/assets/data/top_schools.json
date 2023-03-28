@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Delhi public school",
+        "image": "assets/images/s1.jfif",
+        "city": "Indirapuram",
+        "state": "Bangaluru",
+        "board":[
+            {"name": "CBSE"},
+            {"name": "IB Curriculum"}
+        ],
+        "isAdmissionOpen": true,
+        "admission_last_date": "Tue Dec 27 2022 09:27:46 GMT+0530 (India Standard Time)",
+        "approx_fee": "35L-40L",
+        "rating": "4.2",
+        "review": 90000,
+        "description": "Spreadover 2.5Acers....",
+        "sub_desc": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type"
+    },
+    {
+        "name": "Delhi public school",
+        "image": "assets/images/s1.jfif",
+        "city": "Indirapuram",
+        "state": "Bangaluru",
+        "board":[
+            {"name": "CBSE"},
+            {"name": "IB Curriculum"}
+        ],
+        "isAdmissionOpen": true,
+        "admission_last_date": "Tue Dec 27 2022 09:27:46 GMT+0530 (India Standard Time)",
+        "approx_fee": "35L-40L",
+        "rating": "4.2",
+        "review": 90000,
+        "description": "Spreadover 2.5Acers....",
+        "sub_desc": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type"
+    }
+   
+]

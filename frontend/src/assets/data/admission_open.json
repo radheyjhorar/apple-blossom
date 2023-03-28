@@ -1,0 +1,62 @@
+[
+    {
+        "name": "Delhi public school",
+        "image": "assets/images/school6.webp",
+        "city": "Indirapuram",
+        "state": "Bangaluru",
+        "board":[
+            {"name": "CBSE"},
+            {"name": "IB Curriculum"}
+        ],
+        "isAdmissionOpen": true,
+        "admission_last_date": "Tue Dec 27 2022 09:27:46 GMT+0530 (India Standard Time)",
+        "approx_fee": "35L-40L",
+        "rating": "4.2",
+        "review": 90000
+    },
+    {
+        "name": "Delhi public school",
+        "image": "assets/images/school6.webp",
+        "city": "Indirapuram",
+        "state": "Bangaluru",
+        "board":[
+            {"name": "CBSE"},
+            {"name": "IB Curriculum"}
+        ],
+        "isAdmissionOpen": true,
+        "admission_last_date": "Tue Dec 27 2022 09:27:46 GMT+0530 (India Standard Time)",
+        "approx_fee": "35L-40L",
+        "rating": "4.2",
+        "review": 90000
+    },
+    {
+        "name": "Delhi public school",
+        "image": "assets/images/school6.webp",
+        "city": "Indirapuram",
+        "state": "Bangaluru",
+        "board":[
+            {"name": "CBSE"},
+            {"name": "IB Curriculum"}
+        ],
+        "isAdmissionOpen": true,
+        "admission_last_date": "Tue Dec 27 2022 09:27:46 GMT+0530 (India Standard Time)",
+        "approx_fee": "35L-40L",
+        "rating": "4.2",
+        "review": 90000
+    }, 
+    {
+        "name": "Delhi public school",
+        "image": "assets/images/school6.webp",
+        "city": "Indirapuram",
+        "state": "Bangaluru",
+        "board":[
+            {"name": "CBSE"},
+            {"name": "IB Curriculum"}
+        ],
+        "isAdmissionOpen": true,
+        "admission_last_date": "Tue Dec 27 2022 09:27:46 GMT+0530 (India Standard Time)",
+        "approx_fee": "35L-40L",
+        "rating": "4.2",
+        "review": 90000
+    }    
+]
