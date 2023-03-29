@@ -1,10 +1,30 @@
-import React, { Component } from 'react';
+import React, { useState  } from 'react';
 
 import api from '../../api/API';
 
 
 const NewCustomer = () => {
 
+
+  const [newCustomer, setNewCustomer] = useState({
+       name: "",
+       address: "",
+       city: "",
+       state: "",
+       mobile1: "",
+       mobile2: "",
+       ledger_no: ""
+  });
+
+ 
+  const  handleChange = e => {
+     
+      const { name, value } = e.target;
+      setNewCustomer({
+          ...newCustomer,
+          [name]: value
+      })
+  }
 
   return (
     <>
@@ -13,7 +33,7 @@ const NewCustomer = () => {
 
                     <div class="text-center">
                       <div>
-                        <input type="text" class="col-4 vndr-ipt my-4 d-inline-block" placeholder="Customer Name" />
+                        <input type="text" class="col-4 vndr-ipt my-4 d-inline-block" placeholder="Customer Name" name="name" value={newCustomer.name} onChange={handleChange}/>
                         <input type="number" minlength="10" maxlength="10" class="col-4 vndr-ipt my-4 d-inline-block" placeholder="Mobile 1" />
                         </div>
                         <input type="text" class="col-4 vndr-ipt d-inline-block" placeholder="City" />
