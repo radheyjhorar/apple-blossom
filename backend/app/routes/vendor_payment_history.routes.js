@@ -12,5 +12,5 @@ module.exports = app => {
     router.get("/:id", vendor_payment_history.findOne);
   
   
-    app.use('/api/v1/board', router);
+    app.use('/api/v1/vendor-payment-history', router);
   };

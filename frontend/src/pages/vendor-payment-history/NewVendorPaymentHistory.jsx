@@ -20,7 +20,19 @@ const NewVendorPaymentHistory = () => {
       ...newVendorPaymentHistory,
       [name]: value
     })
-  }
+  };
+
+  const addNewVendorPaymentHistory = async () => {
+
+    const response = await api.post('/vendor-payment-history', newVendorPaymentHistory);
+    if (response.statusText === "OK") {
+      console.log(response);
+      //setToken(response.data, response.data.accessToken);
+      //navigate('/')
+
+    }
+
+  };
 
 
   return (
@@ -34,7 +46,7 @@ const NewVendorPaymentHistory = () => {
             <input type="number" class="col-7 vndr-ipt my-4 d-inline-block" placeholder="Deposit Amount" name="deposit_amount" value={newVendorPaymentHistory.deposit_amount} onChange={handleChange} />
             <input type="number" class="col-7 vndr-ipt d-inline-block" placeholder="Resipte No" name="resipte_no" value={newVendorPaymentHistory.resipte_no} onChange={handleChange} />
             <div class="">
-              <button type="submit" class="btn sbmt-btn px-4 text-white my-apk-clr-bg text-end mt-5">Submit</button>
+              <button type="submit" class="btn sbmt-btn px-4 text-white my-apk-clr-bg text-end mt-5" onClick={ addNewVendorPaymentHistory }>Submit</button>
             </div>
           </div>
         </form>

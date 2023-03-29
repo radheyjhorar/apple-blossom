@@ -24,7 +24,20 @@ const NewCustomerOrderItem = () => {
       ...newCustomerOrderItem,
       [name]: value
     })
-  }
+  };
+
+  const addNewCustomerOrderItem = async () => {
+
+    const response = await api.post('/customer-order-item', newCustomerOrderItem);
+    if (response.statusText === "OK") {
+      console.log(response);
+      //setToken(response.data, response.data.accessToken);
+      //navigate('/')
+
+    }
+
+
+  };
 
   return (
     <>
@@ -40,7 +53,7 @@ const NewCustomerOrderItem = () => {
             <input type="text" class="col-8 mb-4 vndr-ipt d-inline-block" placeholder="item_status" name="item_status" value={newCustomerOrderItem.item_status} onChange={handleChange}/>
 
             <div class="">
-              <button type="submit" class="btn sbmt-btn px-4 text-white my-apk-clr-bg text-end mt-5">Submit</button>
+              <button type="submit" class="btn sbmt-btn px-4 text-white my-apk-clr-bg text-end mt-5" onClick={ addNewCustomerOrderItem }>Submit</button>
             </div>
           </div>
         </form>

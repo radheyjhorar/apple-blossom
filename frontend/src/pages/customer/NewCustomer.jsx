@@ -24,7 +24,20 @@ const NewCustomer = () => {
       ...newCustomer,
       [name]: value
     })
-  }
+  };
+
+  const addNewCustomer = async () => {
+
+    const response = await api.post('/customer', newCustomer);
+    if (response.statusText === "OK") {
+      console.log(response);
+      //setToken(response.data, response.data.accessToken);
+      //navigate('/')
+
+    }
+
+
+  };
 
   return (
     <>
@@ -43,7 +56,7 @@ const NewCustomer = () => {
           <input type="number" minlength="10" maxlength="10" class="col-8 vndr-ipt mb-5 d-inline-block" name='ledger_no' placeholder="Ledger No." value={newCustomer.ledger_no} onChange={handleChange}/>
 
           <div class="">
-            <button type="submit" class="btn sbmt-btn px-4 mb-5 text-white my-apk-clr-bg text-center">Submit</button>
+            <button type="submit" class="btn sbmt-btn px-4 mb-5 text-white my-apk-clr-bg text-center" onClick={ addNewCustomer }>Submit</button>
           </div>
         </div>
 

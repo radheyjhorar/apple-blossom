@@ -24,7 +24,20 @@ const NewVendorStock = () => {
       ...newVendorStock,
       [name]: value
     })
-  }
+  };
+
+  const addNewvendorStock = async () => {
+
+    const response = await api.post('/vendor-stock', newVendorStock);
+    if (response.statusText === "OK") {
+      console.log(response);
+      //setToken(response.data, response.data.accessToken);
+      //navigate('/')
+
+    }
+
+
+  };
 
 
   return (
@@ -40,7 +53,7 @@ const NewVendorStock = () => {
             <input type="text" class="col-8 vndr-ipt d-inline-block" placeholder="Description" name="description" value={newVendorStock.description} onChange={handleChange} />
             <input type="date" class="col-8 my-4 vndr-ipt d-inline-block" placeholder="Stock Date" name="stock_date" value={newVendorStock.stock_date} onChange={handleChange} />
             <div class="mt-5">
-              <button type="submit" class="btn sbmt-btn px-4 mb-5 text-white my-apk-clr-bg text-center">Submit</button>
+              <button type="submit" class="btn sbmt-btn px-4 mb-5 text-white my-apk-clr-bg text-center" onClick={ addNewvendorStock }>Submit</button>
             </div>
           </div>
         </form>

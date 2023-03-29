@@ -19,6 +19,6 @@ module.exports = app => {
   
 
   
-    app.use('/api/v1/board', router);
+    app.use('/api/v1/customer-order', router);
   };
   

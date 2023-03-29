@@ -18,6 +18,6 @@ module.exports = app => {
     router.delete("/:id", vendor_stock.delete);
 
   
-    app.use('/api/v1/board', router);
+    app.use('/api/v1/vendor-stock', router);
   };
   
