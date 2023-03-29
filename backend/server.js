@@ -23,7 +23,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const { globalMastersDB, institutionsDB } = require("./app/models");
-const Role = globalMastersDB.role;
+const Cities = globalMastersDB.cities;
+const States = globalMastersDB.states;
 
 /* globalMastersDB.sequelize.sync()
   .then(() => {
@@ -37,25 +38,54 @@ const Role = globalMastersDB.role;
 // // drop the table if it already exists
 globalMastersDB.sequelize.sync({ force: false }).then(() => {
    console.log("Drop and re-sync db.");
-  // initial();
+   //inital();
  });
 
- function initial() {
-  Role.create({
+ function inital() {
+  States.create({
     id: 1,
-    name: "user"
+    state_name: "Rajasthan"
+   
   });
- 
-  Role.create({
+  States.create({
     id: 2,
-    name: "moderator"
+    state_name: "Haryana"
+   
+  });
+  States.create({
+    id: 3,
+    state_name: "Punjab"
+   
+  });
+  Cities.create({
+    id: 1,
+    city_name: "Sri Ganganagar",
+    state_id: 1
+  });
+  Cities.create({
+    id: 2,
+    city_name: "Hanumangarh",
+    state_id: 1
+  });
+  Cities.create({
+    id: 3,
+    city_name: "Sangaria",
+    state_id: 1
+  });
+  Cities.create({
+    id: 4,
+    city_name: "Hisar",
+    state_id: 2
+  });
+  Cities.create({
+    id: 5,
+    city_name: "Bathinda",
+    state_id: 3
   });
  
-  Role.create({
-    id: 3,
-    name: "admin"
-  });
+  
 }
+
 
  /*institutionsDB.sequelize.sync()
   .then(() => {
@@ -83,6 +113,9 @@ require("./app/routes/customer.routes")(app);
 require("./app/routes/vendor_payment_history.routes")(app);
 require("./app/routes/vendor_stock.routes")(app);
 require("./app/routes/vendor.routes")(app);
+require("./app/routes/cities.routes")(app);
+require("./app/routes/states.routes")(app);
+
 
 
 global.__basedir = __dirname;
