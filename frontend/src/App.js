@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, } from "react-router-dom";
 
 import 'react-toastify/dist/ReactToastify.css';
-import { Headers, SearchBox, Footer } from './_shared';
-import { Home, Blogs, Contact, NoPage, Search, Schools } from './pages';
+import { Headers, Footer } from './_shared';
+import { Customer, NewCustomer, Vendor, NewVendor, CustomerOrder, NewCustomerOrder } from './pages';
 
 import api from './api/API';
 import { Register, Login, AuthUser } from './components';
@@ -49,6 +49,10 @@ const App = () => {
                      <Route index element={<Dashboard />} />
                      <Route path="customer" element={<Customer />} />
                      <Route path="new-customer" element={<NewCustomer />} />
+                     <Route path="vendor" element={<Vendor />} />
+                     <Route path="new-vendor" element={<NewVendor />} />
+                     <Route path="customer-order" element={<CustomerOrder />} />
+                     <Route path="new-customer-order" element={<NewCustomerOrder />} />
                      {/* <Route path="search/:cityName" element={<Search />} />
                   <Route path="school/:schoolId" element={<Schools />} />
                   <Route path="about-us" element={<Blogs />} />
