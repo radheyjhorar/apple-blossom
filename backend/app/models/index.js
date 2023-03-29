@@ -34,6 +34,9 @@ globalMastersDB.vendor_stock = require("./vendor_stock.model.js")(globalMasterSe
 globalMastersDB.vendor_payment_history = require("./vendor_payment_history.model.js")(globalMasterSequelize, Sequelize);
 globalMastersDB.customer_payment_history = require("./customer_payment_history.model.js")(globalMasterSequelize, Sequelize);
 
+globalMastersDB.cities = require("./cities.model.js")(globalMasterSequelize, Sequelize);
+globalMastersDB.states = require("./states.model.js")(globalMasterSequelize, Sequelize);
+
 
 
 
