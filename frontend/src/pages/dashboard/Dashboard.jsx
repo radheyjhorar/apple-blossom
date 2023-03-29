@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
-import Services from './Services';
-import AdmissionOpen from './AdmissionOpen';
-import { Jobs } from '../../components';
-import FeaturedSchools from './FeaturedSchools';
-import TopSchools from './TopSchools';
-import SchoolSupplies from './SchoolSupplies';
-import NewsArticle from '../../components/NewsArticle';
-import './home.css';
-import InSpotLight from './InSpotlight';
+
 import api from '../../api/API';
-import { Seo } from '../../_shared';
+
 
 
 const Dashboard = () => {
@@ -23,4 +15,4 @@ const Dashboard = () => {
   );
 }
 
-export default Home;  
+export default Dashboard;  

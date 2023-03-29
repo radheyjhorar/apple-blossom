@@ -1,0 +1,75 @@
+.m-a-c {
+    background: linear-gradient(to bottom, #ff9787 0%, #ff4271 100%);
+    background-repeat: no-repeat;
+}
+.mbl-lgn-pg {
+    border-radius: 1.7rem;
+    height: 35rem;
+    padding-top: 3rem;
+}
+.lgn-ipt {
+    background: rgba(255,255,255,0.4);
+    border: none;
+    display: block;
+    outline: none;
+    width: 80%;
+    padding: 9px;
+    color: #ffffff;
+    -webkit-box-shadow: 0 2px 10px 1px rgba(0,0,0,0.07);
+    box-shadow: 0 2px 10px 1px rgba(0,0,0,0.07);
+    border-radius: 2rem;
+    border: .01rem solid #fcb2b2;
+    text-align: center;
+    font-size: small !important;
+  }
+  .lgn-ipt::-webkit-input-placeholder { color: #ffffff;} 
+  .lgn-ipt:-moz-placeholder { color: #ffffff; }
+  .lgn-ipt::-moz-placeholder { color: #ffffff; }
+  .lgn-ipt:-ms-input-placeholder { color: #ffffff; }
+
+  .lgn-btn {
+    background-color: #fff;
+    border: none;
+    display: block;
+    outline: none;
+    width: 80%;
+    padding: 9px;
+    color: #fc2f62;
+    box-shadow: 0 2px 10px 1px rgba(0,0,0,0.07);
+    border-radius: 2rem;
+    font-size: small !important;
+    font-weight: 500;
+
+  }
+  
+
+  .apl-logo-bg {
+    width: 6rem;
+    height: 6rem;
+    background-color: #fff;
+    background: transparent;
+    display: block;
+    box-shadow: 0 2px 10px 1px rgba(0,0,0,0.13);
+    border-radius: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+  }
+  .hding-desc {
+    padding-left: 3.5rem;
+    padding-top: 1rem;
+  }
+  .a-b-desc {
+    font-size: x-small;
+    color: rgb(255, 242, 123);
+  }
+  .sing-up-desc {
+    font-size: x-small;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  .fgt-pswrd {
+    font-size: x-small;
+    display: block;
+    text-align: center;
+  }

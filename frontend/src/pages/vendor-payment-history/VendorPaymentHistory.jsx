@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Services from './Services';
+
 import './vendor-payment-history.css';
 import api from '../../api/API';
 const VendorPaymentHistoryList = () => {

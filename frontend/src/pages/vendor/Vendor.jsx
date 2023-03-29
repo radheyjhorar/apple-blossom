@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Services from './Services';
+
 import './vendor.css';
 import api from '../../api/API';
-const vendor = () => {
+const Vendor = () => {
 
 
   return (

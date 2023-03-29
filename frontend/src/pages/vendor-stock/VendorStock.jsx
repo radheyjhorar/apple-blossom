@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Services from './Services';
-import './vendor.css';
+import './vendor-stock.css';
 import api from '../../api/API';
 const VendorStock = () => {
 

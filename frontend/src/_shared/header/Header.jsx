@@ -1,7 +1,7 @@
 import React from 'react';
 import './header.css';
 //import logo from "./logo.svg";
-import { fjskio } from '../../assets';
+
 import { Link } from 'react-router-dom';
 import api from '../../api/API';
 import { Login, AuthUser } from "../../components";
@@ -65,7 +65,7 @@ function Menu() {
 
                 :<div className="text-end bg-white rounded-pill" style={{ height: '100%' }}>
                 <i className="fa-solid fa-bars text-muted ms-2 mt-1 p-2 pb-0"></i>
-                <img src={fjskio} alt="user-profile" className="rounded-circle me-2 pb-0" style={{ width: '30px' }} />
+                <img src="" alt="user-profile" className="rounded-circle me-2 pb-0" style={{ width: '30px' }} />
 
                 </div>
                 }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Services from './Services';
 import './customer-order-item.css';
 import api from '../../api/API';
 const CustomerOrderItem = () => {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import { registration } from '../../assets';
+
 
 import './footer.css';
 
@@ -57,7 +57,7 @@ function Footer(props) {
                     <div className='row justify-content-center'>
                         <div className='col-9 px-5'>
                             <div className='offset-3 col-3'>
-                                <img className='rgtr-img' src={registration} />
+                                
                             </div>
                         </div>
                     </div>
