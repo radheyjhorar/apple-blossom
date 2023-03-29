@@ -66,37 +66,10 @@ globalMastersDB.sequelize.sync({ force: false }).then(() => {
   });*/
 
 
-// // drop the table if it already exists
-institutionsDB.sequelize.sync({ force: false }).then(() => {
-  console.log("Drop and re-sync db.");
-});
 
 // simple route
 app.get("/", (req, res) => {
   //sendEmail.sendEmail();
-  title=[
-    "AG DAV Centenary Public School",
-    "Aadhar International School",
-    "Aadharshila Vidyapeeth",
-    "Aadyant Global School",
-    "Abhinav Public Sr Sec School",
-    "AD Senior Secondary School",
-    "Aakash Model Sr Sec School",
-    "Adarsh Jain Dharmic Shiksha Sadan",
-    "Adarsh Model School",
-    "Adarsh Public School",
-    "Adarsh Public School",
-    "Adarsh Montessori School",
-    "Adarsh Secondary School",
-    "Aggarwal Public School",
-    "Ahlcon International School",
-    "Air Force Bal Bharti School"
-  ];
-  prprint = [];
-  title.forEach(element => {
-    console.log(element);
-     prprint.push(prettyUrl.prettyUrl(element));
-  });
   
   res.json({ message:  prprint});
  //res.json({ message: "Welcome to WayToEducation." });
