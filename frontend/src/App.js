@@ -48,7 +48,7 @@ const App = () => {
 
                      <Route index element={<Dashboard />} />
                      <Route path="customer" element={<Customer />} />
-                     <Route path="new-customer" element={<NewCustomer />} />
+                     
                      {/* <Route path="search/:cityName" element={<Search />} />
                   <Route path="school/:schoolId" element={<Schools />} />
                   <Route path="about-us" element={<Blogs />} />
