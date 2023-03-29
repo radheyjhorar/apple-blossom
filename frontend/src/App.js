@@ -53,6 +53,7 @@ const App = () => {
                      <Route path="new-vendor" element={<NewVendor />} />
                      <Route path="customer-order" element={<CustomerOrder />} />
                      <Route path="new-customer-order" element={<NewCustomerOrder />} />
+                     
                      {/* <Route path="search/:cityName" element={<Search />} />
                   <Route path="school/:schoolId" element={<Schools />} />
                   <Route path="about-us" element={<Blogs />} />
