@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation, } from "react-rout
 
 import 'react-toastify/dist/ReactToastify.css';
 import { Headers, Footer } from './_shared';
-import { Customer, NewCustomer, Vendor, NewVendor, CustomerOrder, NewCustomerOrder } from './pages';
+import { Customer, NewCustomer, Vendor, NewVendor, CustomerOrder, NewCustomerOrder, CustomerOrdeItem, NewCustomerOrderItem, CustomerPaymentHistory, NewCustomerPaymentHistory, VendorStock, NewVendorStock, VendorPaymentHistory, NewVendorPaymentHistory } from './pages';
 
 import api from './api/API';
 import { Register, Login, AuthUser } from './components';
@@ -53,6 +53,14 @@ const App = () => {
                      <Route path="new-vendor" element={<NewVendor />} />
                      <Route path="customer-order" element={<CustomerOrder />} />
                      <Route path="new-customer-order" element={<NewCustomerOrder />} />
+                     <Route path="customer-order-item" element={<CustomerOrdeItem />} />
+                     <Route path="new-customer-order-item" element={<NewCustomerOrderItem />} />
+                     <Route path="customer-payment-history" element={<CustomerPaymentHistory />} />
+                     <Route path="new-customer-payment-history" element={<NewCustomerPaymentHistory />} />
+                     <Route path="vendor-stock" element={<VendorStock />} />
+                     <Route path="new-vendor-stock" element={<NewVendorStock />} />
+                     <Route path="vendor-payment-history" element={<VendorPaymentHistory />} />
+                     <Route path="new-vendor-payment-history" element={<NewVendorPaymentHistory />} />
                      
                      {/* <Route path="search/:cityName" element={<Search />} />
                   <Route path="school/:schoolId" element={<Schools />} />
