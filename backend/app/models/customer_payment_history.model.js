@@ -20,5 +20,5 @@ module.exports = (sequelize, Sequelize) => {
       
     });
   
-    return board;
+    return customer_payment_history;
   };

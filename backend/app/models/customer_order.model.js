@@ -20,6 +20,6 @@ module.exports = (sequelize, Sequelize) => {
 
     });
   
-    return board;
+    return customer_order;
   };
   
