@@ -14,11 +14,11 @@ exports.create = (req, res) => {
   }
 
   // Create a customerData
-  const vendorData = {
+  const customerData = {
     name: req.body.name,
     address: req.body.address,
     city: req.body.city,
-    state: req.body.state,
+    // state: req.body.state || 0,
     mobile1: req.body.mobile1,
     mobile2: req.body.mobile2,
     ledger_no: req.body.ledger_no,
