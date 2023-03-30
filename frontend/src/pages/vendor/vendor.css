@@ -8,7 +8,6 @@
     background: rgba(255, 110, 148, .18); 
     border: none;
     outline: none;
-    width: 80%;
     padding: 9px;
     color: #121212;
     -webkit-box-shadow: 0 2px 10px 1px rgba(0,0,0,0.07);
@@ -17,12 +16,22 @@
     /* border: .01rem solid #fcb2b2; */
     font-size: small !important;
 }
+.w-80 {
+    width: 80% !important;
+}
+.w-39-5 {
+    width: 39.5% !important;
+}
 
 .c-7-d{
     border-radius: .5rem;
     box-shadow: 0 2px 10px 1px rgba(0,0,0,0.12);
-    height: 33rem;
 }
+
+.h-30 {
+    height: 30rem !important;
+}
+
 .sbmt-btn {
     border-radius: 1.5rem !important;
     font-size: small !important;

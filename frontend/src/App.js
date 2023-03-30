@@ -42,7 +42,7 @@ const App = () => {
 
          {/* <Headers /> */}
 
-         <div class="container-fluid m-a-c">
+         <div class="container-fluid">
             <div class="row pt-5 pb-5 ">
 
                   <Routes>

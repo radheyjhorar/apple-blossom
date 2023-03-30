@@ -116,3 +116,8 @@
   text-align: center;
 }
  */
+
+ body {
+  background: linear-gradient(to bottom, #ff9787 0%, #ff4271 100%);
+  background-repeat: no-repeat;
+ }

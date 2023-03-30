@@ -5,7 +5,7 @@ import api from '../../api/API';
 
 
 const NewCustomer = () => {
-  
+
   const [city, setCity] = useState([]);
   // const [state, setState] = useState([])
 
@@ -42,7 +42,7 @@ const NewCustomer = () => {
 
   };
 
-   useEffect( () => {
+  useEffect(() => {
     const fetchData = async () => {
       const response_city = await api.get('/cities');
       if (response_city.statusText === "OK") {
@@ -54,8 +54,8 @@ const NewCustomer = () => {
       // }
     };
     fetchData();
-    
-   },[])
+
+  }, [])
 
   return (
     <>
@@ -63,25 +63,28 @@ const NewCustomer = () => {
         <h1 class="offset-2 h4 my-apk-clr mt-5">New Customer</h1>
 
         <div class="text-center">
-          <div>
-            <input type="text" class="col-4 vndr-ipt my-4 d-inline-block" placeholder="Customer Name" name="name" value={newCustomer.name} onChange={handleChange} />
-            <input type="number" class="col-4 vndr-ipt my-4 d-inline-block" name='mobile1' placeholder="Mobile 1" value={newCustomer.mobile1} onChange={handleChange} />
-          </div>
-          <select name='city' value={newCustomer.city} onChange={handleChange} >
-             <option value="0">Select City</option>
+          <div className='mt-5'>
+            <input type="text" class="col-4 vndr-ipt me-1 d-inline-block" placeholder="Customer Name" name="name" value={newCustomer.name} onChange={handleChange} />
+
+            <select className='city-drp-dwn col-4' name='city' value={newCustomer.city} onChange={handleChange} >
+              <option value="0">Select City</option>
               {
-                 (city && city.length > 0 && city.map(
+                (city && city.length > 0 && city.map(
                   (c) => {
-                    return(
+                    return (
                       <option value={c.id}>{c.city_name}</option>
                     )
                   }
                 ))
               }
-          </select>
+            </select>
 
-          <input type="number" minlength="10" min="10" max="10" maxlength="10" class="col-4 vndr-ipt d-inline-block" name='mobile2' placeholder="Mobile 2" value={newCustomer.mobile2} onChange={handleChange}/>
-{/*           
+          </div>
+          <div className='my-4'>
+            <input type="number" class="col-4 me-1 vndr-ipt d-inline-block" name='mobile1' placeholder="Mobile 1" value={newCustomer.mobile1} onChange={handleChange} />
+            <input type="number" class="col-4 vndr-ipt d-inline-block" name='mobile2' placeholder="Mobile 2" value={newCustomer.mobile2} onChange={handleChange} />
+          </div>
+          {/*           
           <select name='state' value={newCustomer.state} onChange={handleChange} >
               {
                  (state && state.length > 0 && state.map(
@@ -93,12 +96,12 @@ const NewCustomer = () => {
                 ))
               }
           </select> */}
-         
-          <input type="text" class="col-8 mb-4 vndr-ipt d-inline-block" placeholder="Customer Address" name='address' value={newCustomer.address} onChange={handleChange}/>
-          <input type="number" minlength="10" maxlength="10" class="col-8 vndr-ipt mb-5 d-inline-block" name='ledger_no' placeholder="Ledger No." value={newCustomer.ledger_no} onChange={handleChange}/>
+
+          <input type="text" class="col-8 mb-4 vndr-ipt d-inline-block" placeholder="Customer Address" name='address' value={newCustomer.address} onChange={handleChange} />
+          <input type="number" minlength="10" maxlength="10" class="col-8 vndr-ipt mb-5 d-inline-block" name='ledger_no' placeholder="Ledger No." value={newCustomer.ledger_no} onChange={handleChange} />
 
           <div class="">
-            <button type="submit" class="btn sbmt-btn px-4 mb-5 text-white my-apk-clr-bg text-center" onClick={ addNewCustomer }>Submit</button>
+            <button type="submit" class="btn sbmt-btn px-4 mb-5 text-white my-apk-clr-bg text-center" onClick={addNewCustomer}>Submit</button>
           </div>
         </div>
 

@@ -15,7 +15,8 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.INTEGER
     },
     state: {
-      type: Sequelize.INTEGER
+      type: Sequelize.INTEGER,
+      defaultValue: 0
     },
     mobile1: {
       type: Sequelize.STRING

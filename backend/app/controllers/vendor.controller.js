@@ -6,7 +6,7 @@ const Op = globalMastersDB.Sequelize.Op;
 // Create and Save a new Vendor
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.name) {
+  if (!req.body.vendor_name) {
     res.status(400).send({
       message: "Content can not be empty!"
     });
@@ -18,7 +18,7 @@ exports.create = (req, res) => {
     vendor_name: req.body.vendor_name,
     vendor_address: req.body.vendor_address,
     city: req.body.city,
-    state: req.body.state,
+    // state: req.body.state,
     mobile1: req.body.mobile1,
     mobile2: req.body.mobile2,
   };

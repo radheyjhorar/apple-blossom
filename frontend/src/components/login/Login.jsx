@@ -20,7 +20,6 @@ const Login = () => {
                             <p className="a-b-desc">Customers first Choice</p>
                         </div>
                         <div className="mt-5">
-                            <form action="">
                                 <input className="lgn-ipt bg-transparent input-u-n mx-auto my-2" type="text"
                                     placeholder="User Name" />
                                 <input className="lgn-ipt bg-transparent input-pswrd mx-auto my-3" type="password"
@@ -33,7 +32,6 @@ const Login = () => {
                                 <p className="fgt-pswrd text-white"><a className="text-white text-decoration-none" href="forgot password">Forgot
                                     Password</a>?
                                 </p>
-                            </form>
                         </div>
                     </div>
                 </div>

@@ -6,7 +6,7 @@ const Op = globalMastersDB.Sequelize.Op;
 // Create and Save a new states
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.name) {
+  if (!req.body.state_name) {
     res.status(400).send({
       message: "Content can not be empty!"
     });
