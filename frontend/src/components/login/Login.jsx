@@ -10,7 +10,7 @@ const Login = () => {
 
     return (
         <>
-            <div className="min-vh-100">
+            <div className="my-sm-5">
                     <div className="col-3 mbl-lgn-pg border-white border-4 shadow mx-auto">
                         <div className="apl-logo-bg">
                             <img src={ AppleLogo } className="w-100 h-100 overflow-hidden" alt="Logo" />

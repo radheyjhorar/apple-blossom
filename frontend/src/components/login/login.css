@@ -6,6 +6,7 @@
     border-radius: 1.7rem;
     height: 35rem;
     padding-top: 3rem;
+    min-width: 345px;
 }
 .lgn-ipt {
     background: rgba(255,255,255,0.4);
@@ -41,7 +42,6 @@
     font-weight: 500;
 
   }
-  
 
   .apl-logo-bg {
     width: 6rem;
