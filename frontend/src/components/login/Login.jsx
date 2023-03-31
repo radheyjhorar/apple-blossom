@@ -1,13 +1,46 @@
 import React, { useState } from "react";
-
 import api from '../../api/API';
-
+import  AuthUser  from "../AuthUser";
+import { useNavigate } from 'react-router-dom';
 import "./login.css";
 import { AppleLogo } from '../../assets';
 
-
 const Login = () => {
 
+    //const [isLoading, setIsLoading] = useState(false);
+    const {setToken} = AuthUser();
+    const [user, setUser] = useState({
+        name: "",
+        password: ""
+    });
+
+    const navigate = useNavigate();
+
+    const  handleChange = e => {
+        console.log(e.target);
+        const { name, value} = e.target;
+        console.log(name, value);
+        setUser({
+            ...user,
+            [name]: value
+        })
+    }
+
+    const loginUser = async () => {
+       
+        //if(!isLoading) {
+         //   setIsLoading(true)
+            const response  = await api.post('/auth/signin', user);
+            if( response.statusText === "OK") {
+                console.log(response);
+               setToken(response.data,response.data.accessToken);
+               navigate('/')
+          //     setIsLoading(false)            
+            }
+
+       // }
+        
+    };
     return (
         <>
             <div className="my-sm-5">
@@ -21,10 +54,10 @@ const Login = () => {
                         </div>
                         <div className="mt-5">
                                 <input className="lgn-ipt bg-transparent input-u-n mx-auto my-2" type="text"
-                                    placeholder="User Name" />
+                                    placeholder="User Name" name="name" value={user.name} onChange={handleChange}/>
                                 <input className="lgn-ipt bg-transparent input-pswrd mx-auto my-3" type="password"
-                                    placeholder="Password" />
-                                <button type="submit" className="lgn-btn mx-auto mt-4">Login</button>
+                                    placeholder="Password" name="password" value={user.password}   onChange={handleChange}/>
+                                <button type="submit" className="lgn-btn mx-auto mt-4" onClick={loginUser}>Login</button>
                                 <p className="text-white sing-up-desc">Don't have an account? <a className="text-white fw-bold text-decoration-none"
                                     href="sing-up-page">Sing
                                     Up

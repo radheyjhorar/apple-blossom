@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Routes, Route, useLocation, } from "react-rout
 import 'react-toastify/dist/ReactToastify.css';
 import { Headers, Footer } from './_shared';
 import { Dashboard, NoPage, Customer, NewCustomer, Vendor, NewVendor, CustomerOrder, NewCustomerOrder, CustomerOrdeItem, NewCustomerOrderItem, CustomerPaymentHistory, NewCustomerPaymentHistory, VendorStock, NewVendorStock, VendorPaymentHistory, NewVendorPaymentHistory } from './pages';
-
 import api from './api/API';
 import { Register, Login, AuthUser } from './components';
 import './App.css';
@@ -20,7 +19,7 @@ import './App.css';
 
 const App = () => {
 
-
+   const {getToken} = AuthUser();
 
    useEffect(() => {
 
@@ -69,10 +68,10 @@ const App = () => {
                   <Route path="about-us" element={<Blogs />} />
                   <Route path="contact" element={<Contact />} /> */}
 
-                     {/* { (!getToken())?(<>
+                     {  (!getToken())?(<>
                      <Route path="login" element={<Login />} />
                      <Route path="register" element={<Register />} />
-                  </>):null} */}
+                  </>):null} 
 
                      <Route path="*" element={<NoPage />} />
 

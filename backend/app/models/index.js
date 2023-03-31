@@ -36,9 +36,29 @@ globalMastersDB.customer_payment_history = require("./customer_payment_history.m
 
 globalMastersDB.cities = require("./cities.model.js")(globalMasterSequelize, Sequelize);
 globalMastersDB.states = require("./states.model.js")(globalMasterSequelize, Sequelize);
+globalMastersDB.user = require("./user.model.js")(globalMasterSequelize, Sequelize);
+globalMastersDB.role = require("./role.model.js")(globalMasterSequelize, Sequelize);
+globalMastersDB.refreshToken = require("./refreshToken.model.js")(globalMasterSequelize, Sequelize);
 
+globalMastersDB.role.belongsToMany(globalMastersDB.user, {
+  through: "user_roles",
+  foreignKey: "roleId",
+  otherKey: "userId"
+});
+globalMastersDB.user.belongsToMany(globalMastersDB.role, {
+  through: "user_roles",
+  foreignKey: "userId",
+  otherKey: "roleId"
+});
 
+globalMastersDB.refreshToken.belongsTo(globalMastersDB.user, {
+  foreignKey: 'userId', targetKey: 'id'
+});
+globalMastersDB.user.hasOne(globalMastersDB.refreshToken, {
+  foreignKey: 'userId', targetKey: 'id'
+});
 
+globalMastersDB.ROLES = ["user", "admin", "moderator"];
 
 module.exports = {
   globalMastersDB,

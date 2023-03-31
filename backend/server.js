@@ -25,6 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const { globalMastersDB, institutionsDB } = require("./app/models");
 const Cities = globalMastersDB.cities;
 const States = globalMastersDB.states;
+const Role = globalMastersDB.role;
 
 /* globalMastersDB.sequelize.sync()
   .then(() => {
@@ -38,51 +39,54 @@ const States = globalMastersDB.states;
 // // drop the table if it already exists
 globalMastersDB.sequelize.sync({ force: false }).then(() => {
    console.log("Drop and re-sync db.");
-   //inital();
+   inital();
  });
 
  function inital() {
-  States.create({
+  // States.create({
+  //   id: 1,
+  //   state_name: "Rajasthan"
+   
+  // });
+  // States.create({
+  //   id: 2,
+  //   state_name: "Haryana"
+   
+  // });
+  // States.create({
+  //   id: 3,
+  //   state_name: "Punjab"
+   
+  // });
+  // Cities.create({
+  //   id: 1,
+  //   city_name: "Sri Ganganagar",
+  //   state_id: 1
+  // });
+  // Cities.create({
+  //   id: 2,
+  //   city_name: "Hanumangarh",
+  //   state_id: 1
+  // });
+  // Cities.create({
+  //   id: 3,
+  //   city_name: "Sangaria",
+  //   state_id: 1
+  // });
+  // Cities.create({
+  //   id: 4,
+  //   city_name: "Hisar",
+  //   state_id: 2
+  // });
+  // Cities.create({
+  //   id: 5,
+  //   city_name: "Bathinda",
+  //   state_id: 3
+  // });
+  Role.create({
     id: 1,
-    state_name: "Rajasthan"
-   
+    name: "admin"
   });
-  States.create({
-    id: 2,
-    state_name: "Haryana"
-   
-  });
-  States.create({
-    id: 3,
-    state_name: "Punjab"
-   
-  });
-  Cities.create({
-    id: 1,
-    city_name: "Sri Ganganagar",
-    state_id: 1
-  });
-  Cities.create({
-    id: 2,
-    city_name: "Hanumangarh",
-    state_id: 1
-  });
-  Cities.create({
-    id: 3,
-    city_name: "Sangaria",
-    state_id: 1
-  });
-  Cities.create({
-    id: 4,
-    city_name: "Hisar",
-    state_id: 2
-  });
-  Cities.create({
-    id: 5,
-    city_name: "Bathinda",
-    state_id: 3
-  });
- 
   
 }
 
@@ -105,7 +109,7 @@ app.get("/", (req, res) => {
  //res.json({ message: "Welcome to WayToEducation." });
 });
 
-
+require("./app/routes/auth.routes")(app);
 require("./app/routes/customer_order_item.routes")(app);
 require("./app/routes/customer_order.routes")(app);
 require("./app/routes/customer_payment_history.routes")(app);
