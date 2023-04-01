@@ -10,7 +10,6 @@ const Customer = () => {
 
   const [cust, setCust] = useState([]);
 
-
   const notify = (msg, time) => toast.info(msg, {
     position: "top-right",
     autoClose: time,

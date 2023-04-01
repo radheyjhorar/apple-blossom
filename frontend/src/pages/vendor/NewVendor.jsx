@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
+
 import api from '../../api/API';
 
 const NewVendor = () => {
@@ -9,6 +13,17 @@ const NewVendor = () => {
 
   const [city, setCity] = useState([]);
   // const [state, setState] = useState([])
+
+  const notify = (msg, time) => toast.info(msg, {
+    position: "top-right",
+    autoClose: time,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored"
+    });
 
 
   const [newVendor, setNewVendor] = useState({
@@ -31,12 +46,15 @@ const NewVendor = () => {
   };
 
   const addNewVendor = async () => {
-
+    notify('Adding New Vendor', 1000);
     const response = await api.post('/vendor', newVendor);
     if (response.statusText === "OK") {
       console.log(response);
+      notify('Added New Vendor Sucessfully', 2000);
       //setToken(response.data, response.data.accessToken);
+      setTimeout(function() {
       navigate('/vendor')
+    }, 2500);
 
     }
 
@@ -61,6 +79,7 @@ const NewVendor = () => {
 
   return (
     <>
+    <ToastContainer />
       <div class="col-7 c-7-d mx-auto bg-pic h-30 my-5">
         <h1 class="offset-2 h4 my-apk-clr mt-5">New Vendor</h1>
         <div className='text-center'>

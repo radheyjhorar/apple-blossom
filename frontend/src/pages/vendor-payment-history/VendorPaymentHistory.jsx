@@ -1,18 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
+
 import './vendor-payment-history.css';
 import api from '../../api/API';
-const VendorPaymentHistoryList = () => {
 
+
+const VendorPaymentHistoryList = () => {
 
   const [vendPayHis, setVendPayHis] = useState([]);
 
+  const notify = (msg, time) => toast.info(msg, {
+    position: "top-right",
+    autoClose: time,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    });
+
   useEffect(() => {
+
+    notify('Loading Vendor Payment History', 2000);
+
     const fetchData = async () => {
       const response = await api.get('/vendor-payment-history');
       if (response.statusText === "OK") {
         setVendPayHis(response.data);
       }
+      toast.dismiss();
       // const response_state = await api.get('/states');
       // if (response_state.statusText === "OK") {
       //   setState(response_state.data);
@@ -24,6 +44,7 @@ const VendorPaymentHistoryList = () => {
 
   return (
     <>
+    <ToastContainer />
       <div className='my-5'>
         <div className='text-web-center'>
           <div className='col-9 d-flex my-4'>

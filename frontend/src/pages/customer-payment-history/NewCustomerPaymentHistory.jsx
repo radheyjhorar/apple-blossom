@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
+
 import api from '../../api/API';
 
 
@@ -7,6 +11,17 @@ import api from '../../api/API';
 const NewCustomerPaymentHistory = () => {
 
   const navigate = useNavigate();
+
+  const notify = (msg, time) => toast.info(msg, {
+    position: "top-right",
+    autoClose: time,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored"
+  });
 
   const [newCustomerPaymentHistory, setNewCustomerPaymentHistory] = useState({
     customer_id: "",
@@ -27,12 +42,16 @@ const NewCustomerPaymentHistory = () => {
 
   const addNewCustomerPaymentHistory = async () => {
 
+    notify('Adding New Customer Payment History', 1000);
+
     const response = await api.post('/customer-payment-history', newCustomerPaymentHistory);
     if (response.statusText === "OK") {
       console.log(response);
+      notify('Added New Customer Payment Sucessfully', 2000);
       //setToken(response.data, response.data.accessToken);
-      navigate('/customer-payment-history')
-
+      setTimeout(function () {
+        navigate('/customer-payment-history')
+      }, 2500);
     }
 
 
@@ -42,6 +61,7 @@ const NewCustomerPaymentHistory = () => {
 
   return (
     <>
+      <ToastContainer />
       <div class="col-7 c-7-d mx-auto bg-pic h-30 text-center my-5">
         <h1 class="h4 my-apk-clr mt-5">Add New Customer Payment History</h1>
 

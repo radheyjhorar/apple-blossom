@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
+
 import api from '../../api/API';
 
 
@@ -7,6 +10,17 @@ import api from '../../api/API';
 const NewCustomerOrderItem = () => {
 
   const navigate = useNavigate();
+
+  const notify = (msg, time) => toast.info(msg, {
+    position: "top-right",
+    autoClose: time,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored"
+  });
 
   const [newCustomerOrderItem, setNewCustomerOrderItem] = useState({
     order_id: "",
@@ -28,13 +42,15 @@ const NewCustomerOrderItem = () => {
   };
 
   const addNewCustomerOrderItem = async () => {
-
+    notify('Adding New Customer Order Item', 1000);
     const response = await api.post('/customer-order-item', newCustomerOrderItem);
     if (response.statusText === "OK") {
       console.log(response);
+      notify('Added New Item Sucessfully', 2000);
       //setToken(response.data, response.data.accessToken);
-      navigate('/customer-order-item')
-
+      setTimeout(function () {
+        navigate('/customer-order-item')
+      }, 2500);
     }
 
 
@@ -42,6 +58,7 @@ const NewCustomerOrderItem = () => {
 
   return (
     <>
+      <ToastContainer />
       <div class="col-7 c-7-d mx-auto bg-pic h-30 my-5">
         <h1 class="offset-2 h4 my-apk-clr mt-5">New Customer Order Item</h1>
         <div class="text-center">
