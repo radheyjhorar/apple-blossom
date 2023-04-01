@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import './customer.css';
 import api from '../../api/API';
 const Customer = () => {
 
   const [cust, setCust] = useState([]);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,10 +25,17 @@ const Customer = () => {
   return (
     <>
       <div className='my-5'>
-        <h1 className="offset-2 h3 text-white my-4 txt-shdo fw-bold">Customer List</h1>
+        <div className='text-web-center'>
+          <div className='col-9 d-flex '>
+            <h1 className="h3 text-white my-4 txt-shdo fw-bold">Customer List</h1>
+            <Link to="/new-customer" >
+              <button className='btn ms-auto text-white fw-bold h-3' type='button'>Add New Customer</button>
+            </Link>
+          </div>
+        </div>
 
         <div className='text-web-center'>
-          <div className="col-8">
+          <div className="col-9">
             <table className='table tbl-list my-apk-clr-bg'>
               <thead>
                 <tr>
@@ -41,21 +50,22 @@ const Customer = () => {
 
               <tbody>
                 {
-                  (cust && cust.length > 0 && cust.map((c) =>{
+                  (cust && cust.length > 0 && cust.map((c) => {
                     return (
-        
-                 
-                <tr>
-                  <td>{c.name}</td>
-                  <td>{c.ledger_no}</td>
-                  <td>{c.mobile1}</td>
-                  <td>{c.mobile2}</td>
-                  <td>{c.address}</td>
-                  <td>{c.city}</td>
-                </tr>
-                 )}
-                 ))
-               }
+
+
+                      <tr>
+                        <td>{c.name}</td>
+                        <td>{c.ledger_no}</td>
+                        <td>{c.mobile1}</td>
+                        <td>{c.mobile2}</td>
+                        <td>{c.address}</td>
+                        <td>{c.city}</td>
+                      </tr>
+                    )
+                  }
+                  ))
+                }
               </tbody>
             </table>
           </div>

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 import api from '../../api/API';
 
 
 
 const NewCustomerOrderItem = () => {
 
+  const navigate = useNavigate();
 
   const [newCustomerOrderItem, setNewCustomerOrderItem] = useState({
     order_id: "",
@@ -32,7 +33,7 @@ const NewCustomerOrderItem = () => {
     if (response.statusText === "OK") {
       console.log(response);
       //setToken(response.data, response.data.accessToken);
-      //navigate('/')
+      navigate('/customer-order-item')
 
     }
 

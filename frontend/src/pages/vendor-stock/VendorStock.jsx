@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import './vendor-stock.css';
 import api from '../../api/API';
 const VendorStock = () => {
-
 
   const [vendStk, setVendStk] = useState([]);
 
@@ -27,7 +27,9 @@ const VendorStock = () => {
         <div className='text-web-center'>
           <div className='col-9 d-flex '>
             <h1 className="h3 text-white my-4 txt-shdo fw-bold">Vendor Stock List</h1>
-            <button className='btn ms-auto text-white fw-bold h-3' type='button'>Add New Vendor</button>
+            <Link to="/new-vendor-stock" >
+              <button className='btn ms-auto text-white fw-bold h-3' type='button'>Add New Stock</button>
+            </Link>
           </div>
         </div>
         <div className='text-web-center'>

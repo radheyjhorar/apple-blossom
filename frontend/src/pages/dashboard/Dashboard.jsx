@@ -17,7 +17,12 @@ const Dashboard = () => {
           <div>
             <h3><span></span>Dashboard</h3>
           </div>
-          <div><h4>INTERFACE</h4></div>
+          <div>
+            <h4>INTERFACE</h4>
+            <div>
+              <p>Components</p>
+            </div>
+          </div>
 
         </div>
         <div className='col-10 bg-white'></div>

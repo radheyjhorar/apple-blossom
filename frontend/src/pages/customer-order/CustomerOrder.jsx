@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import './customer-order.css';
 import api from '../../api/API';
 const CustomerOrder = () => {
@@ -24,10 +25,17 @@ const CustomerOrder = () => {
   return (
     <>
       <div className='my-5'>
-        <h1 className="offset-2 h3 text-white my-4 txt-shdo fw-bold">Customer Order List</h1>
+        <div className='text-web-center'>
+          <div className='col-9 d-flex '>
+            <h1 className="h3 text-white my-4 txt-shdo fw-bold">Customer Order List</h1>
+            <Link to="/new-vendor-stock" >
+              <button className='btn ms-auto text-white fw-bold h-3' type='button'>Add New Order</button>
+            </Link>
+          </div>
+        </div>
 
         <div className='text-web-center'>
-          <div className="col-8 ">
+          <div className="col-9 ">
             <table className='table tbl-list my-apk-clr-bg '>
               <thead>
                 <tr>
@@ -39,18 +47,19 @@ const CustomerOrder = () => {
               </thead>
 
               <tbody>
-              {
-                  (custOrd && custOrd.length > 0 && custOrd.map((c) =>{
+                {
+                  (custOrd && custOrd.length > 0 && custOrd.map((c) => {
                     return (
-                <tr>
-                  <td>{c.customer_id}</td>
-                  <td>{c.order_description}</td>
-                  <td>{c.total_amount}</td>
-                  <td>{c.order_status}</td>
-                </tr>
-               )}
-               ))
-             }
+                      <tr>
+                        <td>{c.customer_id}</td>
+                        <td>{c.order_description}</td>
+                        <td>{c.total_amount}</td>
+                        <td>{c.order_status}</td>
+                      </tr>
+                    )
+                  }
+                  ))
+                }
               </tbody>
             </table>
           </div>

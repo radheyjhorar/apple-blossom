@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 import api from '../../api/API';
 
 
 
 const NewVendorStock = () => {
-
+  
+  const navigate = useNavigate();
 
   const [newVendorStock, setNewVendorStock] = useState({
     vendor_id: "",
@@ -32,7 +33,8 @@ const NewVendorStock = () => {
     if (response.statusText === "OK") {
       console.log(response);
       //setToken(response.data, response.data.accessToken);
-      //navigate('/')
+  
+      navigate('/vendor-stock')
 
     }
 
@@ -54,7 +56,7 @@ const NewVendorStock = () => {
             <input type="number" class="col-4 vndr-ipt me-1 d-inline-block" placeholder="Quantity" name="quantity" value={newVendorStock.quantity} onChange={handleChange} />
             <input type="date" class="col-4 vndr-ipt d-inline-block" placeholder="Stock Date" name="stock_date" value={newVendorStock.stock_date} onChange={handleChange} />
             </div>
-            <input type="number" class="col-8 mb-4 vndr-ipt d-inline-block" placeholder="Amount" name="amount" value={newVendorStock.amount} onChange={handleChange} />
+            <input type="number" class="col-8 mb-4 vndr-ipt d-inline-block" placeholder="Amount" name="amount" value={newVendorStock.quantity * newVendorStock.rate} onChange={handleChange} />
             <input type="text" class="col-8 vndr-ipt d-inline-block" placeholder="Description" name="description" value={newVendorStock.description} onChange={handleChange} />
             <div class="mt-5">
               <button type="submit" class="btn sbmt-btn px-4 mb-5 text-white my-apk-clr-bg text-center" onClick={ addNewvendorStock }>Submit</button>

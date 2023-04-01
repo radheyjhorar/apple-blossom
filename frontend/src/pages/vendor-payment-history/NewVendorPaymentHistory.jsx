@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 import api from '../../api/API';
 
 const NewVendorPaymentHistory = () => {
 
-
+  const navigate = useNavigate();
+  
   const [newVendorPaymentHistory, setNewVendorPaymentHistory] = useState({
     vendor_id: "",
     payment_date: "",
@@ -28,7 +29,7 @@ const NewVendorPaymentHistory = () => {
     if (response.statusText === "OK") {
       console.log(response);
       //setToken(response.data, response.data.accessToken);
-      //navigate('/')
+      navigate('/vendor-payment-history')
 
     }
 

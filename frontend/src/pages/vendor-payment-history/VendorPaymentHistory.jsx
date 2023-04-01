@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import './vendor-payment-history.css';
 import api from '../../api/API';
 const VendorPaymentHistoryList = () => {
@@ -23,11 +24,17 @@ const VendorPaymentHistoryList = () => {
 
   return (
     <>
-    <div className='my-5'>
-       <h1 className="offset-2 h3 text-white my-4 txt-shdo fw-bold">Vendor Payment History</h1>
-
-       <div className='text-web-center'>
-          <div className="col-8">
+      <div className='my-5'>
+        <div className='text-web-cente'>
+          <div className='col-9 d-flex '>
+            <h1 className="h3 text-white my-4 txt-shdo fw-bold">Vendor Payment History</h1>
+            <Link to="/new-vendor-payment-history" >
+              <button className='btn ms-auto text-white fw-bold h-3' type='button'>Add New</button>
+            </Link>
+          </div>
+        </div>
+        <div className='text-web-center'>
+          <div className="col-9">
             <table className='table tbl-list my-apk-clr-bg'>
               <thead>
                 <tr>
@@ -39,23 +46,24 @@ const VendorPaymentHistoryList = () => {
               </thead>
 
               <tbody>
-              {
-                  (vendPayHis && vendPayHis.length > 0 && vendPayHis.map((c) =>{
+                {
+                  (vendPayHis && vendPayHis.length > 0 && vendPayHis.map((c) => {
                     return (
-                <tr>
-                  <td>{c.vendor_id}</td>
-                  <td>{c.payment_date}</td>
-                  <td>{c.deposit_amount}</td>
-                  <td>{c.resipte_no}</td>
-                </tr>
-                 )}
-                 ))
-               }
+                      <tr>
+                        <td>{c.vendor_id}</td>
+                        <td>{c.payment_date}</td>
+                        <td>{c.deposit_amount}</td>
+                        <td>{c.resipte_no}</td>
+                      </tr>
+                    )
+                  }
+                  ))
+                }
               </tbody>
             </table>
           </div>
         </div>
-      </div>  
+      </div>
     </>
   );
 }

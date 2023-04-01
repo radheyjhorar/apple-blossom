@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 import api from '../../api/API';
 
 const NewVendor = () => {
+
+  const navigate = useNavigate();
 
   const [city, setCity] = useState([]);
   // const [state, setState] = useState([])
@@ -34,7 +36,7 @@ const NewVendor = () => {
     if (response.statusText === "OK") {
       console.log(response);
       //setToken(response.data, response.data.accessToken);
-      //navigate('/')
+      navigate('/vendor')
 
     }
 
