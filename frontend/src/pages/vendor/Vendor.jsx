@@ -26,17 +26,17 @@ const Vendor = () => {
     <>
       <div className='my-5'>
         <div className='text-web-center'>
-          <div className='col-9 d-flex '>
-            <h1 className="h3 text-white my-4 txt-shdo fw-bold">Vendor List</h1>
-            <Link to="/new-vendor" >
-              <button className='btn ms-auto text-white fw-bold h-3' type='button'>Add New Vendor</button>
+          <div className='col-9 d-flex my-4'>
+            <h1 className="h3 text-white txt-shdo fw-bold">Vendor List</h1>
+            <Link to="/new-vendor" className='ms-auto align-middle mt-auto' >
+              <button className='btn btn-sm my-apk-clr-bg my-btn text-white' type='button'>Add New Vendor</button>
             </Link>
           </div>
         </div>
 
         <div className='text-web-center'>
           <div className="col-9">
-            <table className='table tbl-list my-apk-clr-bg text-truncate'>
+            <table className='table tbl-list my-apk-clr-bg'>
               <thead>
                 <tr>
                   <th>Vendor Name</th>

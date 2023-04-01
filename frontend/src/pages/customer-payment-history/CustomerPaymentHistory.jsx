@@ -25,10 +25,10 @@ const CustomerPaymentHistoryList = () => {
     <>
       <div className='my-5'>
         <div className='text-web-center'>
-          <div className='col-9 d-flex '>
-            <h1 className="h3 text-white my-4 txt-shdo fw-bold">Customer Payment History List</h1>
-            <Link to="/new-customer-payment-history">
-              <button className='btn ms-auto text-white fw-bold h-3' type='button'>Add New</button>
+          <div className='col-9 d-flex my-4'>
+            <h1 className="h3 text-white txt-shdo fw-bold">Customer Payment History List</h1>
+            <Link to="/new-customer-payment-history" className='ms-auto align-middle mt-auto'>
+              <button className='btn btn-sm my-apk-clr-bg my-btn text-white' type='button'>Add New</button>
             </Link>
           </div>
         </div>
