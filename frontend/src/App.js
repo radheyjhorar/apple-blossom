@@ -41,9 +41,9 @@ const App = () => {
 
          {/* <Headers /> */}
 
-         <div class="container-fluid">
-            <div class="row">
-
+         <div className="container-fluid">
+            <div className="row">
+          
                   <Routes>
 
                      <Route index element={<Dashboard />} />

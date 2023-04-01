@@ -33,8 +33,8 @@ const Login = () => {
             const response  = await api.post('/auth/signin', user);
             if( response.statusText === "OK") {
                 console.log(response);
-               setToken(response.data,response.data.accessToken);
-               navigate('/')
+                setToken(response.data,response.data.accessToken);
+                navigate('/')
           //     setIsLoading(false)            
             }
 
@@ -59,7 +59,7 @@ const Login = () => {
                                     placeholder="Password" name="password" value={user.password}   onChange={handleChange}/>
                                 <button type="submit" className="lgn-btn mx-auto mt-4" onClick={loginUser}>Login</button>
                                 <p className="text-white sing-up-desc">Don't have an account? <a className="text-white fw-bold text-decoration-none"
-                                    href="sing-up-page">Sing
+                                    href="sing-up-page">Sign
                                     Up
                                     Now</a></p>
                                 <p className="fgt-pswrd text-white"><a className="text-white text-decoration-none" href="forgot password">Forgot

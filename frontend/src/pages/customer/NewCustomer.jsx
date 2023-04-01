@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
+
 import api from '../../api/API';
 
 
@@ -10,6 +12,16 @@ const NewCustomer = () => {
 
   const [city, setCity] = useState([]);
   // const [state, setState] = useState([])
+  const notify = (msg, time) => toast.info(msg, {
+    position: "top-right",
+    autoClose: time,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored"
+    });
 
   const [newCustomer, setNewCustomer] = useState({
     name: "",
@@ -31,13 +43,17 @@ const NewCustomer = () => {
     })
   };
 
-  const addNewCustomer = async () => {
-
+  const addNewCustomer =  async () => {
+    notify('Adding New Customer', 1000);
     const response = await api.post('/customer', newCustomer);
     if (response.statusText === "OK") {
       console.log(response);
+      //toast.dismiss();
+      notify('Added New Customer Sucessfully', 2000);
       //setToken(response.data, response.data.accessToken);
-      navigate('/customer')
+      setTimeout(function() {
+        navigate('/customer')
+      }, 2500);
 
     }
 
@@ -61,6 +77,7 @@ const NewCustomer = () => {
 
   return (
     <>
+    <ToastContainer />
       <div class="col-7 c-7-d mx-auto bg-pic my-5">
         <h1 class="offset-2 h4 my-apk-clr mt-5">New Customer</h1>
 
