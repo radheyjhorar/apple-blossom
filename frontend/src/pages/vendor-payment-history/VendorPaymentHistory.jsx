@@ -12,27 +12,27 @@ const VendorPaymentHistoryList = () => {
 
   const [vendPayHis, setVendPayHis] = useState([]);
 
-  const notify = (msg, time) => toast.info(msg, {
-    position: "top-right",
-    autoClose: time,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "dark",
-    });
+  // const notify = (msg, time) => toast.info(msg, {
+  //   position: "top-right",
+  //   autoClose: time,
+  //   hideProgressBar: false,
+  //   closeOnClick: true,
+  //   pauseOnHover: true,
+  //   draggable: true,
+  //   progress: undefined,
+  //   theme: "dark",
+  //   });
 
   useEffect(() => {
 
-    notify('Loading Vendor Payment History', 2000);
+    //notify('Loading Vendor Payment History', 2000);
 
     const fetchData = async () => {
       const response = await api.get('/vendor-payment-history');
       if (response.statusText === "OK") {
         setVendPayHis(response.data);
       }
-      toast.dismiss();
+     // toast.dismiss();
       // const response_state = await api.get('/states');
       // if (response_state.statusText === "OK") {
       //   setState(response_state.data);
@@ -70,7 +70,7 @@ const VendorPaymentHistoryList = () => {
                 {
                   (vendPayHis && vendPayHis.length > 0 && vendPayHis.map((c) => {
                     return (
-                      <tr>
+                      <tr key={c.id}>
                         <td>{c.vendor_id}</td>
                         <td>{c.payment_date}</td>
                         <td>{c.deposit_amount}</td>

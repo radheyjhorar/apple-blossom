@@ -10,16 +10,16 @@ const NewCustomerOrder = () => {
 
   const navigate = useNavigate();
 
-  const notify = (msg, time) => toast.info(msg, {
-    position: "top-right",
-    autoClose: time,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "colored"
-  });
+  // const notify = (msg, time) => toast.info(msg, {
+  //   position: "top-right",
+  //   autoClose: time,
+  //   hideProgressBar: false,
+  //   closeOnClick: true,
+  //   pauseOnHover: true,
+  //   draggable: true,
+  //   progress: undefined,
+  //   theme: "dark"
+  // });
 
   const [newCustomerOrder, setNewCustomerOrder] = useState({
     customer_id: "",
@@ -39,15 +39,15 @@ const NewCustomerOrder = () => {
   };
 
   const addNewCustomerOrder = async () => {
-    notify('Adding New Order', 1000);
+    // notify('Adding New Order', 500);
     const response = await api.post('/customer-order', newCustomerOrder);
     if (response.statusText === "OK") {
       console.log(response);
-      notify('Added New Order Sucessfully', 2000);
+      // notify('Added New Order Sucessfully', 1000);
       //setToken(response.data, response.data.accessToken);
-      setTimeout(function () {
+      // setTimeout(function () {
         navigate('/customer-order')
-      }, 2500);
+      // }, 2500);
     }
 
 

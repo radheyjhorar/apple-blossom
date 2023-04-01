@@ -3,34 +3,33 @@ import { Link } from "react-router-dom";
 import './customer-order.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
-
 import api from '../../api/API';
-const CustomerOrder = () => {
 
+const CustomerOrder = () => {
 
   const [custOrd, setCustOrd] = useState([]);
 
-  const notify = (msg, time) => toast.info(msg, {
-    position: "top-right",
-    autoClose: time,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "colored",
-    });
+  // const notify = (msg, time) => toast.info(msg, {
+  //   position: "top-right",
+  //   autoClose: time,
+  //   hideProgressBar: false,
+  //   closeOnClick: true,
+  //   pauseOnHover: true,
+  //   draggable: true,
+  //   progress: undefined,
+  //   theme: "colored",
+  //   });
 
   useEffect(() => {
 
-    notify('Loading Orders', 2000);
+    // notify('Loading Orders', 1000);
 
     const fetchData = async () => {
       const response = await api.get('/customer-order');
       if (response.statusText === "OK") {
         setCustOrd(response.data);
       }
-      toast.dismiss();
+      // toast.dismiss();
       // const response_state = await api.get('/states');
       // if (response_state.statusText === "OK") {
       //   setState(response_state.data);

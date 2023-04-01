@@ -11,16 +11,16 @@ const NewCustomerOrderItem = () => {
 
   const navigate = useNavigate();
 
-  const notify = (msg, time) => toast.info(msg, {
-    position: "top-right",
-    autoClose: time,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "colored"
-  });
+  // const notify = (msg, time) => toast.info(msg, {
+  //   position: "top-right",
+  //   autoClose: time,
+  //   hideProgressBar: false,
+  //   closeOnClick: true,
+  //   pauseOnHover: true,
+  //   draggable: true,
+  //   progress: undefined,
+  //   theme: "colored"
+  // });
 
   const [newCustomerOrderItem, setNewCustomerOrderItem] = useState({
     order_id: "",
@@ -42,15 +42,15 @@ const NewCustomerOrderItem = () => {
   };
 
   const addNewCustomerOrderItem = async () => {
-    notify('Adding New Customer Order Item', 1000);
+    //notify('Adding New Customer Order Item', 1000);
     const response = await api.post('/customer-order-item', newCustomerOrderItem);
     if (response.statusText === "OK") {
       console.log(response);
-      notify('Added New Item Sucessfully', 2000);
+      //notify('Added New Item Sucessfully', 2000);
       //setToken(response.data, response.data.accessToken);
-      setTimeout(function () {
+      //setTimeout(function () {
         navigate('/customer-order-item')
-      }, 2500);
+      //}, 2500);
     }
 
 
@@ -71,7 +71,7 @@ const NewCustomerOrderItem = () => {
             <input type="number" class="col-4 vndr-ipt d-inline-block" placeholder="Quantity" name="quantity" value={newCustomerOrderItem.quantity} onChange={handleChange} />
           </div>
           <input type="number" class="col-8 my-4 vndr-ipt d-inline-block" placeholder="Amount" name="amount" value={newCustomerOrderItem.amount} onChange={handleChange} />
-          <input type="text" class="col-8 mb-4 vndr-ipt d-inline-block" placeholder="item_status" name="item_status" value={newCustomerOrderItem.item_status} onChange={handleChange} />
+          <input type="text" class="col-8 mb-4 vndr-ipt d-inline-block" placeholder="Item status" name="item_status" value={newCustomerOrderItem.item_status} onChange={handleChange} />
 
           <div class="">
             <button type="submit" class="btn sbmt-btn px-4 text-white my-apk-clr-bg text-end mt-5" onClick={addNewCustomerOrderItem}>Submit</button>

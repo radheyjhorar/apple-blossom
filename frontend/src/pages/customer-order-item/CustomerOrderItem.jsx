@@ -10,26 +10,26 @@ const CustomerOrderItem = () => {
 
   const [custOrdItem, setCustOrdItem] = useState([]);
 
-  const notify = (msg, time) => toast.info(msg, {
-    position: "top-right",
-    autoClose: time,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "dark",
-    });
+  // const notify = (msg, time) => toast.info(msg, {
+  //   position: "top-right",
+  //   autoClose: time,
+  //   hideProgressBar: false,
+  //   closeOnClick: true,
+  //   pauseOnHover: true,
+  //   draggable: true,
+  //   progress: undefined,
+  //   theme: "dark",
+  //   });
 
   useEffect(() => {
 
-    notify('Loading Customer Order Item', 2000);
+   // notify('Loading Customer Order Item', 2000);
     const fetchData = async () => {
       const response = await api.get('/customer-order-item');
       if (response.statusText === "OK") {
         setCustOrdItem(response.data);
       }
-      toast.dismiss();
+      //toast.dismiss();
       // const response_state = await api.get('/states');
       // if (response_state.statusText === "OK") {
       //   setState(response_state.data);

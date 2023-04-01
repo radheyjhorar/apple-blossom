@@ -14,10 +14,10 @@ module.exports = (sequelize, Sequelize) => {
       city: {
         type: Sequelize.INTEGER
       },
-      state: {
-        type: Sequelize.INTEGER,
-        defaultValue: 0
-      },
+      // state: {
+      //   type: Sequelize.INTEGER,
+      //   defaultValue: 0
+      // },
       mobile1: {
         type: Sequelize.STRING
       },
