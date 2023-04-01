@@ -83,7 +83,7 @@ const Customer = () => {
                         <td>{c.mobile1}</td>
                         <td>{c.mobile2}</td>
                         <td>{c.address}</td>
-                        <td>{c.city}</td>
+                        <td>{c.customer_city['city_name']}</td>
                       </tr>
                     )
                   }
