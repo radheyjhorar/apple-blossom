@@ -45,7 +45,7 @@ const NewVendorStock = () => {
       <div class="col-7 c-7-d mx-auto bg-pic my-5">
         <h1 class="offset-2 h4 my-apk-clr mt-5">Vendor New Stock</h1>
         
-          <div class="wrap-block">
+          <div class="text-center">
             <div className='mt-5'>
             <input type="number" class="col-4 vndr-ipt me-1 d-inline-block" placeholder="Vendor ID" name="vendor_id" value={newVendorStock.vendor_id} onChange={handleChange} />
             <input type="number" class="col-4 vndr-ipt d-inline-block" placeholder="Rate" name="rate" value={newVendorStock.rate} onChange={handleChange} />

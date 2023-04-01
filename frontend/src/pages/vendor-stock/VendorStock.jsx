@@ -23,11 +23,15 @@ const VendorStock = () => {
 
   return (
     <>
-    <div className='my-5'>
-       <h1 className="offset-2 h3 text-white my-4 txt-shdo fw-bold">Vendor Stock List</h1>
-
-       <div className='text-web-center'>
-          <div className="col-8">
+      <div className='my-5'>
+        <div className='text-web-center'>
+          <div className='col-9 d-flex '>
+            <h1 className="h3 text-white my-4 txt-shdo fw-bold">Vendor Stock List</h1>
+            <button className='btn ms-auto text-white fw-bold h-3' type='button'>Add New Vendor</button>
+          </div>
+        </div>
+        <div className='text-web-center'>
+          <div className="col-9">
             <table className='table tbl-list my-apk-clr-bg'>
               <thead>
                 <tr>
@@ -41,25 +45,26 @@ const VendorStock = () => {
               </thead>
 
               <tbody>
-              {
-                  (vendStk && vendStk.length > 0 && vendStk.map((c) =>{
+                {
+                  (vendStk && vendStk.length > 0 && vendStk.map((c) => {
                     return (
-                <tr>
-                  <td>{c.vendor_id}</td>
-                  <td>{c.description}</td>
-                  <td>{c.rate}</td>
-                  <td>{c.quantity}</td>
-                  <td>{c.amount}</td>
-                  <td>{c.stock_date}</td>
-                </tr>
-                 )}
-                 ))
-               }
+                      <tr>
+                        <td>{c.vendor_id}</td>
+                        <td>{c.description}</td>
+                        <td>{c.rate}</td>
+                        <td>{c.quantity}</td>
+                        <td>{c.amount}</td>
+                        <td>{c.stock_date}</td>
+                      </tr>
+                    )
+                  }
+                  ))
+                }
               </tbody>
             </table>
           </div>
         </div>
-      </div>     
+      </div>
     </>
   );
 }

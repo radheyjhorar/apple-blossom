@@ -27,14 +27,13 @@ const Vendor = () => {
        <h1 className="offset-2 h3 text-white my-4 txt-shdo fw-bold">Vendor List</h1>
 
        <div className='text-web-center'>
-          <div className="col-8">
-            <table className='table tbl-list my-apk-clr-bg'>
+          <div className="col-9">
+            <table className='table tbl-list my-apk-clr-bg text-truncate'>
               <thead>
                 <tr>
                   <th>Vendor Name</th>
                   <th>Vendor Address</th>
                   <th>City</th>
-                  <th>State</th>
                   <th>Mobile 1</th>
                   <th>Mobile 2</th>
                 </tr>
@@ -48,7 +47,6 @@ const Vendor = () => {
                   <td>{c.vendor_name}</td>
                   <td>{c.vendor_address}</td>
                   <td>{c.city}</td>
-                  <td>{c.state}</td>
                   <td>{c.mobile1}</td>
                   <td>{c.mobile2}</td>
                 </tr>
