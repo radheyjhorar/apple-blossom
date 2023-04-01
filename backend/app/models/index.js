@@ -60,8 +60,15 @@ globalMastersDB.user.hasOne(globalMastersDB.refreshToken, {
 
 globalMastersDB.ROLES = ["user", "admin", "moderator"];
 
+
+globalMastersDB.customer.belongsTo(globalMastersDB.cities, {
+  as: 'customer_city', 
+  foreignKey: 'city'
+});
+globalMastersDB.cities.hasOne(globalMastersDB.customer, {
+  foreignKey: 'city'
+});
+
 module.exports = {
   globalMastersDB,
- 
-
 }

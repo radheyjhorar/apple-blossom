@@ -1,5 +1,6 @@
 const { globalMastersDB } = require("../models");
 const customer = globalMastersDB.customer;
+const cities = globalMastersDB.cities;
 const Op = globalMastersDB.Sequelize.Op;
 
 
@@ -41,7 +42,14 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
 
 
-    customer.findAll()
+    customer.findAll({
+      include: [{
+        model: cities,
+        as: 'customer_city',
+        attributes: ['city_name']
+        
+      }]
+    })
     .then(data => {
       res.send(data);
     })
