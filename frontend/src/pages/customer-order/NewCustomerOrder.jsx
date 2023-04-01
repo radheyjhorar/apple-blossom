@@ -39,7 +39,7 @@ const NewCustomerOrder = () => {
 
   return (
     <>
-      <div class="col-7 c-7-d mx-auto bg-pic">
+      <div class="col-7 c-7-d mx-auto bg-pic my-5">
         <h1 class="offset-2 h4 my-apk-clr mt-5">New Customer Order</h1>
           <div class="text-center">
             <input type="number" class="col-7 vndr-ipt my-4 d-inline-block" placeholder="Customer ID" name='customer_id' value={newCustomerOrder.customer_id} onChange={handleChange} />

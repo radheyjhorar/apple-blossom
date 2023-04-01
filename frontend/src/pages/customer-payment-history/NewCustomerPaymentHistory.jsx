@@ -41,7 +41,7 @@ const NewCustomerPaymentHistory = () => {
 
   return (
     <>
-      <div class="col-7 c-7-d mx-auto bg-pic h-30 text-center">
+      <div class="col-7 c-7-d mx-auto bg-pic h-30 text-center my-5">
         <h1 class="h4 my-apk-clr mt-5">New Customer Payment History</h1>
         
           <div class="text-center">

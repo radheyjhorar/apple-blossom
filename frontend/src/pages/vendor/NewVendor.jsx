@@ -59,7 +59,7 @@ const NewVendor = () => {
 
   return (
     <>
-      <div class="col-7 c-7-d mx-auto bg-pic h-30">
+      <div class="col-7 c-7-d mx-auto bg-pic h-30 my-5">
         <h1 class="offset-2 h4 my-apk-clr mt-5">New Vendor</h1>
         <div className='text-center'>
           <div class="mt-5">

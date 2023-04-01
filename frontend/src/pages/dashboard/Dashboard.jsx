@@ -9,8 +9,11 @@ const Dashboard = () => {
 
   return (
     <>
-       <h1 className="offset-2 h4 my-apk-clr mt-5">Dashboard</h1>
-             
+      <div>
+        <div className='col-2 bg-primary'></div>
+        <h1 className="offset-2 h4 my-apk-clr mt-5">Dashboard</h1>
+
+      </div>
     </>
   );
 }

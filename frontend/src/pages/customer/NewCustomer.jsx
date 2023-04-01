@@ -59,7 +59,7 @@ const NewCustomer = () => {
 
   return (
     <>
-      <div class="col-7 c-7-d mx-auto bg-pic">
+      <div class="col-7 c-7-d mx-auto bg-pic my-5">
         <h1 class="offset-2 h4 my-apk-clr mt-5">New Customer</h1>
 
         <div class="text-center">

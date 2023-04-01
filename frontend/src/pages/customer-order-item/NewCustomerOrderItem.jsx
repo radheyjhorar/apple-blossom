@@ -41,7 +41,7 @@ const NewCustomerOrderItem = () => {
 
   return (
     <>
-      <div class="col-7 c-7-d mx-auto bg-pic h-30">
+      <div class="col-7 c-7-d mx-auto bg-pic h-30 my-5">
         <h1 class="offset-2 h4 my-apk-clr mt-5">New Customer Order Item</h1>
         <div class="text-center">
           <div>

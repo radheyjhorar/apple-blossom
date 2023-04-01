@@ -9,3 +9,17 @@
     border-radius: .5rem;
     font-size: small !important;
 }
+.text-web-center {
+    text-align: -webkit-center;
+}
+.tbl-list {
+    -webkit-box-shadow: 0 2px 10px 1px rgba(0,0,0,0.07);
+    box-shadow: 0 2px 10px 1px rgba(0,0,0,0.07);
+    border-radius: .4rem;
+    border: #494949 !important;
+    color: rgb(50, 50, 50) !important;
+}
+.txt-shdo {
+    text-shadow: 3px 3px rgba(0, 0, 0, 0.2);
+}
+

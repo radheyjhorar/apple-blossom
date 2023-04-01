@@ -2,7 +2,7 @@
     color: #fc0e49bf !important;
 }
 .my-apk-clr-bg {
-    background-color: #FF5776 !important;
+    background: linear-gradient(to bottom, #ff9787 0%, #ff4271 100%) !important;
 }
 .vndr-ipt {
     background: rgba(255, 110, 148, .18); 

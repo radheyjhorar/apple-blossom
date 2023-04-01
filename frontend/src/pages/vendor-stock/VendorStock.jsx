@@ -23,12 +23,12 @@ const VendorStock = () => {
 
   return (
     <>
-    <div>
-       <h1 className="offset-2 h4 my-apk-clr mt-5">Vendor Stock List</h1>
+    <div className='my-5'>
+       <h1 className="offset-2 h3 text-white my-4 txt-shdo fw-bold">Vendor Stock List</h1>
 
-       <div className='text-center'>
+       <div className='text-web-center'>
           <div className="col-8">
-            <table className='table'>
+            <table className='table tbl-list my-apk-clr-bg'>
               <thead>
                 <tr>
                   <th>Vendor Id</th>

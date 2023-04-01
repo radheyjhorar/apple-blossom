@@ -22,12 +22,12 @@ const Customer = () => {
 
   return (
     <>
-      <div>
-        <h1 className="offset-2 h4 text-white mt-5">Customer List</h1>
+      <div className='my-5'>
+        <h1 className="offset-2 h3 text-white my-4 txt-shdo fw-bold">Customer List</h1>
 
-        <div className='text-center'>
+        <div className='text-web-center'>
           <div className="col-8">
-            <table className='table'>
+            <table className='table tbl-list my-apk-clr-bg'>
               <thead>
                 <tr>
                   <th>Customer Name</th>

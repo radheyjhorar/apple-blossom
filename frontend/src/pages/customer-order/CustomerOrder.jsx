@@ -23,12 +23,12 @@ const CustomerOrder = () => {
 
   return (
     <>
-      <div>
-        <h1 className="offset-2 h4 my-apk-clr mt-5">Customer Order List</h1>
+      <div className='my-5'>
+        <h1 className="offset-2 h3 text-white my-4 txt-shdo fw-bold">Customer Order List</h1>
 
-        <div className=''>
+        <div className='text-web-center'>
           <div className="col-8 ">
-            <table className='table table-danger text-center'>
+            <table className='table tbl-list my-apk-clr-bg '>
               <thead>
                 <tr>
                   <th>Customer Id</th>
