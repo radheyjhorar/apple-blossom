@@ -1,4 +1,4 @@
-.services-bx {
+/* .services-bx {
     width:11% !important;
    
 }
@@ -127,9 +127,21 @@ a {
 .fw-900 {
     font-weight: 900 !important;
 }
- /* .dwdt .react-multi-carousel-item--active > div  {
-    width: 100% !important;
-}  */
+  /*.dwdt .react-multi-carousel-item--active > div  {
+    width: 100% !important; * /
+}  
 .dwdt .react-multi-carousel-item--active {
     margin-right: 10px;;
+} */
+.dash-clr {
+    background: linear-gradient(to bottom, #4E73DF 0%, #4E73DF 100%);
+}
+.nvbr {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    height: 4.375rem;
 }
