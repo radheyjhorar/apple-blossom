@@ -8,9 +8,8 @@ import { Dashboard, NoPage, Customer, NewCustomer, Vendor, NewVendor, CustomerOr
 import api from './api/API';
 import { Register, Login, AuthUser } from './components';
 import './App.css';
-// import { library } from "@fortawesome/fontawesome-svg-core";
-// import { faTimesCircle, faCheckCircle, faQuestionCircle, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
-
+//  import { library } from "@fortawesome/fontawesome-svg-core";
+// import { , faCheckCircle, faQuestionCircle, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
 // library.add(faTimesCircle, faCheckCircle, faQuestionCircle, faGraduationCap);
 
 
