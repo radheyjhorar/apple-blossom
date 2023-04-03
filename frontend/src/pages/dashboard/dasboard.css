@@ -158,8 +158,9 @@ a {
     font-size: 2rem !important;
     font-style: normal;
 }
-.txt-d-n {
+.first-link {
     text-decoration: none;
+    letter-spacing: 0.07rem;
 }
 
 a {
@@ -179,6 +180,21 @@ a {
 .fs-0-66 {
     font-size: 0.66rem;
 }
-.text-light-gray {
-    color: #bbbbbb !important;
+.text-light-white {
+    color: #d6d6d6 !important;
+}
+.h-100vw {
+    height: 100vw;
+}
+
+.navbar-nav li:hover {
+    color: #000000 !important;
+    background-color: #fff;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.form-control {
+    border-radius: .5rem 0 0 .5rem !important;
+}
+.w-18 {
+    width: 18rem;
 }
