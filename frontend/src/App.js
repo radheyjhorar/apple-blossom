@@ -48,20 +48,20 @@ const App = () => {
 
                      <Route index element={<Dashboard />} />
                      <Route path="customer" element={<Customer />} />
-                     <Route path="new-customer" element={<NewCustomer />} />
+                     <Route path="new-customer/:id?" element={<NewCustomer />} />                     
                      <Route path="vendor" element={<Vendor />} />
-                     <Route path="new-vendor" element={<NewVendor />} />
+                     <Route path="new-vendor/:id?" element={<NewVendor />} />
                      <Route path="customer-order" element={<CustomerOrder />} />
-                     <Route path="new-customer-order" element={<NewCustomerOrder />} />
+                     <Route path="new-customer-order/:id?" element={<NewCustomerOrder />} />
                      <Route path="customer-order-item" element={<CustomerOrdeItem />} />
                      <Route path="new-customer-order-item" element={<NewCustomerOrderItem />} />
                      <Route path="customer-payment-history" element={<CustomerPaymentHistory />} />
-                     <Route path="new-customer-payment-history" element={<NewCustomerPaymentHistory />} />
+                     <Route path="new-customer-payment-history/:id?" element={<NewCustomerPaymentHistory />} />
                      <Route path="vendor-stock" element={<VendorStock />} />
-                     <Route path="new-vendor-stock" element={<NewVendorStock />} />
+                     <Route path="new-vendor-stock/:id?" element={<NewVendorStock />} />
                      <Route path="vendor-payment-history" element={<VendorPaymentHistory />} />
-                     <Route path="new-vendor-payment-history" element={<NewVendorPaymentHistory />} />
-                     <Route path="login" element={<Login />} />
+                     <Route path="new-vendor-payment-history/:id?" element={<NewVendorPaymentHistory />} />
+                     {/* <Route path="login" element={<Login />} /> */}
                      
                      {/* <Route path="search/:cityName" element={<Search />} />
                   <Route path="school/:schoolId" element={<Schools />} />

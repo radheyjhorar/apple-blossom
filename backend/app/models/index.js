@@ -69,6 +69,7 @@ globalMastersDB.cities.hasOne(globalMastersDB.customer, {
   foreignKey: 'city'
 });
 
+
 module.exports = {
   globalMastersDB,
 }

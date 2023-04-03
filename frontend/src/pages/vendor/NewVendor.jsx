@@ -67,6 +67,7 @@ const NewVendor = () => {
       if (response_city.statusText === "OK") {
         setCity(response_city.data);
       }
+      
       // const response_state = await api.get('/states');
       // if (response_state.statusText === "OK") {
       //   setState(response_state.data);

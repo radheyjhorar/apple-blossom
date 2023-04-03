@@ -27,7 +27,7 @@ const NewCustomerOrderItem = () => {
     item_name: "",
     item_rate: "",
     quantity: "",
-    amount: "",
+    amount: 0,
     item_status: ""
   });
 
