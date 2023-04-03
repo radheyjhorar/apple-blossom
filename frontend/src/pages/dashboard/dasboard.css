@@ -133,8 +133,11 @@ a {
 .dwdt .react-multi-carousel-item--active {
     margin-right: 10px;;
 } */
-.dash-clr {
-    background: linear-gradient(to bottom, #4E73DF 0%, #4E73DF 100%);
+.bg-clr {
+    background: linear-gradient(180deg,#4e73df 10%,#224abe 100%);;
+}
+.wdt-17-75 {
+    width: 17.75% !important;
 }
 .nvbr {
     position: relative;
@@ -144,4 +147,38 @@ a {
     justify-content: space-between;
     padding: 0.5rem 1rem;
     height: 4.375rem;
+}
+.sidebar-brand {
+    letter-spacing: .05rem;
+}
+.rotate-n-15 {
+    transform: rotate(-15deg);
+}
+.i-lgh-wnk {
+    font-size: 2rem !important;
+    font-style: normal;
+}
+.txt-d-n {
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none !important;
+    background-color: transparent;
+}
+.techo-m-i {
+    font-size: .85rem;
+    margin-right: 0.25rem;
+}
+.fw-500 {
+    font-weight: 500 !important;
+}
+.fs-small {
+    font-size: small !important;
+}
+.fs-0-66 {
+    font-size: 0.66rem;
+}
+.text-light-gray {
+    color: #bbbbbb !important;
 }

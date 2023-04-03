@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './dasboard.css';
 import api from '../../api/API';
 
@@ -10,34 +11,33 @@ const Dashboard = () => {
   return (
     <>
       
-        <div className='col-2'>
-          <ul className='navbar-nav bg-gradient-primary sidebar sidebar-dark accordion'>
-            <a className='sidebar-brand d-flex align-items-center justify-content-center' href="/">
-              <div className='sidebar-brand-icon rotate-n-15'>
-                <i className='fas fa-laugh-wink'></i>
+        <div className='col-2 bg-clr wdt-17-75'>
+          <ul className='navbar-nav sidebar-brand'>
+            <Link to="" className='text-white d-flex my-3 txt-d-n align-items-center justify-content-center'>
+              <div className='rotate-n-15'>
+              <FontAwesomeIcon icon="fa-solid fa-face-laugh-wink" className='i-lgh-wnk' />
               </div>
-              <div className='sidebar-brand-text mx-3'>
+              <div className='text-white mx-3 text-uppercase fw-bold'>
               SB Admin <sup>2</sup>
               </div>
-            </a>
-            <hr className='sidebar-divider my-0'/>
-            <li className='nav-item active'>
-                <a href="/" className='nav-link'>
-                  <i className='fas fa-fw fa-tachometer-alt'>
+            </Link>
+            <hr className='text-white my-0'/>
 
-                  </i>
+            <li className='py-3'>
+                <Link to="" className='text-white fw-500 fs-small ' >
+                <FontAwesomeIcon icon="fas fa-tachometer-alt" className='techo-m-i'/>
                   <span>Dashboard</span>
-                </a>
+                </Link>
             </li>
-            <hr className='sidebar-divider'/>
+            <hr className='text-white my-0'/>
 
-            <div className='sidebar-heading'>Interface</div>
+            <div className='text-light-gray text-uppercase fs-0-66 fw-bold my-2'>Interface</div>
 
-            <li className='nav-item'>
-              <a href="/" className='nav-link collapsed'>
+            <li className='ms-2'>
+              <Link to="" className='nav-link collapsed'>
                 <i className='fas fa-fw fa-cog'></i>
                 <span>Components</span>
-              </a>
+              </Link>
             </li>
 
             <li className='nav-item'>
@@ -80,7 +80,7 @@ const Dashboard = () => {
 
 
 
-        <div className='col-10'>
+        <div className='col px-0'>
           <div className='d-flex flex-column'>
             <div>
               <nav className='navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow'>
