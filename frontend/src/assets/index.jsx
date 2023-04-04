@@ -1,1 +1,1 @@
-export { default as AppleLogo } from './images/apl-logo.png';
+export { default as AppleLogo } from './images/att-logo-600x600.avif';

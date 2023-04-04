@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
-
 import './customer-payment-history.css';
 import api from '../../api/API';
 
@@ -13,41 +11,51 @@ const CustomerPaymentHistoryList = () => {
 
   const [custPayHis, setCustPayHis] = useState([]);
 
-  // const notify = (msg, time) => toast.info(msg, {
-  //   position: "top-right",
-  //   autoClose: time,
-  //   hideProgressBar: false,
-  //   closeOnClick: true,
-  //   pauseOnHover: true,
-  //   draggable: true,
-  //   progress: undefined,
-  //   theme: "dark",
-  //   });
+  const notify = (msg, time) => toast.info(msg, {
+    position: "top-right",
+    autoClose: time,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    });
 
-  useEffect(() => {
-
-    // notify('Loading Customer Payment History', 2000);
     const fetchData = async () => {
+      notify('Loading Customer Payment History', 2000);
       const response = await api.get('/customer-payment-history');
       if (response.statusText === "OK") {
         setCustPayHis(response.data);
       }
-      // toast.dismiss();
+      toast.dismiss();
       // const response_state = await api.get('/states');
       // if (response_state.statusText === "OK") {
       //   setState(response_state.data);
       // }
     };
+
+    useEffect(() => {
     fetchData();
 
   }, [])
 
+  const deleteCustPayHis = () => {
+    notify('Deleting Customer Payment History', 2000);
+    const deleteData = async () => {
+      const response = await api.delete('/customer-payment-history');
+      if (response.statusText === "OK") {
+          fetchData();
+      }
+    }
+    deleteData();
+  }
+
   return (
     <>
-    <ToastContainer />
-      <div className='my-5'>
+      <div className='col-9 mx-auto'>
         <div className='text-web-center'>
-          <div className='col-9 d-flex my-4'>
+          <div className='col-12 d-flex my-4'>
             <h1 className="h3 my-apk-clr txt-shdo fw-bold">Customer Payment History List</h1>
             <Link to="/new-customer-payment-history" className='ms-auto align-middle mt-auto'>
               <button className='btn btn-sm my-apk-clr-bg my-btn text-white' type='button'>Add New</button>
@@ -55,7 +63,7 @@ const CustomerPaymentHistoryList = () => {
           </div>
         </div>
         <div className='text-web-center'>
-          <div className="col-9">
+          <div className="col-12">
             <table className='table tbl-list my-apk-clr-bg'>
               <thead>
                 <tr>
@@ -84,7 +92,7 @@ const CustomerPaymentHistoryList = () => {
                           <FontAwesomeIcon icon="fas fa-edit" />
                           </Link>
                           <Link to="" className='btn btn-danger btn-sm'>
-                          <FontAwesomeIcon icon="fa-solid fa-trash-can" />
+                          <FontAwesomeIcon icon="fa-solid fa-trash-can" onClick={deleteCustPayHis}/>
                           </Link>
                         </td>
                       </tr>
@@ -97,6 +105,7 @@ const CustomerPaymentHistoryList = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 }

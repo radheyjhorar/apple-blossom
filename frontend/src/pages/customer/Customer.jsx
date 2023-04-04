@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import 'react-toastify/dist/ReactToastify.css'
-
 import './customer.css';
 import api from '../../api/API';
 
@@ -54,11 +53,9 @@ const Customer = () => {
   return (
 
     <>
-      <ToastContainer />
-
-      <div className='my-5'>
+      <div className='col-9 mx-auto'>
         <div className='text-web-center'>
-          <div className='col-9 d-flex my-4'>
+          <div className='col-12 d-flex my-4'>
             <h1 className="h2 mb-0 my-apk-clr txt-shdo fw-bold">Customer List</h1>
             <Link to="/new-customer" className='ms-auto align-middle mt-auto'>
               <button className='btn btn-sm my-apk-clr-bg my-btn text-white' type='button'>Add New Customer</button>
@@ -67,7 +64,7 @@ const Customer = () => {
         </div>
 
         <div className='text-web-center'>
-          <div className="col-9">
+          <div className="col-12">
             <table className='table tbl-list my-apk-clr-bg'>
               <thead>
                 <tr>
@@ -115,10 +112,7 @@ const Customer = () => {
           </div>
         </div>
       </div>
-
-
-
-
+      <ToastContainer />
     </>
   );
 }

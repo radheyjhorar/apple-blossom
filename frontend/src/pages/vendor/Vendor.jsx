@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
-
 import './vendor.css';
 import api from '../../api/API';
 
@@ -24,9 +22,9 @@ const Vendor = () => {
     theme: "dark",
     });
 
-  useEffect(() => {
-    notify('Loading Vendor', 2000);
+  
     const fetchData = async () => {
+      notify('Loading Vendor', 2000);
       const response = await api.get('/vendor');
       if (response.statusText === "OK") {
         setVend(response.data);
@@ -37,16 +35,30 @@ const Vendor = () => {
       //   setState(response_state.data);
       // }
     };
+
+    useEffect(() => {
     fetchData();
 
   }, [])
 
+  const deleteVendor = () => {
+    notify('Deleting Vendor', 2000);
+    const deleteData = async () => {
+      const response = await api.delete('/vendor');
+      if (response.statusText === "OK") {
+          fetchData();
+      }
+    }
+    deleteData();
+  }
+
   return (
+
     <>
-     <ToastContainer />
-      <div className='my-5'>
+     
+      <div className='col-9 mx-auto'>
         <div className='text-web-center'>
-          <div className='col-9 d-flex my-4'>
+          <div className='col d-flex my-4'>
             <h1 className="h3 my-apk-clr txt-shdo fw-bold">Vendor List</h1>
             <Link to="/new-vendor" className='ms-auto align-middle mt-auto' >
               <button className='btn btn-sm my-apk-clr-bg my-btn text-white' type='button'>Add New Vendor</button>
@@ -55,7 +67,7 @@ const Vendor = () => {
         </div>
 
         <div className='text-web-center'>
-          <div className="col-9">
+          <div className="col">
             <table className='table tbl-list my-apk-clr-bg'>
               <thead>
                 <tr>
@@ -72,7 +84,7 @@ const Vendor = () => {
                 {
                   (vend && vend.length > 0 && vend.map((c) => {
                     return (
-                      <tr key={c.id}>
+                      <tr>
                         <td>{c.vendor_name}</td>
                         {/* <td>{c.vendor_address}</td> */}
                         <td>{c.city}</td>
@@ -86,7 +98,7 @@ const Vendor = () => {
                           <FontAwesomeIcon icon="fas fa-edit" />
                           </Link>
                           <Link to="" className='btn btn-danger btn-sm'>
-                          <FontAwesomeIcon icon="fa-solid fa-trash-can" />
+                          <FontAwesomeIcon icon="fa-solid fa-trash-can" onClick={deleteVendor} />
                           </Link>
                         </td>
                       </tr>
@@ -99,6 +111,7 @@ const Vendor = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 }

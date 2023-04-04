@@ -10,11 +10,6 @@ const Dashboard = () => {
 
   return (
     <>
-
-   
-
-
-
       <div className='col px-0'>
         <div className='d-flex flex-column'>
           <div>
@@ -30,7 +25,7 @@ const Dashboard = () => {
                 </div>
                 <ul className='navbar-nav'>
                   <li className='me-4'>
-                    <Link to="" className=''>
+                    <Link to="login" className=''>
                       <div className='btn btn btn-primary'>Login</div>
                     </Link>
                   </li>

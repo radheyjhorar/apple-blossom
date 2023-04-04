@@ -134,10 +134,10 @@ a {
     margin-right: 10px;;
 } */
 .bg-clr {
-    background: linear-gradient(180deg,#4e73df 10%,#224abe 100%);;
+    background: linear-gradient(180deg,#644cdb 10%,#5c1fc6 100%);;
 }
-.wdt-17-75 {
-    width: 17.75% !important;
+.wdt-20 {
+    width: 20% !important;
 }
 .nvbr {
     position: relative;
@@ -188,9 +188,9 @@ a {
 }
 
 .navbar-nav li:hover {
-    color: #000000 !important;
-    background-color: #fff;
-    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    color: #ffffff !important;
+    /* background-color: #fff; */
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) !important;
 }
 .form-control {
     border-radius: .5rem 0 0 .5rem !important;

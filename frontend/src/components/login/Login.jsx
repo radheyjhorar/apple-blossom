@@ -43,8 +43,8 @@ const Login = () => {
     };
     return (
         <>
-            <div className="my-sm-5">
-                    <div className="col-3 mbl-lgn-pg border-white border-4 shadow mx-auto">
+            <div className="col-9 mx-auto bg-clr my-4">
+                    <div className="col-3 bg-clr mbl-lgn-pg border-white border-4 shadow my-5 mx-auto">
                         <div className="apl-logo-bg">
                             <img src={ AppleLogo } className="w-100 h-100 overflow-hidden" alt="Logo" />
                         </div>

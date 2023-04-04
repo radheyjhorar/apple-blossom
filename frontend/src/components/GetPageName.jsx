@@ -15,8 +15,23 @@ import { useState } from 'react';
             case '/vendor-stock':
                 pageName = 'Vendor Stock';
             break;
+            case '/vendor-payment-history':
+                pageName = 'Vendor Payment History';
+            break;
+            case '/customer':
+                pageName = 'Customer';
+            break;
+            case '/customer-order':
+                pageName = 'Customer Order';
+            break;
+            case '/customer-order-item':
+                pageName = 'Customer Order Item';
+            break;
+            case '/customer-payment-history':
+                pageName = 'Customer Payment History';
+            break;
             default:
-                pageName = 'Dashboard';
+                pageName = 'Apple Blossom';
         }
         return pageName;
     }
