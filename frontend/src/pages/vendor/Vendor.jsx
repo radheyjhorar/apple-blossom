@@ -72,7 +72,7 @@ const Vendor = () => {
                 {
                   (vend && vend.length > 0 && vend.map((c) => {
                     return (
-                      <tr>
+                      <tr key={c.id}>
                         <td>{c.vendor_name}</td>
                         {/* <td>{c.vendor_address}</td> */}
                         <td>{c.city}</td>

@@ -1,6 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { FilterProvider } from './contexts/filter-context';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 // Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -12,9 +13,10 @@ const root = createRoot(container); // createRoot(container!) if you use TypeScr
 //render(<App/>, document.getElementById('root'));
 root.render(
 
-
+    <BrowserRouter>
     <FilterProvider>
         <App />
-    </FilterProvider>    
+    </FilterProvider>  
+    </BrowserRouter>  
 
 );

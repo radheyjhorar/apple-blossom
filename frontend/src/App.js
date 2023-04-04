@@ -1,12 +1,12 @@
 
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation, } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 
 import 'react-toastify/dist/ReactToastify.css';
-import { Headers, Footer } from './_shared';
+import { Headers, SideBar, Footer } from './_shared';
 import { Dashboard, NoPage, Customer, NewCustomer, Vendor, NewVendor, CustomerOrder, NewCustomerOrder, CustomerOrdeItem, NewCustomerOrderItem, CustomerPaymentHistory, NewCustomerPaymentHistory, VendorStock, NewVendorStock, VendorPaymentHistory, NewVendorPaymentHistory } from './pages';
 import api from './api/API';
-import { Register, Login, AuthUser } from './components';
+import { Register, Login, AuthUser, getPageName } from './components';
 import './App.css';
 //  import { library } from "@fortawesome/fontawesome-svg-core";
 // import { , faCheckCircle, faQuestionCircle, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
@@ -16,35 +16,25 @@ import './App.css';
 //toast.configure();
 
 
-const App = () => {
+const App = (props) => {
 
    const {getToken} = AuthUser();
+   const [pageName, setPageName] = useState();
+   const location = useLocation();
 
-   useEffect(() => {
+  
 
+    return (
 
-
-
-
-   }, []);
-
-
-
-
-
-   return (
-
-
-      <Router>
-
-
+      <>
          {/* <Headers /> */}
+        
 
          <div className="container-fluid">
             <div className="row">
-          
+            <SideBar pageName={getPageName(location.pathname)}/>
                   <Routes>
-
+                 
                      <Route index element={<Dashboard />} />
                      <Route path="customer" element={<Customer />} />
                      <Route path="new-customer/:id?" element={<NewCustomer />} />                     
@@ -82,8 +72,8 @@ const App = () => {
 
                </div>
             </div>
-      </Router>
-
+   
+            </>
 
 
    );

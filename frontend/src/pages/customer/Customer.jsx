@@ -20,33 +20,42 @@ const Customer = () => {
     draggable: true,
     progress: undefined,
     theme: "dark",
-    });
+  });
 
-  useEffect(() => {
-
+  const fetchData = async () => {
     notify('Loading Customer', 2000);
-    const fetchData = async () => {
-   
-      const response = await api.get('/customer');
-      if (response.statusText === "OK") {
-        setCust(response.data);
-      }
+    const response = await api.get('/customer');
+    if (response.statusText === "OK") {
+      setCust(response.data); 
+    }
+    toast.dismiss();
+    // const response_state = await api.get('/states');
+    // if (response_state.statusText === "OK") {
+    //   setState(response_state.data);
+    // }
+  };
 
-      toast.dismiss();
-      // const response_state = await api.get('/states');
-      // if (response_state.statusText === "OK") {
-      //   setState(response_state.data);
-      // }
-    };
+  useEffect(() => { 
     fetchData();
 
   }, [])
 
+  const deleteCustomer = () => {
+    notify('Deleting Customer', 2000);
+    const deleteData = async () => {
+      const response = await api.delete('/customer');
+      if (response.statusText === "OK") {
+          fetchData();
+      }
+    }
+    deleteData();
+  }
+
   return (
- 
+
     <>
       <ToastContainer />
-      
+
       <div className='my-5'>
         <div className='text-web-center'>
           <div className='col-9 d-flex my-4'>
@@ -87,13 +96,13 @@ const Customer = () => {
                         <td>{c.customer_city['city_name']}</td>
                         <td>
                           <Link to="" className='btn btn-info btn-sm me-1'>
-                          <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                            <FontAwesomeIcon icon="fa-solid fa-circle-info" />
                           </Link>
                           <Link to="" className='btn btn-warning btn-sm me-1'>
-                          <FontAwesomeIcon icon="fas fa-edit" />
+                            <FontAwesomeIcon icon="fas fa-edit" />
                           </Link>
                           <Link to="" className='btn btn-danger btn-sm'>
-                          <FontAwesomeIcon icon="fa-solid fa-trash-can" />
+                            <FontAwesomeIcon icon="fa-solid fa-trash-can" onClick={deleteCustomer} />
                           </Link>
                         </td>
                       </tr>
@@ -108,7 +117,7 @@ const Customer = () => {
       </div>
 
 
-    
+
 
     </>
   );

@@ -73,7 +73,7 @@ const CustomerOrderItem = () => {
                 {
                   (custOrdItem && custOrdItem.length > 0 && custOrdItem.map((c) => {
                     return (
-                      <tr>
+                      <tr key={c.id}>
                         <td>{c.order_id}</td>
                         <td>{c.item_name}</td>
                         <td>{c.item_rate}</td>

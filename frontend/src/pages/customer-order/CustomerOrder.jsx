@@ -70,7 +70,7 @@ const CustomerOrder = () => {
                 {
                   (custOrd && custOrd.length > 0 && custOrd.map((c) => {
                     return (
-                      <tr>
+                      <tr key={c.id}>
                         <td>{c.customer_id}</td>
                         <td>{c.order_description}</td>
                         <td>{c.total_amount}</td>

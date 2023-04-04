@@ -52,7 +52,7 @@ const VendorStock = () => {
                 {
                   (vendStk && vendStk.length > 0 && vendStk.map((c) => {
                     return (
-                      <tr>
+                      <tr key={c.id}>
                         <td>{c.vendor_id}</td>
                         {/* <td>{c.description}</td> */}
                         <td>{c.rate}</td>

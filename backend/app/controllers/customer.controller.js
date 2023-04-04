@@ -110,8 +110,8 @@ exports.update = (req, res) => {
 // Delete a customer with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
-
-  customer.destroy({
+  customer.update({isDeleted: 1}, {
+  //customer.destroy({
     where: { id: id }
   })
     .then(num => {
