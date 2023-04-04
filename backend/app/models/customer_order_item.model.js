@@ -23,6 +23,10 @@ module.exports = (sequelize, Sequelize) => {
       item_status: {
         type: Sequelize.INTEGER
       },
+      is_delete: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: 0,
+      }
      
     });
   

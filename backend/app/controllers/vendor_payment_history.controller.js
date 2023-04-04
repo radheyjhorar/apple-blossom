@@ -36,7 +36,9 @@ exports.create = (req, res) => {
 
 // Retrieve all vendor_payment_history from the database.
 exports.findAll = (req, res) => {
-  vendor_payment_history.findAll()
+  vendor_payment_history.findAll({
+    where: { is_delete: 0}
+  })
     .then(data => {
       res.send(data);
     })
@@ -65,6 +67,31 @@ exports.findOne = (req, res) => {
     .catch(err => {
       res.status(500).send({
         message: "Error retrieving Payment History with id=" + id
+      });
+    });
+};
+
+// Delete a vendor payment history with the specified id in the request
+exports.delete = (req, res) => {
+  const id = req.params.id;
+  vendor_payment_history.update({is_delete: 1}, {
+  //vendor_payment_history.destroy({
+    where: { id: id }
+  })
+    .then(num => {
+      if (num == 1) {
+        res.send({
+          message: "vendor payment history was deleted successfully!"
+        });
+      } else {
+        res.send({
+          message: `Cannot delete vendor payment history with id=${id}. Maybe vendor payment history was not found!`
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Could not delete vendor payment history with id=" + id
       });
     });
 };

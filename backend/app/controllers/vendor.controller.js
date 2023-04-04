@@ -38,7 +38,9 @@ exports.create = (req, res) => {
 
 // Retrieve all vendor from the database.
 exports.findAll = (req, res) => {
-  vendor.findAll()
+  vendor.findAll({
+    where: { is_delete: 0}
+  })
     .then(data => {
       res.send(data);
     })
@@ -97,26 +99,27 @@ exports.update = (req, res) => {
 };
 
 // Delete a Vendor with the specified id in the request
+// Delete a customer with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
-
-  vendor.destroy({
+  vendor.update({is_delete: 1}, {
+  //vendor.destroy({
     where: { id: id }
   })
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "Vendor was deleted successfully!"
+          message: "vendor was deleted successfully!"
         });
       } else {
         res.send({
-          message: `Cannot delete Vendor with id=${id}. Maybe Vendor was not found!`
+          message: `Cannot delete vendor with id=${id}. Maybe vendor was not found!`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete Vendor with id=" + id
+        message: "Could not delete vendor with id=" + id
       });
     });
 };

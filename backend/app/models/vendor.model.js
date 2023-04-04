@@ -24,6 +24,10 @@ module.exports = (sequelize, Sequelize) => {
      mobile2: {
       type: Sequelize.STRING
     },
+    is_delete: {
+      type: Sequelize.BOOLEAN,
+      defaultValue: 0,
+    }
    
   });
 

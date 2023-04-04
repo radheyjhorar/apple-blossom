@@ -38,7 +38,9 @@ exports.create = (req, res) => {
 
 // Retrieve all customer_order_item from the database.
 exports.findAll = (req, res) => {
-    customer_order_item.findAll()
+    customer_order_item.findAll({
+      where: { is_delete: 0}
+    })
     .then(data => {
       res.send(data);
     })
@@ -96,27 +98,27 @@ exports.update = (req, res) => {
     });
 };
 
-// Delete a customer_order_item with the specified id in the request
+// Delete a customer order item with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
-
-  customer_order_item.destroy({
+  customer_order_item.update({is_delete: 1}, {
+  //customer_order_item.destroy({
     where: { id: id }
   })
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "customer_order_item was deleted successfully!"
+          message: "customer order item was deleted successfully!"
         });
       } else {
         res.send({
-          message: `Cannot delete customer_order_item with id=${id}. Maybe customer_order_item was not found!`
+          message: `Cannot delete customer order item with id=${id}. Maybe customer order item was not found!`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete customer_order_item with id=" + id
+        message: "Could not delete customer order item with id=" + id
       });
     });
 };

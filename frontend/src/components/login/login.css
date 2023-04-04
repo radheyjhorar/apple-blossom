@@ -4,23 +4,23 @@
 }
 .mbl-lgn-pg {
     border-radius: 1.7rem;
-    height: 35rem;
-    padding-top: 3rem;
-    min-width: 345px;
+    height: 37rem;
+    padding-top: 1rem;
+    min-width: 340px;
 }
-.lgn-ipt {
-    background: rgba(255,255,255,0.4);
-    border: none;
-    display: block;
+
+  .lgn-ipt-lgn-pg {
+    background: rgba(0,0,0,0.07);
     outline: none;
+    display: block;
     width: 80%;
     padding: 9px;
+    text-align: center;
+    border: .01rem solid #8326f5;
     color: #ffffff;
     -webkit-box-shadow: 0 2px 10px 1px rgba(0,0,0,0.07);
-    box-shadow: 0 2px 10px 1px rgba(0,0,0,0.07);
+    box-shadow: 0 2px 10px 1px rgba(0,0,0,0.07); 
     border-radius: 2rem;
-    border: .01rem solid #fcb2b2;
-    text-align: center;
     font-size: small !important;
   }
   .lgn-ipt::-webkit-input-placeholder { color: #ffffff;} 
@@ -61,7 +61,7 @@
   }
   .a-b-desc {
     font-size: x-small;
-    color: rgb(255, 242, 123);
+    color: rgb(209, 209, 209);
   }
   .sing-up-desc {
     font-size: x-small;

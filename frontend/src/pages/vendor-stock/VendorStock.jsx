@@ -40,10 +40,10 @@ const VendorStock = () => {
 
   }, [])
 
-  const deleteVendorStock = () => {
+  const deleteVendorStock = (id) => {
     notify('Deleting Vendor Stock', 2000);
     const deleteData = async () => {
-      const response = await api.delete('/vendor-stock');
+      const response = await api.delete('/vendor-stock/' + id);
       if (response.statusText === "OK") {
         fetchData();
       }
@@ -58,13 +58,13 @@ const VendorStock = () => {
           <div className='col-12 d-flex my-4'>
             <h1 className="h3 my-apk-clr txt-shdo fw-bold">Vendor Stock List</h1>
             <Link to="/new-vendor-stock" className='ms-auto align-middle mt-auto' >
-              <button className='btn btn-sm my-apk-clr-bg my-btn text-white' type='button'>Add New Stock</button>
+              <button className='btn btn-sm bg-clr my-btn text-white' type='button'>Add New Stock</button>
             </Link>
           </div>
         </div>
         <div className='text-web-center'>
           <div className="col-12">
-            <table className='table tbl-list my-apk-clr-bg'>
+            <table className='table tbl-list bg-clr text-white'>
               <thead>
                 <tr>
                   <th>Vendor Id</th>
@@ -96,7 +96,7 @@ const VendorStock = () => {
                             <FontAwesomeIcon icon="fas fa-edit" />
                           </Link>
                           <Link to="" className='btn btn-danger btn-sm'>
-                            <FontAwesomeIcon icon="fa-solid fa-trash-can" onClick={deleteVendorStock}/>
+                            <FontAwesomeIcon icon="fa-solid fa-trash-can"  onClick={() =>deleteVendorStock(c.id)}/>
                           </Link>
                         </td>
                       </tr>

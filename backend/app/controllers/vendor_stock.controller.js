@@ -38,7 +38,9 @@ exports.create = (req, res) => {
 
 // Retrieve all vendor from the database.
 exports.findAll = (req, res) => {
-    vendor_stock.findAll()
+    vendor_stock.findAll({
+        where: { is_delete: 0}
+    })
         .then(data => {
             res.send(data);
         })
@@ -100,28 +102,27 @@ exports.update = (req, res) => {
 // Delete a Stock with the specified id in the request
 exports.delete = (req, res) => {
     const id = req.params.id;
-
-    vendor_stock.destroy({
-        where: {id: id}
+    vendor_stock.update({is_delete: 1}, {
+    //vendor_stock.destroy({
+      where: { id: id }
     })
-    .then(num => {
+      .then(num => {
         if (num == 1) {
-            res.send({
-                message: "Stock is deleted successfully!"
-            });
+          res.send({
+            message: "vendor stock was deleted successfully!"
+          });
+        } else {
+          res.send({
+            message: `Cannot delete vendor stock with id=${id}. Maybe customer was not found!`
+          });
         }
-        else {
-            res.send({
-                message: "Cannot delete Stock with id=${id}. Maybe Stock was not found!"
-            });
-        }
-    })
-    .catch(err => {
+      })
+      .catch(err => {
         res.status(500).send({
-            message: "Could not delete Stock with id=" + id
+          message: "Could not delete vendor stock with id=" + id
         });
-    });
-};
+      });
+  };
 
 // Delete all Cities from the database.
 exports.deleteAll = (req, res) => {

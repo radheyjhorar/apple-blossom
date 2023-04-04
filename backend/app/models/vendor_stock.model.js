@@ -23,6 +23,10 @@ module.exports = (sequelize, Sequelize) => {
       stock_date: {
         type: Sequelize.DATE
       },
+      is_delete: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: 0,
+      }
      
     });
   

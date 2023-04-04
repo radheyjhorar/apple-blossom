@@ -48,7 +48,8 @@ exports.findAll = (req, res) => {
         as: 'customer_city',
         attributes: ['city_name']
         
-      }]
+      }],
+      where: { is_delete: 0}
     })
     .then(data => {
       res.send(data);
@@ -110,7 +111,7 @@ exports.update = (req, res) => {
 // Delete a customer with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
-  customer.update({isDeleted: 1}, {
+  customer.update({is_delete: 1}, {
   //customer.destroy({
     where: { id: id }
   })

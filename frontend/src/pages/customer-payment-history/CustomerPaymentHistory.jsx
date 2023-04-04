@@ -40,10 +40,10 @@ const CustomerPaymentHistoryList = () => {
 
   }, [])
 
-  const deleteCustPayHis = () => {
+  const deleteCustPayHis = (id) => {
     notify('Deleting Customer Payment History', 2000);
     const deleteData = async () => {
-      const response = await api.delete('/customer-payment-history');
+      const response = await api.delete('/customer-payment-history/' + id);
       if (response.statusText === "OK") {
           fetchData();
       }
@@ -58,13 +58,13 @@ const CustomerPaymentHistoryList = () => {
           <div className='col-12 d-flex my-4'>
             <h1 className="h3 my-apk-clr txt-shdo fw-bold">Customer Payment History List</h1>
             <Link to="/new-customer-payment-history" className='ms-auto align-middle mt-auto'>
-              <button className='btn btn-sm my-apk-clr-bg my-btn text-white' type='button'>Add New</button>
+              <button className='btn btn-sm bg-clr my-btn text-white' type='button'>Add New</button>
             </Link>
           </div>
         </div>
         <div className='text-web-center'>
           <div className="col-12">
-            <table className='table tbl-list my-apk-clr-bg'>
+            <table className='table tbl-list bg-clr text-white'>
               <thead>
                 <tr>
                   <th>Customer Id</th>
@@ -92,7 +92,7 @@ const CustomerPaymentHistoryList = () => {
                           <FontAwesomeIcon icon="fas fa-edit" />
                           </Link>
                           <Link to="" className='btn btn-danger btn-sm'>
-                          <FontAwesomeIcon icon="fa-solid fa-trash-can" onClick={deleteCustPayHis}/>
+                          <FontAwesomeIcon icon="fa-solid fa-trash-can" onClick={() =>deleteCustPayHis(c.id)}/>
                           </Link>
                         </td>
                       </tr>

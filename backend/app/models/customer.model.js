@@ -27,6 +27,10 @@ module.exports = (sequelize, Sequelize) => {
       ledger_no: {
         type: Sequelize.STRING
       },
+      is_delete: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+      }
      
     });
   

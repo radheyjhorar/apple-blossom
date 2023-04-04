@@ -36,7 +36,9 @@ exports.create = (req, res) => {
 
 // Retrieve all customer_order from the database.
 exports.findAll = (req, res) => {
-    customer_order.findAll()
+    customer_order.findAll({
+      where: { is_delete: 0}
+    })
     .then(data => {
       res.send(data);
     })
@@ -94,27 +96,27 @@ exports.update = (req, res) => {
     });
 };
 
-// Delete a customer_order with the specified id in the request
+// Delete a customer order with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
-
-  customer_order.destroy({
+  customer_order.update({is_delete: 1}, {
+  //customer_order.destroy({
     where: { id: id }
   })
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "customer_order was deleted successfully!"
+          message: "customer order was deleted successfully!"
         });
       } else {
         res.send({
-          message: `Cannot delete customer_order with id=${id}. Maybe customer_order was not found!`
+          message: `Cannot delete customer order with id=${id}. Maybe customer order was not found!`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete customer_order with id=" + id
+        message: "Could not delete customer order with id=" + id
       });
     });
 };

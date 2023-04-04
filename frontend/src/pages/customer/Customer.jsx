@@ -39,10 +39,10 @@ const Customer = () => {
 
   }, [])
 
-  const deleteCustomer = () => {
+  const deleteCustomer = (id) => {
     notify('Deleting Customer', 2000);
     const deleteData = async () => {
-      const response = await api.delete('/customer');
+      const response = await api.delete('/customer/' + id);
       if (response.statusText === "OK") {
           fetchData();
       }
@@ -58,14 +58,14 @@ const Customer = () => {
           <div className='col-12 d-flex my-4'>
             <h1 className="h2 mb-0 my-apk-clr txt-shdo fw-bold">Customer List</h1>
             <Link to="/new-customer" className='ms-auto align-middle mt-auto'>
-              <button className='btn btn-sm my-apk-clr-bg my-btn text-white' type='button'>Add New Customer</button>
+              <button className='btn btn-sm bg-clr my-btn text-white' type='button'>Add New Customer</button>
             </Link>
           </div>
         </div>
 
         <div className='text-web-center'>
           <div className="col-12">
-            <table className='table tbl-list my-apk-clr-bg'>
+            <table className='table tbl-list bg-clr text-white'>
               <thead>
                 <tr>
                   <th>Customer Name</th>
@@ -92,15 +92,15 @@ const Customer = () => {
                         {/* <td>{c.address}</td> */}
                         <td>{c.customer_city['city_name']}</td>
                         <td>
-                          <Link to="" className='btn btn-info btn-sm me-1'>
+                          <div className='btn btn-info btn-sm me-1'>
                             <FontAwesomeIcon icon="fa-solid fa-circle-info" />
-                          </Link>
-                          <Link to="" className='btn btn-warning btn-sm me-1'>
+                          </div>
+                          <div className='btn btn-warning btn-sm me-1'>
                             <FontAwesomeIcon icon="fas fa-edit" />
-                          </Link>
-                          <Link to="" className='btn btn-danger btn-sm'>
-                            <FontAwesomeIcon icon="fa-solid fa-trash-can" onClick={deleteCustomer} />
-                          </Link>
+                          </div>
+                          <div className='btn btn-danger btn-sm'>
+                            <FontAwesomeIcon icon="fa-solid fa-trash-can" onClick={() =>deleteCustomer(c.id)} />
+                          </div>
                         </td>
                       </tr>
                     )

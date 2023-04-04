@@ -11,6 +11,8 @@ module.exports = app => {
     // Retrieve a single vendor_payment_history with id
     router.get("/:id", vendor_payment_history.findOne);
   
+    // Delete a single vendor_payment_history with id
+    router.delete("/:id", vendor_payment_history.delete);
   
     app.use('/api/v1/vendor-payment-history', router);
   };

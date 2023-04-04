@@ -40,10 +40,10 @@ const CustomerOrder = () => {
 
   }, [])
 
-  const deleteCustOrd = () => {
+  const deleteCustOrd = (id) => {
     notify('Deleting Customer Order', 2000);
     const deleteData = async () => {
-      const response = await api.delete('/customer-order');
+      const response = await api.delete('/customer-order/' + id);
       if (response.statusText === "OK") {
         fetchData();
       }
@@ -59,14 +59,14 @@ const CustomerOrder = () => {
           <div className='col-12 d-flex my-4 '>
             <h1 className="h2 my-apk-clr txt-shdo fw-bold">Customer Order List</h1>
             <Link to="/new-customer-order" className='ms-auto align-middle mt-auto'>
-              <button className='btn btn-sm my-apk-clr-bg my-btn text-white' type='button'>Add New Order</button>
+              <button className='btn btn-sm bg-clr my-btn text-white' type='button'>Add New Order</button>
             </Link>
           </div>
         </div>
 
         <div className='text-web-center'>
           <div className="col-12 ">
-            <table className='table tbl-list my-apk-clr-bg '>
+            <table className='table tbl-list bg-clr text-white '>
               <thead>
                 <tr>
                   <th>Customer Id</th>
@@ -94,7 +94,7 @@ const CustomerOrder = () => {
                             <FontAwesomeIcon icon="fas fa-edit" />
                           </Link>
                           <Link to="" className='btn btn-danger btn-sm'>
-                            <FontAwesomeIcon icon="fa-solid fa-trash-can" onClick={deleteCustOrd} />
+                            <FontAwesomeIcon icon="fa-solid fa-trash-can" onClick={() =>deleteCustOrd(c.id)} />
                           </Link>
                         </td>
                       </tr>

@@ -34,9 +34,11 @@ exports.create = (req, res) => {
     });
 };
 
-// Retrieve all vendor from the database.
+// Retrieve all customer from the database.
 exports.findAll = (req, res) => {
-    customer_payment_history.findAll()
+    customer_payment_history.findAll({
+      where: { is_delete: 0}
+})
     .then(data => {
       res.send(data);
     })
@@ -65,6 +67,30 @@ exports.findOne = (req, res) => {
     .catch(err => {
       res.status(500).send({
         message: "Error retrieving customer_payment_history with id=" + id
+      });
+    });
+};
+// Delete a customer payment history with the specified id in the request
+exports.delete = (req, res) => {
+  const id = req.params.id;
+  customer_payment_history.update({is_delete: 1}, {
+  //customer_payment_history.destroy({
+    where: { id: id }
+  })
+    .then(num => {
+      if (num == 1) {
+        res.send({
+          message: "customer payment history was deleted successfully!"
+        });
+      } else {
+        res.send({
+          message: `Cannot delete customer payment history with id=${id}. Maybe customer payment history was not found!`
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Could not delete customer payment history with id=" + id
       });
     });
 };

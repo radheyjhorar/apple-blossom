@@ -41,10 +41,10 @@ const Vendor = () => {
 
   }, [])
 
-  const deleteVendor = () => {
+  const deleteVendor = (id) => {
     notify('Deleting Vendor', 2000);
     const deleteData = async () => {
-      const response = await api.delete('/vendor');
+      const response = await api.delete('/vendor/' + id);
       if (response.statusText === "OK") {
           fetchData();
       }
@@ -61,14 +61,14 @@ const Vendor = () => {
           <div className='col d-flex my-4'>
             <h1 className="h3 my-apk-clr txt-shdo fw-bold">Vendor List</h1>
             <Link to="/new-vendor" className='ms-auto align-middle mt-auto' >
-              <button className='btn btn-sm my-apk-clr-bg my-btn text-white' type='button'>Add New Vendor</button>
+              <button className='btn btn-sm bg-clr my-btn text-white' type='button'>Add New Vendor</button>
             </Link>
           </div>
         </div>
 
         <div className='text-web-center'>
           <div className="col">
-            <table className='table tbl-list my-apk-clr-bg'>
+            <table className='table tbl-list bg-clr text-white'>
               <thead>
                 <tr>
                   <th>Vendor Name</th>
@@ -98,7 +98,7 @@ const Vendor = () => {
                           <FontAwesomeIcon icon="fas fa-edit" />
                           </Link>
                           <Link to="" className='btn btn-danger btn-sm'>
-                          <FontAwesomeIcon icon="fa-solid fa-trash-can" onClick={deleteVendor} />
+                          <FontAwesomeIcon icon="fa-solid fa-trash-can" onClick={() => deleteVendor (c.id)}/>
                           </Link>
                         </td>
                       </tr>

@@ -10,6 +10,9 @@ module.exports = app => {
   
     // Retrieve a single customer_payment_history with id
     router.get("/:id", customer_payment_history.findOne);
+
+    // Retrieve a single customer_payment_history with id
+    router.delete("/:id", customer_payment_history.delete);
   
   
     app.use('/api/v1/customer-payment-history', router);
