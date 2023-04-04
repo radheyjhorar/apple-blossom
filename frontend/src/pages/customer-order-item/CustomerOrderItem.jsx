@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
@@ -46,7 +47,7 @@ const CustomerOrderItem = () => {
       <div className='my-5'>
         <div className='text-web-center'>
           <div className='col-9 d-flex my-4 '>
-            <h1 className="h3 text-white txt-shdo fw-bold">Customer Order Item List</h1>
+            <h1 className="h3 my-apk-clr txt-shdo fw-bold">Customer Order Item List</h1>
             <Link to="/new-customer-order-item" className='ms-auto align-middle mt-auto'>
               <button className='btn btn-sm my-apk-clr-bg my-btn text-white' type='button'>Add New</button>
             </Link>
@@ -64,6 +65,7 @@ const CustomerOrderItem = () => {
                   <th>Quantity</th>
                   <th>Amount</th>
                   <th>Item Status</th>
+                  <th>Action</th>
                 </tr>
               </thead>
 
@@ -78,6 +80,17 @@ const CustomerOrderItem = () => {
                         <td>{c.quantity}</td>
                         <td>{c.amount}</td>
                         <td>{c.item_status}</td>
+                        <td>
+                          <Link to="" className='btn btn-info btn-sm me-1'>
+                          <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                          </Link>
+                          <Link to="" className='btn btn-warning btn-sm me-1'>
+                          <FontAwesomeIcon icon="fas fa-edit" />
+                          </Link>
+                          <Link to="" className='btn btn-danger btn-sm'>
+                          <FontAwesomeIcon icon="fa-solid fa-trash-can" />
+                          </Link>
+                        </td>
                       </tr>
                     )
                   }

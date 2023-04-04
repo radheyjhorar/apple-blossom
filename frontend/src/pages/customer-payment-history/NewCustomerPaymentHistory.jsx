@@ -12,16 +12,16 @@ const NewCustomerPaymentHistory = () => {
 
   const navigate = useNavigate();
 
-  const notify = (msg, time) => toast.info(msg, {
-    position: "top-right",
-    autoClose: time,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "colored"
-  });
+  // const notify = (msg, time) => toast.info(msg, {
+  //   position: "top-right",
+  //   autoClose: time,
+  //   hideProgressBar: false,
+  //   closeOnClick: true,
+  //   pauseOnHover: true,
+  //   draggable: true,
+  //   progress: undefined,
+  //   theme: "colored"
+  // });
 
   const [newCustomerPaymentHistory, setNewCustomerPaymentHistory] = useState({
     customer_id: "",
@@ -42,16 +42,16 @@ const NewCustomerPaymentHistory = () => {
 
   const addNewCustomerPaymentHistory = async () => {
 
-    notify('Adding New Customer Payment History', 1000);
+    // notify('Adding New Customer Payment History', 1000);
 
     const response = await api.post('/customer-payment-history', newCustomerPaymentHistory);
     if (response.statusText === "OK") {
       console.log(response);
-      notify('Added New Customer Payment Sucessfully', 2000);
+      // notify('Added New Customer Payment Sucessfully', 2000);
       //setToken(response.data, response.data.accessToken);
-      setTimeout(function () {
+      // setTimeout(function () {
         navigate('/customer-payment-history')
-      }, 2500);
+      // }, 2500);
     }
 
 

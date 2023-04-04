@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
@@ -46,7 +47,7 @@ const Vendor = () => {
       <div className='my-5'>
         <div className='text-web-center'>
           <div className='col-9 d-flex my-4'>
-            <h1 className="h3 text-white txt-shdo fw-bold">Vendor List</h1>
+            <h1 className="h3 my-apk-clr txt-shdo fw-bold">Vendor List</h1>
             <Link to="/new-vendor" className='ms-auto align-middle mt-auto' >
               <button className='btn btn-sm my-apk-clr-bg my-btn text-white' type='button'>Add New Vendor</button>
             </Link>
@@ -59,10 +60,11 @@ const Vendor = () => {
               <thead>
                 <tr>
                   <th>Vendor Name</th>
-                  <th>Vendor Address</th>
+                  {/* <th>Vendor Address</th> */}
                   <th>City</th>
                   <th>Mobile 1</th>
                   <th>Mobile 2</th>
+                  <th>Action</th>
                 </tr>
               </thead>
 
@@ -72,10 +74,21 @@ const Vendor = () => {
                     return (
                       <tr>
                         <td>{c.vendor_name}</td>
-                        <td>{c.vendor_address}</td>
+                        {/* <td>{c.vendor_address}</td> */}
                         <td>{c.city}</td>
                         <td>{c.mobile1}</td>
                         <td>{c.mobile2}</td>
+                        <td>
+                          <Link to="" className='btn btn-info btn-sm me-1'>
+                          <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                          </Link>
+                          <Link to="" className='btn btn-warning btn-sm me-1'>
+                          <FontAwesomeIcon icon="fas fa-edit" />
+                          </Link>
+                          <Link to="" className='btn btn-danger btn-sm'>
+                          <FontAwesomeIcon icon="fa-solid fa-trash-can" />
+                          </Link>
+                        </td>
                       </tr>
                     )
                   }
