@@ -77,11 +77,11 @@ exports.findOne = (req, res) => {
 // Update a Stock by the id in the request
 exports.update = (req, res) => {
     const id = req.params.id;
-
-    vendor_stock.update(req.body.vendor_stock,{
+    vendor_stock.update(req.body,{
         where: {id: id}
     })
     .then(num => {
+        console.log('updated = ' + num)
         if (num == 1) {
             res.send({
                 message: "Stock is updated successfully."
@@ -89,13 +89,13 @@ exports.update = (req, res) => {
         }
         else {
             res.send({
-                message: "Cannot update Stock with id=${id}."
+                message: `Cannot update Stock with id=${id}.Maybe vendor Stock was not found or req.body is empty!`
             });
         }
     })
     .catch(err => {
         res.status(500).send({
-            message: "Error updating City with id=" + id
+            message: "Error updating Stock with id=" + id
         });
     });
 };

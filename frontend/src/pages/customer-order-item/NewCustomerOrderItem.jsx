@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
+// import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
-
 import api from '../../api/API';
-
-
 
 const NewCustomerOrderItem = () => {
 
   const navigate = useNavigate();
+
+  // const { customerOrderItemId } = useParams();
 
   // const notify = (msg, time) => toast.info(msg, {
   //   position: "top-right",
@@ -58,9 +58,9 @@ const NewCustomerOrderItem = () => {
 
   return (
     <>
-      <ToastContainer />
-      <div class="col-7 c-7-d mx-auto bg-pic h-30 my-5">
-        <h1 class="offset-2 h4 my-apk-clr mt-5">New Customer Order Item</h1>
+      <div className='col-9 mx-auto'>
+      <div class="col-12 c-7-d mx-auto bg-pic h-30 my-5 pt-1 bg-clr ">
+        <h1 class="offset-2 h4 text-white fw-bold mt-5 mb-4">New Customer Order Item</h1>
         <div class="text-center">
           <div>
             <input type="number" class="col-4 me-1 vndr-ipt my-4 d-inline-block" placeholder="Order ID" name="order_id" value={newCustomerOrderItem.order_id} onChange={handleChange} />
@@ -74,10 +74,12 @@ const NewCustomerOrderItem = () => {
           <input type="text" class="col-8 mb-4 vndr-ipt d-inline-block" placeholder="Item status" name="item_status" value={newCustomerOrderItem.item_status} onChange={handleChange} />
 
           <div class="">
-            <button type="submit" class="btn sbmt-btn px-4 text-white my-apk-clr-bg text-end mt-5" onClick={addNewCustomerOrderItem}>Submit</button>
+            <button type="submit" class="btn sbmt-btn px-4 text-white text-end mt-4" onClick={addNewCustomerOrderItem}>Submit</button>
           </div>
         </div>
       </div>
+      </div>
+      <ToastContainer />
     </>
   );
 }

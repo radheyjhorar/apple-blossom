@@ -15,7 +15,7 @@ const SideBar = (props) => {
 
     return (
         <>
-            <div className='col-2 bg-clr wdt-20'>
+            <div className='col-2 bg-clr wdt-20 min-vh-100'>
                 <ul className='navbar-nav'>
                     <Link to="" className='text-white d-flex my-3 first-link align-items-center justify-content-center'>
                         <div className='rotate-n-15'>

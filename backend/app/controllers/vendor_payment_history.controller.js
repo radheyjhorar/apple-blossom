@@ -71,6 +71,31 @@ exports.findOne = (req, res) => {
     });
 };
 
+// Update a vendor Payment History by the id in the request
+exports.update = (req, res) => {
+  const id = req.params.id;
+  vendor_payment_history.update(req.body, {
+    where: { id: id }
+  })
+    .then(num => {
+      console.log('updated = ' + num)
+      if (num == 1) {
+        res.send({
+          message: "vendor Payment History was updated successfully."
+        });
+      } else {
+        res.send({
+          message: `Cannot update vendor payment history with id=${id}. Maybe vendor payment history was not found or req.body is empty!`
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error updating vendor payment history with id=" + id
+      });
+    });
+};
+
 // Delete a vendor payment history with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;

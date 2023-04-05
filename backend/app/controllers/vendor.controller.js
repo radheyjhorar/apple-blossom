@@ -99,7 +99,6 @@ exports.update = (req, res) => {
 };
 
 // Delete a Vendor with the specified id in the request
-// Delete a customer with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
   vendor.update({is_delete: 1}, {

@@ -88,7 +88,7 @@ const VendorPaymentHistoryList = () => {
                           <Link to="" className='btn btn-info btn-sm me-1'>
                             <FontAwesomeIcon icon="fa-solid fa-circle-info" />
                           </Link>
-                          <Link to="" className='btn btn-warning btn-sm me-1'>
+                          <Link to={"/new-vendor-payment-history/" + c.id} className='btn btn-warning btn-sm me-1'>
                             <FontAwesomeIcon icon="fas fa-edit" />
                           </Link>
                           <Link to="" className='btn btn-danger btn-sm'>

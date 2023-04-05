@@ -88,10 +88,10 @@ const CustomerPaymentHistoryList = () => {
                           <Link to="" className='btn btn-info btn-sm me-1'>
                           <FontAwesomeIcon icon="fa-solid fa-circle-info" />
                           </Link>
-                          <Link to="" className='btn btn-warning btn-sm me-1'>
+                          <Link to={"/new-customer-payment-history/" + c.id} className='btn btn-warning btn-sm me-1'>
                           <FontAwesomeIcon icon="fas fa-edit" />
                           </Link>
-                          <Link to="" className='btn btn-danger btn-sm'>
+                          <Link to={() =>deleteCustPayHis(c.id)} className='btn btn-danger btn-sm'>
                           <FontAwesomeIcon icon="fa-solid fa-trash-can" onClick={() =>deleteCustPayHis(c.id)}/>
                           </Link>
                         </td>

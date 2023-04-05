@@ -1,9 +1,9 @@
 .city-drp-dwn {
-    background: rgba(255, 110, 148, .18); 
+    background: rgba(152, 87, 255, 0.18); 
     border: none;
     outline: none;
     padding: 9px;
-    color: #121212;
+    color: #ffffff;
     -webkit-box-shadow: 0 2px 10px 1px rgba(0,0,0,0.07);
     box-shadow: 0 2px 10px 1px rgba(0,0,0,0.07);
     border-radius: .5rem;

@@ -97,7 +97,7 @@ const Vendor = () => {
                           <Link to={"/new-vendor/" + c.id} className='btn btn-warning btn-sm me-1'>
                           <FontAwesomeIcon icon="fas fa-edit" />
                           </Link>
-                          <Link to="" className='btn btn-danger btn-sm'>
+                          <Link to={() => deleteVendor (c.id)} className='btn btn-danger btn-sm'>
                           <FontAwesomeIcon icon="fa-solid fa-trash-can" onClick={() => deleteVendor (c.id)}/>
                           </Link>
                         </td>

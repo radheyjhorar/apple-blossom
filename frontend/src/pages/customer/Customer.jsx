@@ -95,9 +95,9 @@ const Customer = () => {
                           <div className='btn btn-info btn-sm me-1'>
                             <FontAwesomeIcon icon="fa-solid fa-circle-info" />
                           </div>
-                          <div className='btn btn-warning btn-sm me-1'>
+                          <Link to={"/new-customer/" + c.id} className='btn btn-warning btn-sm me-1'>
                             <FontAwesomeIcon icon="fas fa-edit" />
-                          </div>
+                          </Link>
                           <div className='btn btn-danger btn-sm'>
                             <FontAwesomeIcon icon="fa-solid fa-trash-can" onClick={() =>deleteCustomer(c.id)} />
                           </div>
