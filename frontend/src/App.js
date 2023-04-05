@@ -34,12 +34,15 @@ const App = (props) => {
             <div className="row">
             <SideBar pageName={getPageName(location.pathname)}/>
                   <Routes>
-                 
+                    ((!getToken())?(<>
+                     <Route path="login" element={<Login />} />
+                     <Route path="register" element={<Register />} />
+                  </>):(<>
                      <Route index element={<Dashboard />} />
                      <Route path="customer" element={<Customer />} />
                      <Route path="new-customer/:id?" element={<NewCustomer />} />                     
                      <Route path="vendor" element={<Vendor />} />
-                     <Route path="new-vendor/:id?" element={<NewVendor />} />
+                     <Route path="new-vendor/:vendorId?" element={<NewVendor />} />
                      <Route path="customer-order" element={<CustomerOrder />} />
                      <Route path="new-customer-order/:id?" element={<NewCustomerOrder />} />
                      <Route path="customer-order-item" element={<CustomerOrdeItem />} />
@@ -56,11 +59,8 @@ const App = (props) => {
                   <Route path="school/:schoolId" element={<Schools />} />
                   <Route path="about-us" element={<Blogs />} />
                   <Route path="contact" element={<Contact />} /> */}
-
-                     {  (!getToken())?(<>
-                     <Route path="login" element={<Login />} />
-                     <Route path="register" element={<Register />} />
-                  </>):null} 
+                     </>
+                    )
 
                      <Route path="*" element={<NoPage />} />
 

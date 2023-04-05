@@ -84,7 +84,7 @@ const Vendor = () => {
                 {
                   (vend && vend.length > 0 && vend.map((c) => {
                     return (
-                      <tr>
+                      <tr key={c.id}>
                         <td>{c.vendor_name}</td>
                         {/* <td>{c.vendor_address}</td> */}
                         <td>{c.city}</td>
@@ -94,7 +94,7 @@ const Vendor = () => {
                           <Link to="" className='btn btn-info btn-sm me-1'>
                           <FontAwesomeIcon icon="fa-solid fa-circle-info" />
                           </Link>
-                          <Link to="" className='btn btn-warning btn-sm me-1'>
+                          <Link to={"/new-vendor/" + c.id} className='btn btn-warning btn-sm me-1'>
                           <FontAwesomeIcon icon="fas fa-edit" />
                           </Link>
                           <Link to="" className='btn btn-danger btn-sm'>

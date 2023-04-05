@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate, useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
 import api from '../../api/API';
 
-const NewVendor = () => {
+const NewVendor = (props) => {
 
   const navigate = useNavigate();
 
   const [city, setCity] = useState([]);
   // const [state, setState] = useState([])
 
+  const { vendorId } = useParams();
+  
   const notify = (msg, time) => toast.info(msg, {
     position: "top-right",
     autoClose: time,
@@ -27,6 +28,7 @@ const NewVendor = () => {
 
 
   const [newVendor, setNewVendor] = useState({
+    id: vendorId || 0,
     vendor_name: "",
     vendor_address: "",
     city: "",
@@ -45,6 +47,14 @@ const NewVendor = () => {
     })
   };
 
+  const saveVendor = () => {
+    if(vendorId > 0) {
+      updateVendor();
+    } else {
+      addNewVendor();
+    }
+  }
+
   const addNewVendor = async () => {
     notify('Adding New Vendor', 1000);
     const response = await api.post('/vendor', newVendor);
@@ -61,21 +71,38 @@ const NewVendor = () => {
 
   };
 
+  const updateVendor = async () => {
+    notify('Updating Vendor Data', 1000);
+    const response = await api.put('/vendor/'+newVendor.id, newVendor);
+    if (response.statusText === "OK") {
+      console.log(response);
+      notify('Updated Vendor Sucessfully', 2000);
+      //setToken(response.data, response.data.accessToken);
+      setTimeout(function() {
+      navigate('/vendor')
+    }, 2500);
+
+    }
+
+
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       const response_city = await api.get('/cities');
       if (response_city.statusText === "OK") {
         setCity(response_city.data);
       }
-      
-      // const response_state = await api.get('/states');
-      // if (response_state.statusText === "OK") {
-      //   setState(response_state.data);
-      // }
+      if(vendorId > 0) {
+        const response_vendor = await api.get('/vendor/' + vendorId);
+        if (response_vendor.statusText === "OK") {
+          setNewVendor(response_vendor.data);
+        }
+      }
     };
     fetchData();
 
-  }, [])
+  }, [vendorId]);
 
 
   return (
@@ -84,7 +111,7 @@ const NewVendor = () => {
       <div class="col-7 c-7-d mx-auto bg-pic h-30 my-5">
         <h1 class="offset-2 h4 my-apk-clr mt-5">New Vendor</h1>
         <div className='text-center'>
-          <div class="mt-5">
+          <div className="mt-5">
             <input type="text" class="col-4 vndr-ipt me-1 d-inline-block" placeholder="Vendor Name" name="vendor_name" value={newVendor.vendor_name} onChange={handleChange} />
             <select className='city-drp-dwn col-4' name='city' value={newVendor.city} onChange={handleChange} >
               <option value="0">Select City</option>
@@ -108,7 +135,7 @@ const NewVendor = () => {
           <input type="text" class="col-8 mb-4 vndr-ipt d-inline-block" placeholder="Vendor Address" name="vendor_address" value={newVendor.vendor_address} onChange={handleChange} />
 
           <div class="">
-            <button type="submit" class="btn sbmt-btn px-4 text-white my-apk-clr-bg text-end mt-5" onClick={addNewVendor}>Submit</button>
+            <button type="submit" class="btn sbmt-btn px-4 text-white my-apk-clr-bg text-end mt-5" onClick={saveVendor}>Submit</button>
 
           </div>
         </div>

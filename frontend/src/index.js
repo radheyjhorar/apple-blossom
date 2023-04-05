@@ -13,10 +13,12 @@ const root = createRoot(container); // createRoot(container!) if you use TypeScr
 //render(<App/>, document.getElementById('root'));
 root.render(
 
-    <BrowserRouter>
+ 
     <FilterProvider>
+           <BrowserRouter>
         <App />
+        </BrowserRouter>  
+
     </FilterProvider>  
-    </BrowserRouter>  
 
 );

@@ -76,11 +76,11 @@ exports.findOne = (req, res) => {
 // Update a vendor by the id in the request
 exports.update = (req, res) => {
   const id = req.params.id;
-
-  vendor.update(req.body.vendor, {
+  vendor.update(req.body, {
     where: { id: id }
   })
     .then(num => {
+      console.log('updated = ' + num)
       if (num == 1) {
         res.send({
           message: "vendor was updated successfully."
