@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -58,7 +58,7 @@ const NewCustomerOrder = (props) => {
       notify('Added New Order Sucessfully', 1000);
       //setToken(response.data, response.data.accessToken);
       setTimeout(function () {
-      navigate('/customer-order')
+        navigate('/customer-order')
       }, 1000);
     }
   };
@@ -92,19 +92,438 @@ const NewCustomerOrder = (props) => {
 
   return (
     <>
+
+<div class="sticky-container">
+      <ul class="sticky">
+        <li>
+        <FontAwesomeIcon icon="fa-solid fa-check" className='fa-icon-h-w mt-2 ms-2'/>
+          <p>Submit</p>
+        </li>
+        <li>
+        <FontAwesomeIcon icon="fa-solid fa-plus" className='fa-icon-h-w mt-2 ms-2'/>
+          <p>New Line</p>
+        </li>
+      </ul>
+    </div>
+
+
+      {/* <div class="fixed-btn fixed-top text-end">
+        
+        <button type="submit" class="btn sbmt-btn w-7 px-4 text-white mb-2" onClick={saveCustomerOrder}>Submit</button>
+        
+        <button type="submit" class="btn sbmt-btn w-7 px-4 text-white" onClick="">New Line</button>
+      
+      </div> */}
+      
+      
       <div className='col-9 mx-auto'>
         <div class="col-12 c-7-d mx-auto bg-pic bg-clr py-5 my-4">
-          <h1 class="offset-2 h4 text-white fw-bold">{ customerOrderId > 0?'Update':'New'} Customer Order</h1>
+
+          <h1 class="offset-2 h4 text-white fw-bold">{customerOrderId > 0 ? 'Update' : 'New'} Customer Order</h1>
           <div class="text-center">
             <input type="number" class="col-8 vndr-ipt my-4 d-inline-block" placeholder="Customer ID" name='customer_id' value={newCustomerOrder.customer_id} onChange={handleChange} />
             <input type="text" class="col-8 vndr-ipt d-inline-block" placeholder="Order Description" name='order_description' value={newCustomerOrder.order_description} onChange={handleChange} />
             {/* <input type="number" class="col-7 my-4 vndr-ipt d-inline-block" placeholder="Total Amount" name='total_amount' value={newCustomerOrder.total_amount} onChange={handleChange} /> */}
             <input type="text" class="col-8 my-4  vndr-ipt d-inline-block" placeholder="Order Status" name='order_status' value={newCustomerOrder.order_status} onChange={handleChange} />
-            <div class="mt-4 mx-auto">
-              <button type="submit" class="btn sbmt-btn px-4 text-white" onClick={saveCustomerOrder}>Submit</button>
-            </div>
+
           </div>
         </div>
+
+        <div className='col'>
+          <div className=''>
+            <table className='table'>
+              <thead className=''>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Item Name</th>
+                  <th scope="col">Item Rate</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope='row'>1</th>
+                  <td><input type="text" className='col-10' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td><input type="number" className='col-6' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td className='col-2'>
+                    <Link to="" className='btn btn-info btn-sm me-1'>
+                      <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                    </Link>
+                    <Link to={""} className='btn btn-warning btn-sm me-1'>
+                      <FontAwesomeIcon icon="fas fa-edit" />
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope='row'>1</th>
+                  <td><input type="text" className='col-10' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td><input type="number" className='col-6' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td className='col-2'>
+                    <Link to="" className='btn btn-info btn-sm me-1'>
+                      <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                    </Link>
+                    <Link to={""} className='btn btn-warning btn-sm me-1'>
+                      <FontAwesomeIcon icon="fas fa-edit" />
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope='row'>1</th>
+                  <td><input type="text" className='col-10' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td><input type="number" className='col-6' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td className='col-2'>
+                    <Link to="" className='btn btn-info btn-sm me-1'>
+                      <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                    </Link>
+                    <Link to={""} className='btn btn-warning btn-sm me-1'>
+                      <FontAwesomeIcon icon="fas fa-edit" />
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope='row'>1</th>
+                  <td><input type="text" className='col-10' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td><input type="number" className='col-6' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td className='col-2'>
+                    <Link to="" className='btn btn-info btn-sm me-1'>
+                      <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                    </Link>
+                    <Link to={""} className='btn btn-warning btn-sm me-1'>
+                      <FontAwesomeIcon icon="fas fa-edit" />
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope='row'>1</th>
+                  <td><input type="text" className='col-10' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td><input type="number" className='col-6' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td className='col-2'>
+                    <Link to="" className='btn btn-info btn-sm me-1'>
+                      <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                    </Link>
+                    <Link to={""} className='btn btn-warning btn-sm me-1'>
+                      <FontAwesomeIcon icon="fas fa-edit" />
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope='row'>1</th>
+                  <td><input type="text" className='col-10' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td><input type="number" className='col-6' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td className='col-2'>
+                    <Link to="" className='btn btn-info btn-sm me-1'>
+                      <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                    </Link>
+                    <Link to={""} className='btn btn-warning btn-sm me-1'>
+                      <FontAwesomeIcon icon="fas fa-edit" />
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope='row'>1</th>
+                  <td><input type="text" className='col-10' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td><input type="number" className='col-6' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td className='col-2'>
+                    <Link to="" className='btn btn-info btn-sm me-1'>
+                      <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                    </Link>
+                    <Link to={""} className='btn btn-warning btn-sm me-1'>
+                      <FontAwesomeIcon icon="fas fa-edit" />
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope='row'>1</th>
+                  <td><input type="text" className='col-10' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td><input type="number" className='col-6' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td className='col-2'>
+                    <Link to="" className='btn btn-info btn-sm me-1'>
+                      <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                    </Link>
+                    <Link to={""} className='btn btn-warning btn-sm me-1'>
+                      <FontAwesomeIcon icon="fas fa-edit" />
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope='row'>1</th>
+                  <td><input type="text" className='col-10' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td><input type="number" className='col-6' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td className='col-2'>
+                    <Link to="" className='btn btn-info btn-sm me-1'>
+                      <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                    </Link>
+                    <Link to={""} className='btn btn-warning btn-sm me-1'>
+                      <FontAwesomeIcon icon="fas fa-edit" />
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope='row'>1</th>
+                  <td><input type="text" className='col-10' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td><input type="number" className='col-6' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td className='col-2'>
+                    <Link to="" className='btn btn-info btn-sm me-1'>
+                      <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                    </Link>
+                    <Link to={""} className='btn btn-warning btn-sm me-1'>
+                      <FontAwesomeIcon icon="fas fa-edit" />
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope='row'>1</th>
+                  <td><input type="text" className='col-10' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td><input type="number" className='col-6' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td className='col-2'>
+                    <Link to="" className='btn btn-info btn-sm me-1'>
+                      <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                    </Link>
+                    <Link to={""} className='btn btn-warning btn-sm me-1'>
+                      <FontAwesomeIcon icon="fas fa-edit" />
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope='row'>1</th>
+                  <td><input type="text" className='col-10' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td><input type="number" className='col-6' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td className='col-2'>
+                    <Link to="" className='btn btn-info btn-sm me-1'>
+                      <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                    </Link>
+                    <Link to={""} className='btn btn-warning btn-sm me-1'>
+                      <FontAwesomeIcon icon="fas fa-edit" />
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope='row'>1</th>
+                  <td><input type="text" className='col-10' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td><input type="number" className='col-6' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td className='col-2'>
+                    <Link to="" className='btn btn-info btn-sm me-1'>
+                      <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                    </Link>
+                    <Link to={""} className='btn btn-warning btn-sm me-1'>
+                      <FontAwesomeIcon icon="fas fa-edit" />
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope='row'>1</th>
+                  <td><input type="text" className='col-10' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td><input type="number" className='col-6' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td className='col-2'>
+                    <Link to="" className='btn btn-info btn-sm me-1'>
+                      <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                    </Link>
+                    <Link to={""} className='btn btn-warning btn-sm me-1'>
+                      <FontAwesomeIcon icon="fas fa-edit" />
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope='row'>1</th>
+                  <td><input type="text" className='col-10' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td><input type="number" className='col-6' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td className='col-2'>
+                    <Link to="" className='btn btn-info btn-sm me-1'>
+                      <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                    </Link>
+                    <Link to={""} className='btn btn-warning btn-sm me-1'>
+                      <FontAwesomeIcon icon="fas fa-edit" />
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope='row'>1</th>
+                  <td><input type="text" className='col-10' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td><input type="number" className='col-6' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td className='col-2'>
+                    <Link to="" className='btn btn-info btn-sm me-1'>
+                      <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                    </Link>
+                    <Link to={""} className='btn btn-warning btn-sm me-1'>
+                      <FontAwesomeIcon icon="fas fa-edit" />
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope='row'>1</th>
+                  <td><input type="text" className='col-10' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td><input type="number" className='col-6' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td className='col-2'>
+                    <Link to="" className='btn btn-info btn-sm me-1'>
+                      <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                    </Link>
+                    <Link to={""} className='btn btn-warning btn-sm me-1'>
+                      <FontAwesomeIcon icon="fas fa-edit" />
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope='row'>1</th>
+                  <td><input type="text" className='col-10' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td><input type="number" className='col-6' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td className='col-2'>
+                    <Link to="" className='btn btn-info btn-sm me-1'>
+                      <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                    </Link>
+                    <Link to={""} className='btn btn-warning btn-sm me-1'>
+                      <FontAwesomeIcon icon="fas fa-edit" />
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope='row'>1</th>
+                  <td><input type="text" className='col-10' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td><input type="number" className='col-6' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td className='col-2'>
+                    <Link to="" className='btn btn-info btn-sm me-1'>
+                      <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                    </Link>
+                    <Link to={""} className='btn btn-warning btn-sm me-1'>
+                      <FontAwesomeIcon icon="fas fa-edit" />
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope='row'>1</th>
+                  <td><input type="text" className='col-10' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td><input type="number" className='col-6' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td className='col-2'>
+                    <Link to="" className='btn btn-info btn-sm me-1'>
+                      <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                    </Link>
+                    <Link to={""} className='btn btn-warning btn-sm me-1'>
+                      <FontAwesomeIcon icon="fas fa-edit" />
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope='row'>1</th>
+                  <td><input type="text" className='col-10' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td><input type="number" className='col-6' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td className='col-2'>
+                    <Link to="" className='btn btn-info btn-sm me-1'>
+                      <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                    </Link>
+                    <Link to={""} className='btn btn-warning btn-sm me-1'>
+                      <FontAwesomeIcon icon="fas fa-edit" />
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope='row'>1</th>
+                  <td><input type="text" className='col-10' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td><input type="number" className='col-6' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td className='col-2'>
+                    <Link to="" className='btn btn-info btn-sm me-1'>
+                      <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                    </Link>
+                    <Link to={""} className='btn btn-warning btn-sm me-1'>
+                      <FontAwesomeIcon icon="fas fa-edit" />
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope='row'>1</th>
+                  <td><input type="text" className='col-10' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td><input type="number" className='col-6' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td className='col-2'>
+                    <Link to="" className='btn btn-info btn-sm me-1'>
+                      <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                    </Link>
+                    <Link to={""} className='btn btn-warning btn-sm me-1'>
+                      <FontAwesomeIcon icon="fas fa-edit" />
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope='row'>1</th>
+                  <td><input type="text" className='col-10' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td><input type="number" className='col-6' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td className='col-2'>
+                    <Link to="" className='btn btn-info btn-sm me-1'>
+                      <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                    </Link>
+                    <Link to={""} className='btn btn-warning btn-sm me-1'>
+                      <FontAwesomeIcon icon="fas fa-edit" />
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope='row'>1</th>
+                  <td><input type="text" className='col-10' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td><input type="number" className='col-6' /></td>
+                  <td><input type="number" className='col-8' /></td>
+                  <td className='col-2'>
+                    <Link to="" className='btn btn-info btn-sm me-1'>
+                      <FontAwesomeIcon icon="fa-solid fa-circle-info" />
+                    </Link>
+                    <Link to={""} className='btn btn-warning btn-sm me-1'>
+                      <FontAwesomeIcon icon="fas fa-edit" />
+                    </Link>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
       <ToastContainer />
     </>
