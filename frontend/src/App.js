@@ -32,13 +32,13 @@ const App = (props) => {
          {/* <Headers /> */}
         
          {
-            // ( (!isAuthPage) && (!token))?navigate('/login'):null
+             ( (!isAuthPage) && (!token))?navigate('/login'):null
            
          }
          <div className="container-fluid">
             <div className="row">
-            { // ( !isAuthPage && !token)?
-            <SideBar pageName={getPageName(location.pathname)}/>//:null
+            {  ( isAuthPage && token)?
+            <SideBar pageName={getPageName(location.pathname)}/>:null
             }
                   <Routes>
                     ((!token)?(<>

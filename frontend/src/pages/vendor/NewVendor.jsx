@@ -102,7 +102,7 @@ const NewVendor = (props) => {
     <>
       <div className='col-9 mx-auto'>
         <div class="col-12 c-7-d mx-auto bg-pic h-30 my-5 pt-3 bg-clr">
-          <h1 class="offset-2 h4 text-white fw-bold mt-5">New Vendor</h1>
+          <h1 class="offset-2 h4 text-white fw-bold mt-5">{ vendorId > 0?'Update':'New'} Vendor</h1>
           <div className='text-center text-white'>
             <div className="mt-5">
               <input type="text" class="col-4 vndr-ipt me-1 d-inline-block" placeholder="Vendor Name" name="vendor_name" value={newVendor.vendor_name} onChange={handleChange} />

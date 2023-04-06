@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import api from '../../api/API';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import "./register.css"
 import { AppleLogo } from '../../assets';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -77,9 +77,12 @@ const Register = () => {
                         <div className="d-flex text-white inpt-box mx-auto">
                             <FontAwesomeIcon icon="fa-solid fa-key" className='fs-5 ms-1'/>
                             <input className="lgn-ipt" type="password"
-                                placeholder="Repeat your password" name="password" value={user.password} onChange={handleChange} />
+                                placeholder="Repeat your password" name="reEnterPassword" value={user.reEnterPassword} onChange={handleChange} />
                         </div>
-                        <button type="submit" className="lgn-btn mx-auto mt-4" onClick={registerUser}>Sing up</button>                        
+                        <button type="submit" className="lgn-btn mx-auto mt-4" onClick={registerUser}>Sing up</button>  
+                        <p className="text-white sing-up-desc">Already have an account? 
+                                <Link to="/login" className="text-white fw-bold text-decoration-none">  Login Now</Link>
+                                </p>
                     </div>
                 </div>
             </div>

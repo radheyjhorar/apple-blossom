@@ -70,6 +70,32 @@ exports.findOne = (req, res) => {
       });
     });
 };
+
+// Update a customer payment history by the id in the request
+exports.update = (req, res) => {
+  const id = req.params.id;
+
+  customer_payment_history.update(req.body, {
+    where: { id: id }
+  })
+    .then(num => {
+      if (num == 1) {
+        res.send({
+          message: "customer payment history was updated successfully."
+        });
+      } else {
+        res.send({
+          message: `Cannot update customer payment history with id=${id}. Maybe customer payment history was not found or req.body is empty!`
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error updating customer payment history with id=" + id
+      });
+    });
+};
+
 // Delete a customer payment history with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;

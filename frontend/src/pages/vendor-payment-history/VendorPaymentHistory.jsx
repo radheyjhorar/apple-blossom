@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import './vendor-payment-history.css';
 import api from '../../api/API';
+import Moment from 'moment';
 
 
 const VendorPaymentHistoryList = () => {
@@ -58,7 +59,7 @@ const VendorPaymentHistoryList = () => {
           <div className='col-12 d-flex my-4'>
             <h1 className="h3 my-apk-clr  txt-shdo fw-bold">Vendor Payment History</h1>
             <Link to="/new-vendor-payment-history" className='ms-auto align-middle mt-auto' >
-              <button className='btn btn-sm bg-clr my-btn text-white' type='button'>Add New</button>
+              <button className='btn btn-sm bg-clr my-btn text-white' type='button'>Add New Vendor Payment History</button>
             </Link>
           </div>
         </div>
@@ -78,10 +79,11 @@ const VendorPaymentHistoryList = () => {
               <tbody>
                 {
                   (vendPayHis && vendPayHis.length > 0 && vendPayHis.map((c) => {
+                    let payment_date = Moment(c.payment_date).format('DD-MM-YYYY');
                     return (
                       <tr key={c.id}>
                         <td>{c.vendor_id}</td>
-                        <td>{c.payment_date}</td>
+                        <td>{payment_date}</td>
                         <td>{c.deposit_amount}</td>
                         <td>{c.resipte_no}</td>
                         <td>

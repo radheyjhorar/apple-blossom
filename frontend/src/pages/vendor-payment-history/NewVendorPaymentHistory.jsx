@@ -93,7 +93,7 @@ const NewVendorPaymentHistory = (props) => {
     <>
       <div className='col-9 mx-auto'>
         <div className="col-12 c-7-d mx-auto bg-pic h-30 text-center my-5 bg-clr pt-2">
-          <h1 className="h4 text-white fw-bold my-5">Vendor Payment History</h1>
+          <h1 className="h4 text-white fw-bold my-5">{ vendorPaymentHistoryId > 0?'Update':'New'} Vendor Payment History</h1>
 
           <div className="text-center">
             <input type="number" className="col-7 vndr-ipt mb-4 d-inline-block" placeholder="Vendor ID" name="vendor_id" value={newVendorPaymentHistory.vendor_id} onChange={handleChange} />

@@ -5,8 +5,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import api from '../../api/API';
 
-
-
 const NewCustomerPaymentHistory = () => {
 
   const navigate = useNavigate();
@@ -95,7 +93,7 @@ const NewCustomerPaymentHistory = () => {
     <>
       <div className='col-9 mx-auto'>
         <div class="col-12 c-7-d mx-auto bg-pic h-30 text-center my-5 pt-2 bg-clr">
-          <h1 class="h4 fw-bold text-white mt-5 mb-4">Add New Customer Payment History</h1>
+          <h1 class="h4 fw-bold text-white mt-5 mb-4">{ customerPaymentHistoryId > 0?'Update':'New'} Customer Payment History</h1>
 
           <div class="text-center">
             <input type="number" class="col-7 vndr-ipt my-4 d-inline-block" placeholder="Customer ID" name="customer_id" value={newCustomerPaymentHistory.customer_id} onChange={handleChange} />

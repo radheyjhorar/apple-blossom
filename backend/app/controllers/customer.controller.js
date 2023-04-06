@@ -41,7 +41,6 @@ exports.create = (req, res) => {
 // Retrieve all customers from the database.
 exports.findAll = (req, res) => {
 
-
     customer.findAll({
       include: [{
         model: cities,
@@ -87,7 +86,7 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
   const id = req.params.id;
 
-  customer.update(req.body.customer, {
+  customer.update(req.body, {
     where: { id: id }
   })
     .then(num => {

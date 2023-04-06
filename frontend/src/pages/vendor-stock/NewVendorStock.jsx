@@ -97,7 +97,7 @@ const NewVendorStock = (props) => {
     <>
       <div className='col-9 mx-auto'>
         <div class="col-12 c-7-d mx-auto bg-pic my-5 pt-2 bg-clr">
-          <h1 class="offset-2 h4 fw-bold text-white mt-5">Vendor New Stock</h1>
+          <h1 class="offset-2 h4 fw-bold text-white mt-5">{ vendorStockId > 0?'Update':'New'} Vendor Stock</h1>
 
           <div class="text-center">
             <div className='mt-5'>

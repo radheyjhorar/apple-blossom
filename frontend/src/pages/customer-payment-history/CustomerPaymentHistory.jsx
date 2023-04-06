@@ -59,7 +59,7 @@ const CustomerPaymentHistoryList = () => {
           <div className='col-12 d-flex my-4'>
             <h1 className="h3 my-apk-clr txt-shdo fw-bold">Customer Payment History List</h1>
             <Link to="/new-customer-payment-history" className='ms-auto align-middle mt-auto'>
-              <button className='btn btn-sm bg-clr my-btn text-white' type='button'>Add New</button>
+              <button className='btn btn-sm bg-clr my-btn text-white' type='button'>Add New Customer Payment History</button>
             </Link>
           </div>
         </div>
@@ -79,7 +79,7 @@ const CustomerPaymentHistoryList = () => {
               <tbody>
                 {
                   (custPayHis && custPayHis.length > 0 && custPayHis.map((c) => {
-                    let payment_date = Moment(c.payment_date).format('D-MM-YYYY');
+                    let payment_date = Moment(c.payment_date).format('DD-MM-YYYY');
                     return (
                       <tr>
                         <td>{c.customer_id}</td>

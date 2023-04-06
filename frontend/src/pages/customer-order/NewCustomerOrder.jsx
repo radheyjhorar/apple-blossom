@@ -94,7 +94,7 @@ const NewCustomerOrder = (props) => {
     <>
       <div className='col-9 mx-auto'>
         <div class="col-12 c-7-d mx-auto bg-pic bg-clr py-5 my-4">
-          <h1 class="offset-2 h4 text-white fw-bold">New Customer Order</h1>
+          <h1 class="offset-2 h4 text-white fw-bold">{ customerOrderId > 0?'Update':'New'} Customer Order</h1>
           <div class="text-center">
             <input type="number" class="col-8 vndr-ipt my-4 d-inline-block" placeholder="Customer ID" name='customer_id' value={newCustomerOrder.customer_id} onChange={handleChange} />
             <input type="text" class="col-8 vndr-ipt d-inline-block" placeholder="Order Description" name='order_description' value={newCustomerOrder.order_description} onChange={handleChange} />

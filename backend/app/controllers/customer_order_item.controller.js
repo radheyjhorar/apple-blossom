@@ -77,7 +77,7 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
   const id = req.params.id;
 
-  customer_order_item.update(req.body.customer_order_item, {
+  customer_order_item.update(req.body, {
     where: { id: id }
   })
     .then(num => {
