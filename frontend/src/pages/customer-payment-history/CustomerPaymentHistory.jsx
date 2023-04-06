@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import './customer-payment-history.css';
 import api from '../../api/API';
+import Moment from 'moment';
 
 
 const CustomerPaymentHistoryList = () => {
@@ -78,10 +79,11 @@ const CustomerPaymentHistoryList = () => {
               <tbody>
                 {
                   (custPayHis && custPayHis.length > 0 && custPayHis.map((c) => {
+                    let payment_date = Moment(c.payment_date).format('D-MM-YYYY');
                     return (
                       <tr>
                         <td>{c.customer_id}</td>
-                        <td>{c.payment_date}</td>
+                        <td>{payment_date}</td>
                         <td>{c.deposit_amount}</td>
                         <td>{c.resipte_no}</td>
                         <td>

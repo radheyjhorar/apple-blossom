@@ -111,7 +111,7 @@ const NewVendorStock = (props) => {
             <input type="number" class="col-8 mb-4 vndr-ipt d-inline-block" placeholder="Amount" name="amount" value={newVendorStock.quantity * newVendorStock.rate} onChange={handleChange} />
             <input type="text" class="col-8 vndr-ipt d-inline-block" placeholder="Description" name="description" value={newVendorStock.description} onChange={handleChange} />
             <div class="mt-5">
-              <button type="submit" class="btn sbmt-btn px-4 mb-5 text-white text-center" onClick={addNewvendorStock}>Submit</button>
+              <button type="submit" class="btn sbmt-btn px-4 mb-5 text-white text-center" onClick={saveVendorStock}>Submit</button>
             </div>
           </div>
         </div>

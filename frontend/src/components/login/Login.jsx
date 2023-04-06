@@ -60,7 +60,7 @@ const Login = () => {
                                     placeholder="Password" name="password" value={user.password}   onChange={handleChange}/>
                                 <button type="submit" className="lgn-btn mx-auto mt-4" onClick={loginUser}>Login</button>
                                 <p className="text-white sing-up-desc">Don't have an account? 
-                                <Link to="register" className="text-white fw-bold text-decoration-none">  Sign Up Now</Link>
+                                <Link to="/register" className="text-white fw-bold text-decoration-none">  Sign Up Now</Link>
                                 </p>
                                 <p className="fgt-pswrd text-white"><a className="text-white text-decoration-none" href="forgot password">Forgot
                                     Password</a>?

@@ -8,7 +8,6 @@ import api from '../../api/API';
 const NewCustomer = () => {
 
   const navigate = useNavigate();
-
   const [city, setCity] = useState([]);
   // const [state, setState] = useState([])
 
@@ -46,7 +45,7 @@ const NewCustomer = () => {
     })
   };
 
-  const savecustomer = () => {
+  const saveCustomer = () => {
     if (customerId > 0) {
       updateCustomer();
     } else {
@@ -100,8 +99,8 @@ const NewCustomer = () => {
   return (
     <>
       <div className='col-9 mx-auto'>
-        <div class="col-12 c-7-d mx-auto bg-pic bg-clr py-5 my-4">
-          <h1 class="offset-2 h4 fw-bold text-white ">New Customer</h1>
+        <div class="col-12 c-7-d mx-auto bg-pic bg-clr py-5 my-4"> 
+          <h1 class="offset-2 h4 fw-bold text-white ">{ customerId > 0?'Update':'New'} Customer</h1>
 
           <div class="text-center">
             <div className='mt-5'>
@@ -138,7 +137,7 @@ const NewCustomer = () => {
             <input type="text" class="col-8 mb-4 vndr-ipt d-inline-block" placeholder="Customer Address" name='address' value={newCustomer.address} onChange={handleChange} />
             <input type="number" minlength="10" maxlength="10" class="col-8 vndr-ipt mb-5 d-inline-block" name='ledger_no' placeholder="Ledger No." value={newCustomer.ledger_no} onChange={handleChange} />
             <div class="mx-auto">
-              <button type="submit" class="btn sbmt-btn px-4 text-white" onClick={savecustomer}>Submit</button>
+              <button type="submit" class="btn sbmt-btn px-4 text-white" onClick={saveCustomer}>Submit</button>
             </div>
           </div>
         </div>

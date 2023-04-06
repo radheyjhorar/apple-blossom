@@ -1,12 +1,12 @@
 
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import React from 'react';
+import {  Routes, Route, useLocation, useNavigate } from "react-router-dom";
 
 import 'react-toastify/dist/ReactToastify.css';
-import { Headers, SideBar, Footer } from './_shared';
+import {  SideBar } from './_shared';
 import { Dashboard, NoPage, Customer, NewCustomer, Vendor, NewVendor, CustomerOrder, NewCustomerOrder, CustomerOrdeItem, NewCustomerOrderItem, CustomerPaymentHistory, NewCustomerPaymentHistory, VendorStock, NewVendorStock, VendorPaymentHistory, NewVendorPaymentHistory } from './pages';
-import api from './api/API';
-import { Register, Login, AuthUser, getPageName } from './components';
+
+import { Register, Login, AuthUser, getPageName, isAuthPage } from './components';
 import './App.css';
 //  import { library } from "@fortawesome/fontawesome-svg-core";
 // import { , faCheckCircle, faQuestionCircle, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
@@ -19,22 +19,29 @@ import './App.css';
 const App = (props) => {
 
    const {getToken} = AuthUser();
-   const [pageName, setPageName] = useState();
+
    const location = useLocation();
 
-  
-
-    return (
-
+   const navigate = useNavigate();
+   
+   const token = getToken();
+    
+   return (
+      
       <>
          {/* <Headers /> */}
         
-
+         {
+            // ( (!isAuthPage) && (!token))?navigate('/login'):null
+           
+         }
          <div className="container-fluid">
             <div className="row">
-            <SideBar pageName={getPageName(location.pathname)}/>
+            { // ( !isAuthPage && !token)?
+            <SideBar pageName={getPageName(location.pathname)}/>//:null
+            }
                   <Routes>
-                    ((!getToken())?(<>
+                    ((!token)?(<>
                      <Route path="login" element={<Login />} />
                      <Route path="register" element={<Register />} />
                   </>):(<>
