@@ -9,6 +9,8 @@ import api from '../../api/API';
 
 const NewCustomerOrder = (props) => {
 
+  const [order_status, setOrder_status] = useState([]);
+
   const navigate = useNavigate();
 
   const { customerOrderId } = useParams();
@@ -78,6 +80,11 @@ const NewCustomerOrder = (props) => {
 
   useEffect(() => {
     const fetchData = async () => {
+      const response_order_status = await api.get('/order_status');
+      if (response_order_status.statusText === "OK") {
+        setOrder_status(response_order_status.data);
+      }
+
       if (customerOrderId > 0) {
         const response_customer_order = await api.get('/customer-order/' + customerOrderId);
         if (response_customer_order.statusText === "OK") {
@@ -124,8 +131,27 @@ const NewCustomerOrder = (props) => {
             <input type="number" class="col-8 vndr-ipt my-4 d-inline-block" placeholder="Customer ID" name='customer_id' value={newCustomerOrder.customer_id} onChange={handleChange} />
             <input type="text" class="col-8 vndr-ipt d-inline-block" placeholder="Order Description" name='order_description' value={newCustomerOrder.order_description} onChange={handleChange} />
             {/* <input type="number" class="col-7 my-4 vndr-ipt d-inline-block" placeholder="Total Amount" name='total_amount' value={newCustomerOrder.total_amount} onChange={handleChange} /> */}
-            <input type="text" class="col-8 my-4  vndr-ipt d-inline-block" placeholder="Order Status" name='order_status' value={newCustomerOrder.order_status} onChange={handleChange} />
 
+            <select className='city-drp-dwn col-8 my-4' name='Order Status'  value={newCustomerOrder.order_status} onChange={handleChange} >
+                <option value="0">Order Status</option>
+                <option value="1">Deleverd</option>
+                <option value="2">Panding</option>
+                <option value="3">Cancel</option>
+                <option value="4">Return</option>
+              </select>
+
+              <select className='city-drp-dwn col-8' name='Order Status' value={newCustomerOrder.order_status} onChange={handleChange} >
+                <option value="0">Status</option>
+                {
+                  (order_status && order_status.length > 0 && order_status.map(
+                    (c) => {
+                      return (
+                        <option value={c.id}>{c.order_status}</option>
+                      )
+                    }
+                  ))
+                }
+                </select>
           </div>
         </div>
 

@@ -37,9 +37,9 @@ const App = (props) => {
          }
          <div className="container-fluid">
             <div className="row">
-            {  ( isAuthPage && token)?
+            {/* {  ( isAuthPage && token)? */}
             <SideBar pageName={getPageName(location.pathname)}/>:null
-            }
+            {/* } */}
                   <Routes>
                     ((!token)?(<>
                      <Route path="login" element={<Login />} />
