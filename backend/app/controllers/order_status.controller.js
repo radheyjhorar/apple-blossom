@@ -4,7 +4,8 @@ const customer_order_item = globalMastersDB.customer_order_item;
 const Op = globalMastersDB.Sequelize.Op;
 
 
-// Create and Save a new customer
+
+// Create and Save a new order_status
 exports.create = (req, res) => {
   // Validate request
   if (!req.body.order_status) {
@@ -19,8 +20,9 @@ exports.create = (req, res) => {
       order_status: req.body.order_status
   };
 
-  // Save customerData in the database
-  order_status.create(orderStatusData)
+ 
+  // Save order status Data in the database
+  order_status.create(order_statusData)
     .then(data => {
       res.send(data);
     })
@@ -28,6 +30,7 @@ exports.create = (req, res) => {
       res.status(500).send({
         message:
           err.message || "Some error occurred while creating the Customer."
+
       });
     });
 };
@@ -96,7 +99,7 @@ exports.update = (req, res) => {
 // Delete a customer with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
-  customer.update({is_delete: 1}, {
+  order_status.update({is_delete: 1}, {
   //customer.destroy({
     where: { id: id }
   })

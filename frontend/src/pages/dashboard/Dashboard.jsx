@@ -19,9 +19,9 @@ const Dashboard = () => {
               <nav className='navbar navbar-expand-lg navbar-light bg-light mb-4 static-top shadow'>
                 <div className="input-group ms-3">
                   <div className="form-outline w-18">
-                    <input type="search" id="form1" className="form-control" />
+                    <input type="search" id="search" className="form-control" />
                   </div>
-                  <button type="button" className="btn btn-primary">
+                  <button onClick="" type="button" className="btn btn-primary">
                     <FontAwesomeIcon icon="fas fa-search" />
                   </button>
                 </div>

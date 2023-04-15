@@ -4,15 +4,12 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true      
+
       },
       order_status: {
         type: Sequelize.STRING
       },
-   
-
-        
-     
-     
+    
     }, {
       sequelize,
       tableName: 'order_status',
@@ -23,3 +20,4 @@ module.exports = (sequelize, Sequelize) => {
     return order_status;
   };
   
+   
