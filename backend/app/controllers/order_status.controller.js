@@ -1,13 +1,13 @@
 const { globalMastersDB } = require("../models");
-const customer = globalMastersDB.customer;
-const cities = globalMastersDB.cities;
+const order_status = globalMastersDB.order_status;
+const customer_order_item = globalMastersDB.customer_order_item;
 const Op = globalMastersDB.Sequelize.Op;
 
 
 // Create and Save a new customer
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.name) {
+  if (!req.body.order_status) {
     res.status(400).send({
       message: "Content can not be empty!"
     });
@@ -15,18 +15,12 @@ exports.create = (req, res) => {
   }
 
   // Create a customerData
-  const customerData = {
-    name: req.body.name,
-    address: req.body.address,
-    city: req.body.city,
-    // state: req.body.state || 0,
-    mobile1: req.body.mobile1,
-    mobile2: req.body.mobile2,
-    ledger_no: req.body.ledger_no,
+  const orderStatusData = {
+      order_status: req.body.order_status
   };
 
   // Save customerData in the database
-  customer.create(customerData)
+  order_status.create(orderStatusData)
     .then(data => {
       res.send(data);
     })
@@ -40,32 +34,8 @@ exports.create = (req, res) => {
 
 // Retrieve all customers from the database.
 exports.findAll = (req, res) => {
-  let where = {};
-  if (req.body.is_delete != null) {
-    where.is_delete = req.body.is_delete
-  }
-  // if (req.body.state_id != null) {
-  //   where.state_id = req.body.state_id
-  // }
-  let attributes = req.body.attributes; 
-  if(attributes == null) {
-    attributes = ['id', 'name', 'address', 'city', 'state', 'mobile1', 'mobile2', 'ledger_no', 'createdAt', 'updatedAt', 'is_delete']
-  }
 
-  let include = [];
-  if(req.body.include) {
-    include =  [{
-      model: cities,
-      as: 'customer_city',
-      attributes: ['city_name']      
-    }];
-  }
-
-    customer.findAll({
-      attributes: attributes,
-      include: include,
-      where: where
-    })
+  order_status.findAll()
     .then(data => {
       res.send(data);
     })
@@ -81,7 +51,7 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  customer.findByPk(id)
+  order_status.findByPk(id)
     .then(data => {
       if (data) {
         res.send(data);
@@ -150,7 +120,7 @@ exports.delete = (req, res) => {
 
 // Delete all customers from the database.
 exports.deleteAll = (req, res) => {
-    customer.destroy({
+  order_status.destroy({
     where: {},
     truncate: false
   })

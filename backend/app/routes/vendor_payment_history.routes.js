@@ -6,7 +6,7 @@ module.exports = app => {
     router.post("/", vendor_payment_history.create);
   
     // Retrieve all vendor_payment_history
-    router.get("/", vendor_payment_history.findAll);
+    router.post("/getAll", vendor_payment_history.findAll);
   
     // Retrieve a single vendor_payment_history with id
     router.get("/:id", vendor_payment_history.findOne);

@@ -1,5 +1,6 @@
 const { globalMastersDB } = require("../models");
 const vendor = globalMastersDB.vendor;
+const cities = globalMastersDB.cities;
 const Op = globalMastersDB.Sequelize.Op;
 
 
@@ -38,7 +39,30 @@ exports.create = (req, res) => {
 
 // Retrieve all vendor from the database.
 exports.findAll = (req, res) => {
+
+  let where = {};
+  if (req.body.is_delete != null) {
+    where.is_delete = req.body.is_delete
+  }
+  // if (req.body.state_id != null) {
+  //   where.state_id = req.body.state_id
+  // }
+  let attributes = req.body.attributes; 
+  if(attributes == null) {
+    attributes = ['id', 'vendor_name', 'vendor_address', 'city', 'state', 'mobile1', 'mobile2', 'createdAt', 'updatedAt', 'is_delete']
+  }
+
+  let include = [];
+  if(req.body.include) {
+    include =  [{
+      model: cities,
+      as: 'vendor_city',
+      attributes: ['city_name']      
+    }];
+  }
   vendor.findAll({
+    attributes: attributes,
+    include: include,
     where: { is_delete: 0}
   })
     .then(data => {

@@ -1,4 +1,5 @@
 const { globalMastersDB } = require("../models");
+const customer = globalMastersDB.customer;
 const customer_payment_history = globalMastersDB.customer_payment_history;
 const Op = globalMastersDB.Sequelize.Op;
 
@@ -36,8 +37,31 @@ exports.create = (req, res) => {
 
 // Retrieve all customer from the database.
 exports.findAll = (req, res) => {
+  let where = {};
+  if (req.body.is_delete != null) {
+    where.is_delete = req.body.is_delete
+  }
+  // if (req.body.state_id != null) {
+  //   where.state_id = req.body.state_id
+  // }
+  let attributes = req.body.attributes; 
+  if(attributes == null) {
+    attributes = ['id', 'customer_id', 'payment_date', 'deposit_amount', 'resipte_no', 'createdAt', 'updatedAt', 'is_delete']
+  }
+
+  let include = [];
+  if(req.body.include) {
+    include =  [{
+      model: customer,
+      as: 'customer_cust_payhistory',
+      attributes: ['name']      
+    }
+  ];
+  }
     customer_payment_history.findAll({
-      where: { is_delete: 0}
+      attributes: attributes,
+      include: include,
+      where: where
 })
     .then(data => {
       res.send(data);

@@ -25,7 +25,7 @@ const Vendor = () => {
   
     const fetchData = async () => {
       notify('Loading Vendor', 2000);
-      const response = await api.get('/vendor');
+      const response = await api.post('/vendor/getAll', { is_delete: 0, include: true, attributes: null});
       if (response.statusText === "OK") {
         setVend(response.data);
       }
@@ -87,7 +87,7 @@ const Vendor = () => {
                       <tr key={c.id}>
                         <td>{c.vendor_name}</td>
                         {/* <td>{c.vendor_address}</td> */}
-                        <td>{c.city}</td>
+                        <td>{c.vendor_city.city_name}</td>
                         <td>{c.mobile1}</td>
                         <td>{c.mobile2}</td>
                         <td>

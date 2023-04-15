@@ -6,7 +6,7 @@ module.exports = app => {
     router.post("/", customer_payment_history.create);
   
     // Retrieve all customer_payment_history
-    router.get("/", customer_payment_history.findAll);
+    router.post("/getAll", customer_payment_history.findAll);
   
     // Retrieve a single customer_payment_history with id
     router.get("/:id", customer_payment_history.findOne);

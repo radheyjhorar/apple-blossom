@@ -1,4 +1,5 @@
 const { globalMastersDB } = require("../models");
+const vendor = globalMastersDB.vendor;
 const vendor_payment_history = globalMastersDB.vendor_payment_history;
 const Op = globalMastersDB.Sequelize.Op;
 
@@ -36,8 +37,31 @@ exports.create = (req, res) => {
 
 // Retrieve all vendor_payment_history from the database.
 exports.findAll = (req, res) => {
+  let where = {};
+  if (req.body.is_delete != null) {
+    where.is_delete = req.body.is_delete
+  }
+  // if (req.body.state_id != null) {
+  //   where.state_id = req.body.state_id
+  // }
+  let attributes = req.body.attributes; 
+  if(attributes == null) {
+    attributes = ['id', 'vendor_id', 'payment_date', 'deposit_amount', 'resipte_no', 'createdAt', 'updatedAt', 'is_delete' ]
+  }
+
+  let include = [];
+  if(req.body.include) {
+    include =  [{
+      model: vendor,
+      as: 'vendor_va_payhistory',
+      attributes: ['vendor_name']      
+    }];
+  }
+
   vendor_payment_history.findAll({
-    where: { is_delete: 0}
+    attributes: attributes,
+    include: include,
+    where: where
   })
     .then(data => {
       res.send(data);

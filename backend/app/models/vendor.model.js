@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-  const vendor = sequelize.define("vendor", {
+  const vendor = sequelize.define("vendors", {
     id: {
       type: Sequelize.INTEGER,
       autoIncrement: true,

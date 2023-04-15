@@ -23,7 +23,8 @@ const Customer = () => {
 
   const fetchData = async () => {
     notify('Loading Customer', 2000);
-    const response = await api.get('/customer');
+    
+    const response = await api.post('/customer/getAll',  { is_delete: 0, include: true, attributes: null});
     if (response.statusText === "OK") {
       setCust(response.data); 
     }

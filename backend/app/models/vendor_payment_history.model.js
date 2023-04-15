@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-    const vendor_payment_history = sequelize.define("vendor_payment_history", {
+    const vendor_payment_history = sequelize.define("vendor_payment_histories", {
       id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,

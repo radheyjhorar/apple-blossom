@@ -59,9 +59,9 @@ const CustomerOrderItem = () => {
         <div className='text-web-center'>
           <div className='col-12 d-flex my-4 '>
             <h1 className="h3 my-apk-clr txt-shdo fw-bold">Customer Order Item List</h1>
-            <Link to="/new-customer-order-item" className='ms-auto align-middle mt-auto'>
+            {/* <Link to="/new-customer-order-item" className='ms-auto align-middle mt-auto'>
               <button className='btn btn-sm bg-clr my-btn text-white' type='button'>Add New</button>
-            </Link>
+            </Link> */}
           </div>
         </div>
 

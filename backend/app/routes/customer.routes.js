@@ -6,7 +6,7 @@ module.exports = app => {
     router.post("/", customer.create);
   
     // Retrieve all customers
-    router.get("/", customer.findAll);
+    router.post("/getAll", customer.findAll);
   
     // Retrieve a single customer with id
     router.get("/:id", customer.findOne);

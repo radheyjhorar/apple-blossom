@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import './vendor-stock.css';
 import api from '../../api/API';
+import Moment from 'moment';
 
 
 const VendorStock = () => {
@@ -24,7 +25,7 @@ const VendorStock = () => {
 
     const fetchData = async () => {
       notify('Loading Orders', 1000);
-      const response = await api.get('/vendor-stock');
+      const response = await api.post('/vendor-stock/getAll',  { is_delete: 0, include: true, attributes: null});
       if (response.statusText === "OK") {
         setVendStk(response.data);
       }
@@ -67,7 +68,7 @@ const VendorStock = () => {
             <table className='table tbl-list bg-clr text-white'>
               <thead>
                 <tr>
-                  <th>Vendor Id</th>
+                  <th>Vendor Name</th>
                   {/* <th>Vendor Description</th> */}
                   <th>Rate</th>
                   <th>Quantity</th>
@@ -80,14 +81,15 @@ const VendorStock = () => {
               <tbody>
                 {
                   (vendStk && vendStk.length > 0 && vendStk.map((c) => {
+                    let stock_date = Moment(c.stock_date).format('DD-MM-YYYY');
                     return (
                       <tr key={c.id}>
-                        <td>{c.vendor_id}</td>
+                        <td>{c.vendor_stock.vendor_name}</td>
                         {/* <td>{c.description}</td> */}
                         <td>{c.rate}</td>
                         <td>{c.quantity}</td>
                         <td>{c.amount}</td>
-                        <td>{c.stock_date}</td>
+                        <td>{stock_date}</td>
                         <td>
                           <Link to="" className='btn btn-info btn-sm me-1'>
                             <FontAwesomeIcon icon="fa-solid fa-circle-info" />

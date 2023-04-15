@@ -7,4 +7,5 @@ export { default as Login } from './login/Login';
 export { default as Register } from './register/Register';
 export { default as getPageName } from './GetPageName';
 export { default as isAuthPage } from './IsAuthPage';
+export { default as ItemRows } from './ItemRows';
 //export { default as FBShareButton } from './FBShareButton';

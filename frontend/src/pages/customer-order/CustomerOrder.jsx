@@ -24,7 +24,7 @@ const CustomerOrder = () => {
 
   const fetchData = async () => {
     notify('Loading Orders', 1000);
-    const response = await api.get('/customer-order');
+    const response = await api.post('/customer-order/getAll', { is_delete: 0, include: true, attributes: null});
     if (response.statusText === "OK") {
       setCustOrd(response.data);
     }
@@ -69,7 +69,7 @@ const CustomerOrder = () => {
             <table className='table tbl-list bg-clr text-white '>
               <thead>
                 <tr>
-                  <th>Customer Id</th>
+                  <th>Customer Name</th>
                   <th>Order Description</th>
                   <th>Total Amount</th>
                   <th>Order Status</th>
@@ -82,10 +82,10 @@ const CustomerOrder = () => {
                   (custOrd && custOrd.length > 0 && custOrd.map((c) => {
                     return (
                       <tr key={c.id}>
-                        <td>{c.customer_id}</td>
+                        <td>{c.customer_customer_order.name}</td>
                         <td>{c.order_description}</td>
                         <td>{c.total_amount}</td>
-                        <td>{c.order_status}</td>
+                        <td>{c.customer_order_status.order_status}</td>
                         <td>
                           <Link to="" className='btn btn-info btn-sm me-1'>
                             <FontAwesomeIcon icon="fa-solid fa-circle-info" />

@@ -1,8 +1,8 @@
 import { useState } from 'react';
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function AuthUser(){
-   // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const getToken = () =>{
         const tokenString = sessionStorage.getItem('token');
@@ -22,6 +22,8 @@ function AuthUser(){
     const [user,setUser] = useState(getUser());
 
     const saveToken = (user,token) =>{
+        console.log(user);
+        console.log(token);
         sessionStorage.setItem('token',JSON.stringify(token));
         sessionStorage.setItem('user',JSON.stringify(user));
 
@@ -31,8 +33,9 @@ function AuthUser(){
     }
 
     const logout = () => {
+        console.log('logout');
         sessionStorage.clear();
-        //navigate('/');
+        navigate('/login');
     }
 
     // const http = axios.create({

@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import {  Routes, Route, useLocation, useNavigate } from "react-router-dom";
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -25,26 +25,30 @@ const App = (props) => {
    const navigate = useNavigate();
    
    const token = getToken();
+
+   useEffect(() => {
+      console.log(token);
+      if((!isAuthPage(location.pathname)) && (!token)){
+         navigate('/login');  
+      }
+   }, [])
     
    return (
       
       <>
          {/* <Headers /> */}
         
-         {
-             ( (!isAuthPage) && (!token))?navigate('/login'):null
-           
-         }
+         
          <div className="container-fluid">
             <div className="row">
-            {  ( isAuthPage && token)?
-            <SideBar pageName={getPageName(location.pathname)}/>:null
+            {  (token)?
+            <SideBar pageName={getPageName(location.pathname)}/>:(!isAuthPage(location.pathname))?navigate('login'):null
             }
                   <Routes>
-                    ((!token)?(<>
+                   
                      <Route path="login" element={<Login />} />
                      <Route path="register" element={<Register />} />
-                  </>):(<>
+                 
                      <Route index element={<Dashboard />} />
                      <Route path="customer" element={<Customer />} />
                      <Route path="new-customer/:customerId?" element={<NewCustomer />} />                     
@@ -66,8 +70,7 @@ const App = (props) => {
                   <Route path="school/:schoolId" element={<Schools />} />
                   <Route path="about-us" element={<Blogs />} />
                   <Route path="contact" element={<Contact />} /> */}
-                     </>
-                    )
+                  
 
                      <Route path="*" element={<NoPage />} />
 

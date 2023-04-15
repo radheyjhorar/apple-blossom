@@ -25,7 +25,7 @@ const VendorPaymentHistoryList = () => {
 
   const fetchData = async () => {
     notify('Loading Vendor Payment History', 2000);
-    const response = await api.get('/vendor-payment-history');
+    const response = await api.post('/vendor-payment-history/getAll',  { is_delete: 0, include: true, attributes: null});
     if (response.statusText === "OK") {
       setVendPayHis(response.data);
     }
@@ -68,7 +68,7 @@ const VendorPaymentHistoryList = () => {
             <table className='table tbl-list bg-clr text-white'>
               <thead>
                 <tr>
-                  <th>Vendor Id</th>
+                  <th>Vendor Name</th>
                   <th>Payment Date.</th>
                   <th>Deposit Amount</th>
                   <th>Recipt No.</th>
@@ -82,7 +82,7 @@ const VendorPaymentHistoryList = () => {
                     let payment_date = Moment(c.payment_date).format('DD-MM-YYYY');
                     return (
                       <tr key={c.id}>
-                        <td>{c.vendor_id}</td>
+                        <td>{c.vendor_va_payhistory.vendor_name}</td>
                         <td>{payment_date}</td>
                         <td>{c.deposit_amount}</td>
                         <td>{c.resipte_no}</td>

@@ -119,6 +119,7 @@ require("./app/routes/vendor_stock.routes")(app);
 require("./app/routes/vendor.routes")(app);
 require("./app/routes/cities.routes")(app);
 require("./app/routes/states.routes")(app);
+require("./app/routes/order_status.routes")(app);
 
 
 

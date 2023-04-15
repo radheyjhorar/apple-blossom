@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './dasboard.css';
 import api from '../../api/API';
+import { AuthUser } from '../../components';
 
 
 const Dashboard = () => {
 
+  const { logout } = AuthUser();
 
   return (
     <>
@@ -25,9 +27,9 @@ const Dashboard = () => {
                 </div>
                 <ul className='navbar-nav'>
                   <li className='me-4'>
-                    <Link to="login" className=''>
-                      <div className='btn btn btn-primary'>Login</div>
-                    </Link>
+
+                    <div className='btn btn btn-primary' onClick={logout}>Logout</div>
+
                   </li>
                 </ul>
               </nav>
@@ -83,9 +85,9 @@ const Dashboard = () => {
                               <div className='h5 mb-0 mr-3 fw-bold text-gray-800'>50%</div>
                             </div>
                             <div className='col'>
-                              <div className='progress progress-sm mr-2'>
+                              {/* <div className='progress progress-sm mr-2'>
                                 <div className='progress-bar w-50 bg-info' role='progressbar' aria-aria-valuenow={50} aria-aria-valuemin={0} aria-valuemax={100}></div>
-                              </div>
+                              </div> */}
                             </div>
                           </div>
                         </div>
@@ -118,18 +120,18 @@ const Dashboard = () => {
                   <div className='card shadow mb-4'>
                     <div className='card-header py-3 d-flex flex-row align-items-center justify-content-between'>
                       <h6 className='m-0 font-weight-bold text-primary'>Earnings Overview</h6>
-                      <div className='dropdown no-arrow'>
+                      {/* <div className='dropdown no-arrow'>
                         <Link to="" className='dropdown-toggle' role='button' id='dropdownMenuLink' aria-haspopup="true" aria-expanded="false" >
                           <FontAwesomeIcon icon="fas fa-ellipsis-v" className='fa-sm fa-fw text-gray-400' />
                         </Link>
                         <div className='dropdown-menu dropdown-menu-right shadow animated--fade-in' aria-labelledby='dropdownMenuLink'>
-                            <div className='dropdown-header'>Dropdown Header:</div>
-                            <Link to="" className='dropdown-item'>Action</Link>
-                            <Link to="" className='dropdown-item'>Another action</Link>
-                            <div className='dropdown-divider'></div>
-                            <Link to="" className='dropdown-item'>Something else here</Link>
+                          <div className='dropdown-header'>Dropdown Header:</div>
+                          <Link to="" className='dropdown-item'>Action</Link>
+                          <Link to="" className='dropdown-item'>Another action</Link>
+                          <div className='dropdown-divider'></div>
+                          <Link to="" className='dropdown-item'>Something else here</Link>
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                     <div className='card-body'>
                       <div className='chart-area'>

@@ -25,7 +25,7 @@ const CustomerPaymentHistoryList = () => {
 
     const fetchData = async () => {
       notify('Loading Customer Payment History', 2000);
-      const response = await api.get('/customer-payment-history');
+      const response = await api.post('/customer-payment-history/getAll', { is_delete: 0, include: true, attributes: null});
       if (response.statusText === "OK") {
         setCustPayHis(response.data);
       }
@@ -68,7 +68,7 @@ const CustomerPaymentHistoryList = () => {
             <table className='table tbl-list bg-clr text-white'>
               <thead>
                 <tr>
-                  <th>Customer Id</th>
+                  <th>Customer Name</th>
                   <th>Payment Date</th>
                   <th>Deposit Amount</th>
                   <th>Recipt No.</th>
@@ -82,7 +82,7 @@ const CustomerPaymentHistoryList = () => {
                     let payment_date = Moment(c.payment_date).format('DD-MM-YYYY');
                     return (
                       <tr>
-                        <td>{c.customer_id}</td>
+                        <td>{c.customer_cust_payhistory.name}</td>
                         <td>{payment_date}</td>
                         <td>{c.deposit_amount}</td>
                         <td>{c.resipte_no}</td>

@@ -15,7 +15,8 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.DECIMAL
       },
       order_status: {
-        type: Sequelize.STRING
+        type: Sequelize.TINYINT(1)
+        
       },
       is_delete: {
         type: Sequelize.BOOLEAN,

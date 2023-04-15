@@ -39,6 +39,8 @@ globalMastersDB.states = require("./states.model.js")(globalMasterSequelize, Seq
 globalMastersDB.user = require("./user.model.js")(globalMasterSequelize, Sequelize);
 globalMastersDB.role = require("./role.model.js")(globalMasterSequelize, Sequelize);
 globalMastersDB.refreshToken = require("./refreshToken.model.js")(globalMasterSequelize, Sequelize);
+globalMastersDB.order_status = require("./order_status.model.js")(globalMasterSequelize, Sequelize);
+
 
 globalMastersDB.role.belongsToMany(globalMastersDB.user, {
   through: "user_roles",
@@ -68,6 +70,66 @@ globalMastersDB.customer.belongsTo(globalMastersDB.cities, {
 globalMastersDB.cities.hasOne(globalMastersDB.customer, {
   foreignKey: 'city'
 });
+
+
+globalMastersDB.vendor.belongsTo(globalMastersDB.cities, {
+  as: 'vendor_city', 
+  foreignKey: 'city'
+});
+globalMastersDB.cities.hasOne(globalMastersDB.customer, {
+  foreignKey: 'city'
+});
+
+
+globalMastersDB.vendor.hasOne(globalMastersDB.vendor_stock, {
+  as: 'vendor_stock', 
+  foreignKey: 'vendor_id'
+});
+globalMastersDB.vendor_stock.belongsTo(globalMastersDB.vendor, {
+  as: 'vendor_stock', 
+  foreignKey: 'vendor_id'
+});
+
+globalMastersDB.vendor.hasOne(globalMastersDB.vendor_payment_history, {
+  as: 'vendor_va_payhistory', 
+  foreignKey: 'vendor_id'
+});
+globalMastersDB.vendor_payment_history.belongsTo(globalMastersDB.vendor, {
+  as: 'vendor_va_payhistory', 
+  foreignKey: 'vendor_id'
+});
+
+
+
+globalMastersDB.customer.hasOne(globalMastersDB.customer_order, {
+  as: 'customer_customer_order', 
+  foreignKey: 'customer_id'
+});
+globalMastersDB.customer_order.belongsTo(globalMastersDB.customer, {
+  as: 'customer_customer_order', 
+  foreignKey: 'customer_id'
+});
+
+
+
+globalMastersDB.order_status.hasOne(globalMastersDB.customer_order, {
+  as: 'customer_order_status', 
+  foreignKey: 'order_status'
+});
+globalMastersDB.customer_order.belongsTo(globalMastersDB.order_status, {
+  as: 'customer_order_status', 
+  foreignKey: 'order_status'
+});
+
+globalMastersDB.customer.hasOne(globalMastersDB.customer_payment_history, {
+  as: 'customer_cust_payhistory', 
+  foreignKey: 'customer_id'
+});
+globalMastersDB.customer_payment_history.belongsTo(globalMastersDB.customer, {
+  as: 'customer_cust_payhistory', 
+  foreignKey: 'customer_id'
+});
+
 
 
 module.exports = {

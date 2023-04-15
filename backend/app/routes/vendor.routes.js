@@ -6,7 +6,7 @@ module.exports = app => {
   router.post("/", vendor.create);
 
   // Retrieve all vendors
-  router.get("/", vendor.findAll);
+  router.post("/getAll", vendor.findAll);
 
   // Retrieve a single vendor with id
   router.get("/:id", vendor.findOne);

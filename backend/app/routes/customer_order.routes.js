@@ -6,7 +6,7 @@ module.exports = app => {
     router.post("/", customer_order.create);
   
     // Retrieve all customer_order
-    router.get("/", customer_order.findAll);
+    router.post("/getAll", customer_order.findAll);
   
     // Retrieve a single customer_order with id
     router.get("/:id", customer_order.findOne);

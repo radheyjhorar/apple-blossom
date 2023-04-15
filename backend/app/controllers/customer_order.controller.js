@@ -1,29 +1,47 @@
 const { globalMastersDB } = require("../models");
 const customer_order = globalMastersDB.customer_order;
+const customer = globalMastersDB.customer;
+const order_status = globalMastersDB.order_status;
+const customer_order_item = globalMastersDB.customer_order_item;
 const Op = globalMastersDB.Sequelize.Op;
 
 
 // Create and Save a new customer_order
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.customer_id) {
-    res.status(400).send({
-      message: "Content can not be empty!"
+  
+  const [cust_order, order_items ] = req.body;
+  // Create a customer_orderData 
+  if(cust_order.total_amount <= 0) {
+    order_items.forEach(item => {
+      cust_order.total_amount += item.amount;
     });
-    return;
   }
 
-  // Create a customer_orderData
   const customer_orderData = {
-    customer_id: req.body.customer_id,
-    order_description: req.body.order_description,
-    total_amount: req.body.total_amount,
-    order_status: req.body.order_status,
+    customer_id: cust_order.customer_id,
+    order_description: cust_order.order_description,
+    total_amount: cust_order.total_amount,
+    order_status: cust_order.order_status,
   };
 
   // Save customer_orderData in the database
   customer_order.create(customer_orderData)
     .then(data => {
+      const order_id = data.id;
+      customer_order_item.destroy({
+        where: {
+          order_id: {
+            [Op.eq]: order_id
+          }
+        }
+      }).then(() => {
+        order_items.forEach(item => {
+           item.order_id = order_id
+           customer_order_item.create(item);
+        });
+      })
+      
       res.send(data);
     })
     .catch(err => {
@@ -36,8 +54,36 @@ exports.create = (req, res) => {
 
 // Retrieve all customer_order from the database.
 exports.findAll = (req, res) => {
+  let where = {};
+  if (req.body.is_delete != null) {
+    where.is_delete = req.body.is_delete
+  }
+  // if (req.body.state_id != null) {
+  //   where.state_id = req.body.state_id
+  // }
+  let attributes = req.body.attributes; 
+  if(attributes == null) {
+    attributes = ['id', 'customer_id', 'order_description', 'total_amount', 'order_status', 'createdAt', 'updatedAt', 'is_delete']
+  }
+
+  let include = [];
+  if(req.body.include) {
+    include =  [{
+      model: customer,
+      as: 'customer_customer_order',
+      attributes: ['name']      
+    },
+    {
+      model: order_status,
+      as: 'customer_order_status',
+      attributes: ['order_status']      
+    }
+  ];
+  }
     customer_order.findAll({
-      where: { is_delete: 0}
+      attributes: attributes,
+      include: include,
+      where: where
     })
     .then(data => {
       res.send(data);
