@@ -34,9 +34,11 @@ const NewVendorStock = (props) => {
     stock_date: ""
   });
 
+  const [vendor, setVendor] = useState([]);
+
 
   const handleChange = e => {
-
+    console.log(e.target);
     const { name, value } = e.target;
     setNewVendorStock({
       ...newVendorStock,
@@ -86,6 +88,10 @@ const NewVendorStock = (props) => {
           setNewVendorStock(response_vendor_stock.data);
         }
       }
+      const response = await api.post('/vendor/getAll', { is_delete: 0, include: false, attributes: ['id', 'vendor_name'] });
+      if (response.statusText === "OK") {
+        setVendor(response.data);
+      }
     };
     fetchData();
 
@@ -96,22 +102,33 @@ const NewVendorStock = (props) => {
   return (
     <>
       <div className='col-9 mx-auto'>
-        <div class="col-12 c-7-d mx-auto bg-pic my-5 pt-2 bg-clr">
-          <h1 class="offset-2 h4 fw-bold text-white mt-5">{ vendorStockId > 0?'Update':'New'} Vendor Stock</h1>
+        <div className="col-12 c-7-d mx-auto bg-pic my-5 pt-2 bg-clr">
+          <h1 className="offset-2 h4 fw-bold text-white mt-5">{ vendorStockId > 0?'Update':'New'} Vendor Stock</h1>
 
-          <div class="text-center">
+          <div className="text-center">
             <div className='mt-5'>
-              <input type="number" class="col-4 vndr-ipt me-1 d-inline-block" placeholder="Vendor ID" name="vendor_id" value={newVendorStock.vendor_id} onChange={handleChange} />
-              <input type="number" class="col-4 vndr-ipt d-inline-block" placeholder="Rate" name="rate" value={newVendorStock.rate} onChange={handleChange} />
+              <select className='city-drp-dwn col-4 col-8 vndr-ipt my-4 d-inline-block' name="vendor_id" value={newVendorStock.vendor_id} onChange={handleChange}  >
+                <option value="0">Select Vendor</option>
+                {
+                  (vendor && vendor.length > 0 && vendor.map(
+                    (c) => {
+                      return (
+                        <option value={c.id} key={c.id}>{c.vendor_name}</option>
+                      )
+                    }
+                  ))
+                }
+              </select>
+              <input type="number" className="col-4 vndr-ipt d-inline-block" placeholder="Rate" name="rate" value={newVendorStock.rate} onChange={handleChange} />
             </div>
             <div className='my-4'>
-              <input type="number" class="col-4 vndr-ipt me-1 d-inline-block" placeholder="Quantity" name="quantity" value={newVendorStock.quantity} onChange={handleChange} />
-              <input type="date" class="col-4 vndr-ipt d-inline-block" placeholder="Stock Date" name="stock_date" value={newVendorStock.stock_date} onChange={handleChange} />
+              <input type="number" className="col-4 vndr-ipt me-1 d-inline-block" placeholder="Quantity" name="quantity" value={newVendorStock.quantity} onChange={handleChange} />
+              <input type="date" className="col-4 vndr-ipt d-inline-block" placeholder="Stock Date" name="stock_date" value={newVendorStock.stock_date} onChange={handleChange} />
             </div>
-            <input type="number" class="col-8 mb-4 vndr-ipt d-inline-block" placeholder="Amount" name="amount" value={newVendorStock.quantity * newVendorStock.rate} onChange={handleChange} />
-            <input type="text" class="col-8 vndr-ipt d-inline-block" placeholder="Description" name="description" value={newVendorStock.description} onChange={handleChange} />
-            <div class="mt-5">
-              <button type="submit" class="btn sbmt-btn px-4 mb-5 text-white text-center" onClick={saveVendorStock}>Submit</button>
+            <input type="number" className="col-8 mb-4 vndr-ipt d-inline-block" placeholder="Amount" name="amount" value={newVendorStock.quantity * newVendorStock.rate} onChange={handleChange} />
+            <input type="text" className="col-8 vndr-ipt d-inline-block" placeholder="Description" name="description" value={newVendorStock.description} onChange={handleChange} />
+            <div className="mt-5">
+              <button type="submit" className="btn sbmt-btn px-4 mb-5 text-white text-center" onClick={saveVendorStock}>Submit</button>
             </div>
           </div>
         </div>

@@ -29,7 +29,8 @@ const NewVendorPaymentHistory = (props) => {
     deposit_amount: "",
     resipte_no: ""
   });
-
+  
+  const [vendor, setVendor] = useState([]);
 
   const handleChange = e => {
 
@@ -83,6 +84,10 @@ const NewVendorPaymentHistory = (props) => {
           setNewVendorPaymentHistory(response_vendor_payment_history.data);
         }
       }
+      const response = await api.post('/vendor/getAll', { is_delete: 0, include: false, attributes: ['id', 'vendor_name'] });
+      if (response.statusText === "OK") {
+        setVendor(response.data);
+      }
     };
     fetchData();
 
@@ -96,10 +101,22 @@ const NewVendorPaymentHistory = (props) => {
           <h1 className="h4 text-white fw-bold my-5">{ vendorPaymentHistoryId > 0?'Update':'New'} Vendor Payment History</h1>
 
           <div className="text-center">
-            <input type="number" className="col-7 vndr-ipt mb-4 d-inline-block" placeholder="Vendor ID" name="vendor_id" value={newVendorPaymentHistory.vendor_id} onChange={handleChange} />
+            {/* <input type="number" className="col-7 vndr-ipt mb-4 d-inline-block" placeholder="Vendor ID" name="vendor_id" value={newVendorPaymentHistory.vendor_id} onChange={handleChange} /> */}
+            <select className='city-drp-dwn col-4 col-8 vndr-ipt my-4 d-inline-block' name="vendor_id" value={newVendorPaymentHistory.vendor_id} onChange={handleChange}  >
+                <option value="0">Select Vendor</option>
+                {
+                  (vendor && vendor.length > 0 && vendor.map(
+                    (c) => {
+                      return (
+                        <option value={c.id} key={c.id}>{c.vendor_name}</option>
+                      )
+                    }
+                  ))
+                }
+              </select>
             <input type="date" className="col-7 vndr-ipt d-inline-block" placeholder="Payment Date" name="payment_date" value={newVendorPaymentHistory.payment_date} onChange={handleChange} />
             <input type="number" className="col-7 vndr-ipt my-4 d-inline-block" placeholder="Deposit Amount" name="deposit_amount" value={newVendorPaymentHistory.deposit_amount} onChange={handleChange} />
-            <input type="number" className="col-7 vndr-ipt d-inline-block" placeholder="Resipte No" name="resipte_no" value={newVendorPaymentHistory.resipte_no} onChange={handleChange} />
+            <input type="number" className="col-7 vndr-ipt d-inline-block" placeholder="Recipt No" name="resipte_no" value={newVendorPaymentHistory.resipte_no} onChange={handleChange} />
             <div className="">
               <button type="submit" className="btn sbmt-btn px-4 text-white text-end mt-5" onClick={saveVendorPaymentHistory}>Submit</button>
             </div>

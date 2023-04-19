@@ -81,7 +81,7 @@ const CustomerPaymentHistoryList = () => {
                   (custPayHis && custPayHis.length > 0 && custPayHis.map((c) => {
                     let payment_date = Moment(c.payment_date).format('DD-MM-YYYY');
                     return (
-                      <tr>
+                      <tr key={c.id}>
                         <td>{c.customer_cust_payhistory.name}</td>
                         <td>{payment_date}</td>
                         <td>{c.deposit_amount}</td>
