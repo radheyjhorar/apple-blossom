@@ -30,6 +30,8 @@ const NewCustomerPaymentHistory = () => {
     resipte_no: ""
   });
 
+  const [customer, setCustomer] = useState([]);
+
 
   const handleChange = e => {
 
@@ -82,6 +84,10 @@ const NewCustomerPaymentHistory = () => {
           setNewCustomerPaymentHistory(response_customer_payment_history.data);
         }
       }
+      const response = await api.post('/customer/getAll', { is_delete: 0, include: false, attributes: ['id', 'name'] });
+      if (response.statusText === "OK") {
+        setCustomer(response.data);
+      }
     };
     fetchData();
 
@@ -96,7 +102,19 @@ const NewCustomerPaymentHistory = () => {
           <h1 class="h4 fw-bold text-white mt-5 mb-4">{ customerPaymentHistoryId > 0?'Update':'New'} Customer Payment History</h1>
 
           <div class="text-center">
-            <input type="number" class="col-7 vndr-ipt my-4 d-inline-block" placeholder="Customer ID" name="customer_id" value={newCustomerPaymentHistory.customer_id} onChange={handleChange} />
+            {/* <input type="number" class="col-7 vndr-ipt my-4 d-inline-block" placeholder="Customer ID" name="customer_id" value={newCustomerPaymentHistory.customer_id} onChange={handleChange} /> */}
+            <select className='city-drp-dwn col-4 col-8 vndr-ipt my-4 d-inline-block' name='customer_id' value={newCustomerPaymentHistory.customer_id} onChange={handleChange} >
+                <option value="0">Select Customer</option>
+                {
+                  (customer && customer.length > 0 && customer.map(
+                    (c) => {
+                      return (
+                        <option value={c.id}>{c.name}</option>
+                      )
+                    }
+                  ))
+                }
+              </select>
             <input type="date" class="col-7 vndr-ipt d-inline-block" placeholder="Payment Date" name="payment_date" value={newCustomerPaymentHistory.payment_date} onChange={handleChange} />
             <input type="number" class="col-7 vndr-ipt my-4 d-inline-block" placeholder="Deposit Amount" name="deposit_amount" value={newCustomerPaymentHistory.deposit_amount} onChange={handleChange} />
             <input type="number" class="col-7 vndr-ipt d-inline-block" placeholder="Resipte No" name="resipte_no" value={newCustomerPaymentHistory.resipte_no} onChange={handleChange} />

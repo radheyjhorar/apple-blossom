@@ -22,8 +22,6 @@ function AuthUser(){
     const [user,setUser] = useState(getUser());
 
     const saveToken = (user,token) =>{
-        console.log(user);
-        console.log(token);
         sessionStorage.setItem('token',JSON.stringify(token));
         sessionStorage.setItem('user',JSON.stringify(user));
 
@@ -33,7 +31,6 @@ function AuthUser(){
     }
 
     const logout = () => {
-        console.log('logout');
         sessionStorage.clear();
         navigate('/login');
     }
