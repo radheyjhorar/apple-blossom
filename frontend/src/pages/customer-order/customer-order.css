@@ -65,3 +65,7 @@
     line-height: 43px;
     font-weight: 500;
 }
+#drp-dwn-bg-clr {
+    background: transparent;
+    background-color:#644cdb;
+}

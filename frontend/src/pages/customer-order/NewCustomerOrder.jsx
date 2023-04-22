@@ -215,7 +215,7 @@ setNewItem(items);
 
           <h1 class="offset-2 h4 text-white fw-bold">{customerOrderId > 0 ? 'Update' : 'New'} Customer Order</h1>
           <div class="text-center">
-          <select className='city-drp-dwn col-4 col-8 vndr-ipt my-4 d-inline-block' name='customer_id' value={newCustomerOrder.customer_id} onChange={handleChange} >
+          <select id='drp-dwn-bg-clr' className='city-drp-dwn col-4 col-8 vndr-ipt my-4 d-inline-block' name='customer_id' value={newCustomerOrder.customer_id} onChange={handleChange} >
                 <option value="0">Select Customer</option>
                 {
                   (customer && customer.length > 0 && customer.map(
@@ -229,13 +229,13 @@ setNewItem(items);
               </select>
             <input type="text" class="col-8 vndr-ipt d-inline-block" placeholder="Order Description" name='order_description' value={newCustomerOrder.order_description} onChange={handleChange} />
             {/* <input type="number" class="col-7 my-4 vndr-ipt d-inline-block" placeholder="Total Amount" name='total_amount' value={newCustomerOrder.total_amount} onChange={handleChange} /> */}
-            <select className='city-drp-dwn col-4 col-8 vndr-ipt my-4 d-inline-block' name='order_status' value={newCustomerOrder.order_status} onChange={handleChange} >
+            <select id='drp-dwn-bg-clr' className='city-drp-dwn col-4 col-8 vndr-ipt my-4 d-inline-block' name='order_status' value={newCustomerOrder.order_status} onChange={handleChange} >
                 <option value="0">Select Order Status</option>
                 {
                   (orderStatus && orderStatus.length > 0 && orderStatus.map(
                     (c) => {
                       return (
-                        <option value={c.id}>{c.name}</option>
+                        <option value={c.id}>{c.order_status}</option>
                       )
                     }
                   ))
